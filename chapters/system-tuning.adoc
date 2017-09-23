@@ -242,3 +242,13 @@ Or to periodically clean all downloaded packages regardless of them being up-to-
 APT::Periodic::CleanInterval "7";
 ----
 
+=== No Flat Audio Volumes [[no-flat-volumes]]
+
+PulseAudio has developed two ways to synchronize audio volume between applications. Until recently, "flat volumes" have been the default. However, It is inherently problematic; see https://lists.fedoraproject.org/pipermail/devel/2015-September/214720.html[Disable PulseAudio flat volumes to prevent it from pushing volume level to max] and https://bugzilla.redhat.com/show_bug.cgi?id=1265267[Bug 1265267 - RFE: Disable PulseAudio's flat volumes].
+
+Therefore, it has been decided to change the default setting to disabled flat volumes. Unfortunately, Debian (Stretch?) hasn't (yet?) integrated this update. To set it manually, open the `/etc/pulse/daemon.conf` file and add:
+
+----
+flat-volumes = no
+----
+
