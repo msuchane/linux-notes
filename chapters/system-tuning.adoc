@@ -166,6 +166,28 @@ One solution is to persuade Linux to use local time instead. Surprisingly, this 
 
 The other way is to configure Windows to use UTC. This is relatively easy. The Arch Linux Wiki describes the process in the https://wiki.archlinux.org/index.php/Time#UTC_in_Windows[UTC in Windows] section of the https://wiki.archlinux.org/index.php/Time[Time] article.
 
+=== Disable watchdog
+
+`watchdog` is a kernel service, which allows to debug system lock-ups. However, to be honest, it's really not that useful for you as a desktop user. On the other hand, it periodically creates interrupts, which wake the CPU up from low-power sleep. Therefore, if power consumption is a concern, you can safely turn `watchdog` off.
+
+There are two main ways to configure `watchdog`: in a kernel parameter or using `sysctl`. They should have the same effect, so it's up to you which one to choose.
+
+- To disable `watchdog` using a kernel parameter:
+. Edit the `/etc/default/grub` file and add the following to the kernel command line:
++
+----
+nmi_watchdog=0
+----
++
+. Update `grub2` configuration as described in <<update-grub>>.
+- To disable `watchdog` using `sysctl`, edit the `/etc/sysctl.conf` and add there:
++
+----
+kernel.nmi_watchdog=0
+----
+
+You can read the current state of `watchdog` from the `/proc/sys/kernel/nmi_watchdog` file: `0` for disabled, `1` for enabled`.
+
 == Fedora-Specific Options [[fedora-specific]]
 
 === Limit coredump Disk Usage [[limit-coredump]]
