@@ -21,3 +21,13 @@ To disable the `Alt` key menu activation, open `about:config` in Firefox and cha
 
 `18` represents `Alt` here; `17` stands for `Ctrl` if you're interested.
 
+=== Session Back-up interval [[session-interval]]
+
+There is a time interval setting in Firefox, which controls how often the content of the current session (tabs, etc.) is saved to disk to be able to recover in case of a crash. The default value is 15 seconds. This can lead to excessive disk writes, but that's only relevant on Windows and only harmful on SSDs, so there's probably no reason to worry about this.
+
+Nevertheless, if you're a heavy tabs user, you might want to consider lowering the load on your system a bit. To change the interval to 5 minutes, go to `about:config` and set the following key to `300000`:
+
+- browser.sessionstore.interval
+
+This issue was brought up in the https://forums.servethehome.com/index.php?threads/firefox-is-chewing-through-your-nand.11346/[STH forums].
+
