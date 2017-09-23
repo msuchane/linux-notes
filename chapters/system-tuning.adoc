@@ -115,8 +115,8 @@ Nautilus ("Files") opens directories when you hover a dragged item over them. Pe
 
 `dconf` settings cannot be copied over to another system or to another user like regular, plain-text files. However, you can export ("dump") them to a text file and then import ("load") them from it again:
 
-    dconf dump /_path/to/export/_ > _exported-dconf-settings.txt_
-    dconf load /_path/to/import/_ < _exported-dconf-settings.txt_
+    dconf dump /path/to/export/ > exported-dconf-settings.txt
+    dconf load /path/to/import/ < exported-dconf-settings.txt
 
 For example:
 
