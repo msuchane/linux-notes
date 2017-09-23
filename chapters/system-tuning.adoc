@@ -111,8 +111,11 @@ After editing the /etc/default/grub file, the configuration has to be compiled f
     sudo update-grub2
 - On Fedora, follow these steps:
 . Locate the compiled configuration file:
+
     sudo find /boot -name grub.cfg
+
 . Copy the file name the previous command gave you and use it here:
+
     sudo grub2-mkconfig -o /path/to/grub.cfg
 
 === Gnome [[gnome]]
