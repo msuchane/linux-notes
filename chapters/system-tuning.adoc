@@ -170,6 +170,12 @@ To limit `coredump` to use 2 gigabytes of disk space at most, open the `/etc/sys
 MaxUse=2G
 ----
 
+=== The Number of Kernels Kept Installed
+
+Fedora keeps only a certain number of kernel versions installed in parallel. When a new version is being installed, the oldest one is deleted automatically is the limit has been exceeded. The default number is 3.
+
+To change the number of installable kernel versions, open the `/etc/dnf/dnf.conf` and edit the `installonly_limit=3` line.
+
 == Debian-Specific Options [[debian-specific]]
 
 === Configuring sudo [[sudo-config]]
