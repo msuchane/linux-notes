@@ -79,9 +79,13 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
 
 === Fonts [[debian-fonts]]
 
-TODO
-
-    fonts-symbola
+    fonts-cabin fonts-cabinsketch fonts-cantarell \
+    fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
+    fonts-fanwood fonts-inconsolata fonts-isabella fonts-lato \
+    fonts-liberation2 fonts-linuxlibertine fonts-noto-hinted \
+    fonts-oldstandard fonts-opendyslexic fonts-quattrocento \
+    fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
+    ttf-anonymous-pro ttf-essays1743
 
 === Some Free Games [[debian-games]]
 
