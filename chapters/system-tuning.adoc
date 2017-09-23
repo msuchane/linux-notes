@@ -74,7 +74,17 @@ However, note that there is little "scientific" proof that modifying these actua
 
 === Gnome
 
-To show battery percentage in the top panel, change the org.gnome.desktop.interface.show-battery-percentage dconf key.
+To show battery percentage in the top panel, change the `org.gnome.desktop.interface.show-battery-percentage` dconf key:
+
+    dconf write /org/gnome/desktop/interface/show-battery-percentage true
+
+To change the Night Light temperature in Gnome 3.24 (newer versions should include a GUI setting), set the `org.gnome.settings-daemon.plugins.color.night-light-temperature` key to your desired temperature. For example, for 4,500 degrees Kelvin:
+
+    dconf write /org/gnome/settings-daemon/plugins/color/night-light-temperature 4500
+
+Nautilus ("Files") opens directories when you hover a dragged item over them. Personally, I don't like this behavior, because it requires me to be quick and precise, which I'm not. Therefore, to disable the automatic folder opening:
+
+    dconf write /org/gnome/nautilus/preferences/open-folder-on-dnd-hover false
 
 == Fedora-Specific Options
 
