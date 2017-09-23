@@ -45,3 +45,30 @@ NOTE: This `dconf` command rewrites all your Typing preferences you set in the T
 
 Starting with version 3.20, GTK can read traditional XLib Compose configuration files. You can configure your own composition rules this way, storing them in the `~/.config/gtk-3.0/Compose` or `~/.XCompose` files. For more information, see _Defining custom Compose sequences_ in the http://blog.cyberborean.org/2008/01/06/compose-key-magic[Compose key magic] article on the Cyberborean Chronicles blog.
 
+== Window Switching Shortcuts [[win-switching]]
+
+By default, both the `Alt`-`Tab` and the `Win`-`tab` key (and their `Shift` variants) switch _applications_ in Gnome. This is a matter of taste, but sometimes, you want to simply switch _windows_ instead. A common use case is when an application uses more than one window.
+
+To keep an application-switching shortcut but add a window-switching one as well, configure `Win`-`Tab` to only switch between applications and `Alt`-`Tab` to only switch between windows:
+
+[source,bash]
+----
+dconf write \
+/org/gnome/desktop/wm/keybindings/switch-applications \
+"['<Super>Tab']"
+
+dconf write \
+/org/gnome/desktop/wm/keybindings/switch-applications-backward \
+"['<Shift><Super>Tab']"
+
+dconf write \
+/org/gnome/desktop/wm/keybindings/switch-windows \
+"['<Alt>Tab']"
+
+dconf write \
+/org/gnome/desktop/wm/keybindings/switch-windows-backward \
+"['<Shift><Alt>Tab']"
+----
+
+As an added bonus, the resulting behavior is consistent with both Windows (window-switching with `Alt`-`Tab`) and Mac (application-switching with `Cmd`-`Tab`).
+
