@@ -35,14 +35,17 @@ The blk-mq has its own set of disk schedulers, which are multiqueue-capable. The
 
 To configure blk-mq disk schedulers, create a /etc/udev/rules.d/60-scheduler.rules file containing something like this:
 
-    ## Set the BFQ scheduler for all disks:
-    # ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
-    ## Set the BFQ scheduler for all rotational disks:
-    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1",           
-    ATTR{queue/scheduler}="bfq"
-    ## Set the Kyber scheduler for all non-rotational disks:
-    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0",           
-    ATTR{queue/scheduler}="kyber"
+[source,bash]
+----
+## Set the BFQ scheduler for all disks:
+# ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
+## Set the BFQ scheduler for all rotational disks:
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1",           
+ATTR{queue/scheduler}="bfq"
+## Set the Kyber scheduler for all non-rotational disks:
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0",           
+ATTR{queue/scheduler}="kyber"
+----
 
 If your kernel has been compiled with BFQ and Kyber set as modules, you also need to create the /etc/modules-load.d/schedulers.conf file. In it, put the module names to be loaded:
 
