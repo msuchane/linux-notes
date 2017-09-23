@@ -2,6 +2,8 @@
 
 == In Fedora
 
+NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
+
     \*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \
     bijiben bleachbit blender brasero bsd-games calligra-krita clinfo \
     cuetools dconf-editor easytag epiphany exfalso exfat-utils f2fs-tools \
@@ -19,8 +21,6 @@
     powertop quodlibet shntool simple-scan scribus sox testdisk tlp \
     tracker-preferences transmission-gtk tuned unrar vdpauinfo vim vlc \
     vorbis-tools youtube-dl zsh
-
-NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
 
 Pretty *fonts* packaged in Fedora repositories:
 
