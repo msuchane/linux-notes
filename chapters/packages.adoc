@@ -73,5 +73,11 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
 
 === Fonts
 
+TODO
+
 === Some Free Games
+
+    0ad astromenace blobwars crawl crawl-tiles endless-sky fillets-ng \
+    freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
+    lierolibre neverball sauerbraten wesnoth
 
