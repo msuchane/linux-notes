@@ -190,7 +190,7 @@ usermod -a -G sudo your_user_name
 +
 . Reboot your system.
 
-=== journald as Default Log [[journald-default]]
+=== journald as the Only Log [[only-journald]]
 
 By default, Debian uses `rsyslog` as the system log service. However, `journald` is running anyway all the time and there's no reason to have two log service, other than that `rsyslog` provides plain-text logs. If that doesn't sound compelling to you:
 
