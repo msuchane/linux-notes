@@ -5,7 +5,7 @@
 NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
 
     \*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \
-    bijiben bleachbit brasero bsd-games calligra-krita clinfo \
+    bijiben bleachbit brasero bsd-games krita clinfo \
     cuetools dconf-editor easytag epiphany exfalso exfat-utils f2fs-tools \
     fbreader fish flac freetype-freeworld fuse-exfat gedit-plugins gimp \
     gnome-books gnome-builder gnome-calendar gnome-dictionary gnome-logs \
