@@ -113,6 +113,16 @@ Nautilus ("Files") opens directories when you hover a dragged item over them. Pe
 
     dconf write /org/gnome/nautilus/preferences/open-folder-on-dnd-hover false
 
+`dconf` settings cannot be copied over to another system or to another user like regular, plain-text files. However, you can export ("dump") them to a text file and then import ("load") them from it again:
+
+    dconf dump /_path/to/export/_ > _exported-dconf-settings.txt_
+    dconf load /_path/to/import/_ < _exported-dconf-settings.txt_
+
+For example:
+
+    dconf dump /org/gnome/ > gnome-dconf-settings.txt
+    dconf load /org/gnome/ < gnome-dconf-settings.txt
+
 == Fedora-Specific Options [[fedora-specific]]
 
 TODO
