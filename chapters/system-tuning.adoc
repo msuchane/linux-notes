@@ -118,6 +118,18 @@ After editing the /etc/default/grub file, the configuration has to be compiled f
 
     sudo grub2-mkconfig -o /path/to/grub.cfg
 
+=== Setting Up the "Magic SysRq Keys" [[magic-sysrq]]
+
+"Magic SysRq Keys" are keyboard shortcuts that are registered at the kernel level and allow you to control the basic functions of system even if it has otherwise completely frozen.
+
+A common use case is to shut down the frozen system safely by typing `Alt`+`SysRq`+`s` to write (sync) all disk buffers, followed by `Alt`+`SysRq`+`u` to remount all disks read-only, and `Alt`+`SysRq`+`b` to reboot the system immediately.
+
+Many more shortcuts are listed in the https://en.wikipedia.org/wiki/Magic_SysRq_key#Commands[Magic SysRq key] article on Wikipedia.
+
+To set up Magic SysRq, open the `/etc/sysctl.conf` file as root and add:
+
+    kernel.sysrq = 1
+
 === Gnome [[gnome]]
 
 To show battery percentage in the top panel, change the `org.gnome.desktop.interface.show-battery-percentage` dconf key:
