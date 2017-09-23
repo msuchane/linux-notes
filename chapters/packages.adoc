@@ -69,7 +69,8 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
     mcomix mediainfo mesa-vdpau-drivers mesa-vulkan-drivers mpv nano neovim \
     opus-tools p7zip-full pandoc powertop quodlibet scribus shntool \
     simple-scan sox testdisk tlp tracker-gui transmission-gtk unrar \
-    vdpauinfo vim-nox vlc vorbis-tools vulkan-utils youtube-dl zsh
+    vdpauinfo vim-nox vlc vorbis-tools vulkan-utils youtube-dl \
+    zfs-dkms zfs-initramfs zfsutils-linux zsh
 
 === Fonts
 
