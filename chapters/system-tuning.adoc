@@ -160,7 +160,15 @@ kernel.sysrq = 1
 
 == Fedora-Specific Options [[fedora-specific]]
 
-TODO
+=== Limit coredump Disk Usage [[limit-coredump]]
+
+`coredump` is a mechanism that Fedora uses to analyze application crashes and send automated bug reports. The application's memory space is saved to a file on your disk. These files can easily be gigabytes in size, and while the default configuration places some limits on their total size, we can be more strict.
+
+To limit `coredump` to use 2 gigabytes of disk space at most, open the `/etc/systemd/coredump.conf` and add:
+
+----
+MaxUse=2G
+----
 
 == Debian-Specific Options [[debian-specific]]
 
