@@ -158,6 +158,14 @@ To set up Magic SysRq, open the `/etc/sysctl.conf` file as root and add:
 kernel.sysrq = 1
 ----
 
+=== Synchronized Time Zones when Dual-booting with Windows [[dual-boot-time-zones]]
+
+Linux sets the hardware clock to the current time in UTC, while Windows sets it to the local time. This conflict results the clock being off a few hours when switching operating systems.
+
+One solution is to persuade Linux to use local time instead. Surprisingly, this is extremely hard, as core system services expect UTC.
+
+The other way is to configure Windows to use UTC. This is relatively easy. The Arch Linux Wiki describes the process in the https://wiki.archlinux.org/index.php/Time#UTC_in_Windows[UTC in Windows] section of the https://wiki.archlinux.org/index.php/Time[Time] article.
+
 == Fedora-Specific Options [[fedora-specific]]
 
 === Limit coredump Disk Usage [[limit-coredump]]
