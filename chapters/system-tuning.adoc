@@ -197,3 +197,15 @@ By default, Debian uses `rsyslog` as the system log service. However, `journald`
     sudo apt-file update
     sudo update-command-not-found
 
+=== Periodic Packages Cleaning
+
+By default, the `apt` package manager keeps all downloaded packages on disk indefinitely. This can result in a lot of wasted disk space.
+
+To configure `apt` to clean outdated downloaded packages periodically every 7 days (and keep only up-to-date packages), create the `/etc/apt/apt.conf.d/02periodic` file containing:
+
+    APT::Periodic::AutocleanInterval "7";
+
+Or to periodically clean all downloaded packages regardless of them being up-to-date or not:
+
+    APT::Periodic::CleanInterval "7";
+
