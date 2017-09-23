@@ -2,6 +2,8 @@
 
 == In Fedora [[fedora]]
 
+// TODO: Add links and instructions about RPMFusion.
+
 NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
 
 === General Packages [[fedora-general]]
@@ -72,6 +74,8 @@ NOTE: Korora versions follow Fedora releases, but are always a few months late.
 
 
 == In Debian [[debian]]
+
+// TODO: Add a sample sources.list configuration containing everything.
 
 NOTE: Some of these packages may require the Contrib or Nonfree repositories enabled.
 
