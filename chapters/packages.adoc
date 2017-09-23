@@ -51,9 +51,8 @@ gnome-hearts hedgewars neverball-neverball openlierox wesnoth
 
 === From Copr [[copr]]
 
-- Neovim: `dperson/neovim`
-- Tilix: `heikoada/terminix`
-- SyncThing: `tune2fs/syncthing`
+- Neovim: https://copr.fedorainfracloud.org/coprs/dperson/neovim/[dperson/neovim]
+- Tilix: https://copr.fedorainfracloud.org/coprs/heikoada/terminix/[heikoada/terminix]
 
 
 == In Debian [[debian]]
