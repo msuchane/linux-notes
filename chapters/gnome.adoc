@@ -97,3 +97,9 @@ dconf write \
 
 As an added bonus, the resulting behavior is consistent with both Windows (window-switching with `Alt`-`Tab`) and Mac (application-switching with `Cmd`-`Tab`).
 
+== Lock Down DConf [[dconf-lockdown]]
+
+Gnome offers ways to https://help.gnome.org/admin/system-admin-guide/stable/user-settings.html.en#lockdown[lock down certain aspects of the user interface]. This is useful when untrusted or unqualified people are expected to use the computer; for example, when setting up an internet kiosk, a public library PC, or when kids are around.
+
+To prevent specific DConf keys from being modified (to lock them down), follow the official Gnome documentation in the https://help.gnome.org/admin/system-admin-guide/stable/dconf-lockdown.html.en[Lock down specific settings] article.
+
