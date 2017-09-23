@@ -1,0 +1,86 @@
+= System Tuning
+
+== Common Options
+
+=== zswap
+
+`zswap` is a kernel feature, which compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
+
+It can be enabled using this kernel parameter in /etc/default/grub:
+
+    zswap.enabled=1
+
+The current state of `zswap` can be read from the /sys/module/zswap/parameters/enabled file: 0 for off, 1 for on.
+
+Run-time `zswap` statistics are recorded in the /sys/kernel/debug/zswap file.
+
+=== journald
+
+The current disk usage of `journalctl` can be displayed using the following command:
+
+    sudo journalctl --disk-usage
+
+`journald` configuration is located in the /etc/systemd/journald.conf file. It's probably a good idea to explicitly limit how much data `journald` can store. In the configuration file, set something like:
+
+    SystemMaxUse=256M
+    RuntimeMaxUse=128M
+
+=== Block Device Multi Queue
+
+The multiqueue block layer can be enabled by setting the `scsi_mod.use_blk_mq=1` kernel parameter in /etc/default/grub.
+
+The current value is available in the /sys/module/scsi_mod/parameters/use_blk_mq file.
+
+The blk-mq has its own set of disk schedulers, which are multiqueue-capable. They can no longer be set using the `elevator` kernel parameter. They are configured by setting udev rules instead.
+
+To configure blk-mq disk schedulers, create a /etc/udev/rules.d/60-scheduler.rules file containing something like this:
+
+    ## Set the BFQ scheduler for all disks:
+    # ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
+    ## Set the BFQ scheduler for all rotational disks:
+    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1",           
+    ATTR{queue/scheduler}="bfq"
+    ## Set the Kyber scheduler for all non-rotational disks:
+    ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0",           
+    ATTR{queue/scheduler}="kyber"
+
+If your kernel has been compiled with BFQ and Kyber set as modules, you also need to create the /etc/modules-load.d/schedulers.conf file. In it, put the module names to be loaded:
+
+    bfq
+    kyber-iosched
+
+NOTE: The way the kernel detects rotational vs. non-rotational devices isn't very reliable. It falls back on rotational. All my flash drives have been detected as rotational for some reason. Therefore, configure the schedulers more explicitly if you want consistent behavior.
+
+=== Memory Tuning for Interactive Use
+
+https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[Certain people] argue that the way Linux handles interactive desktop usage leaves much to be desired. They also suggest ways to improve that.
+
+In the /etc/sysctl.conf file, set:
+
+    vm.swappiness=10
+    vm.vfs_cache_pressure=50
+
+Or, if you want to be more conservative, set:
+
+    vm.swappiness=20
+    vm.vfs_cache_pressure=80
+
+In comparison, the default values are:
+
+    vm.swappiness=60
+    vm.vfs_cache_pressure=100
+
+However, note that there is little "scientific" proof that modifying these actually helps. Experiment if you need to be sure. Rodd-O https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[devises a way to test the impact] in their article mentioned earlier.
+
+=== Gnome
+
+To show battery percentage in the top panel, change the org.gnome.desktop.interface.show-battery-percentage dconf key.
+
+== Fedora-Specific Options
+
+TODO
+
+== Debian-Specific Options
+
+TODO
+
