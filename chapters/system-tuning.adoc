@@ -122,7 +122,7 @@ After editing the /etc/default/grub file, the configuration has to be compiled f
 
 "Magic SysRq Keys" are keyboard shortcuts that are registered at the kernel level and allow you to control the basic functions of system even if it has otherwise completely frozen.
 
-A common use case is to shut down the frozen system safely by typing `Alt`+`SysRq`+`s` to write (sync) all disk buffers, followed by `Alt`+`SysRq`+`u` to remount all disks read-only, and `Alt`+`SysRq`+`b` to reboot the system immediately.
+A common use case is to shut down the frozen system safely by typing `Alt`-`SysRq`-`s` to write (sync) all disk buffers, followed by `Alt`-`SysRq`-`u` to remount all disks read-only, and `Alt`-`SysRq`-`b` to reboot the system immediately.
 
 Many more shortcuts are listed in the https://en.wikipedia.org/wiki/Magic_SysRq_key#Commands[Magic SysRq key] article on Wikipedia.
 
