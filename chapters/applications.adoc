@@ -31,3 +31,40 @@ Nevertheless, if you're a heavy tabs user, you might want to consider lowering t
 
 This issue was brought up in the https://forums.servethehome.com/index.php?threads/firefox-is-chewing-through-your-nand.11346/[STH forums].
 
+
+== Gimp
+
+=== Font Aliasing
+
+The way Gimp renders text and anti-aliases fonts is configurable. This is useful because Gimp tends to apply RGB anti-alias and https://plus.google.com/+WorldofGnomeOrg/posts/QjR629U6HQd[produce weird colorful lines] around letters.
+
+To set a font configuration that is sensible for image editors, create the `/etc/gimp/2.0/fonts.conf` file and put there:
+
+[source,xml]
+----
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <match target="font">
+    <edit name="antialias" mode="assign">
+      <bool>true</bool>
+    </edit>
+  </match>
+  <match target="font">
+    <edit name="hinting" mode="assign">
+      <bool>true</bool>
+    </edit>
+  </match>
+  <match target="font">
+    <edit name="hintstyle" mode="assign">
+      <const>hintslight</const>
+    </edit>
+  </match>
+  <match target="font">
+    <edit name="rgba" mode="assign">
+      <const>none</const>
+    </edit>
+  </match>
+</fontconfig>
+----
+
