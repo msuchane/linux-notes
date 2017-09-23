@@ -32,3 +32,9 @@ Pretty *fonts* packaged in Fedora repositories:
     open-sans-fonts paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
     adobe-source\*fonts gdouros-symbola-fonts
 
+Some free *games*:
+
+    @gnome-games 0ad astromenace blobwars crawl crawl-tiles fillets-ng \
+    freecol freecol-manual freeciv frozen-bubble gnome-2048 gnome-hearts \
+    hedgewars neverball-neverball openlierox wesnoth
+
