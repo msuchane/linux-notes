@@ -35,6 +35,8 @@ It can be enabled using this kernel parameter in /etc/default/grub:
 
     zswap.enabled=1
 
+After that, update `grub2` configuration as described in <<update-grub>> and reboot.
+
 The current state of `zswap` can be read from the /sys/module/zswap/parameters/enabled file: 0 for off, 1 for on.
 
 Run-time `zswap` statistics are recorded in the /sys/kernel/debug/zswap file.
@@ -100,6 +102,18 @@ In comparison, the default values are:
     vm.vfs_cache_pressure=100
 
 However, note that there is little "scientific" proof that modifying these actually helps. Experiment if you need to be sure. Rodd-O https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[devises a way to test the impact] in their article mentioned earlier.
+
+=== Update grub2 Configuration [[update-grub]]
+
+After editing the /etc/default/grub file, the configuration has to be compiled for `grub2` to be able to use it:
+
+- On Debian, all you have to do is type:
+    sudo update-grub2
+- On Fedora, follow these steps:
+. Locate the compiled configuration file:
+    sudo find /boot -name grub.cfg
+. Copy the file name the previous command gave you and use it here:
+    sudo grub2-mkconfig -o /path/to/grub.cfg
 
 === Gnome [[gnome]]
 
