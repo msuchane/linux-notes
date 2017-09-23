@@ -34,7 +34,7 @@ Pretty *fonts* packaged in Fedora repositories:
 
 Some free *games*:
 
-    @gnome-games 0ad astromenace blobwars crawl crawl-tiles fillets-ng \
-    freecol freecol-manual freeciv frozen-bubble gnome-2048 gnome-hearts \
-    hedgewars neverball-neverball openlierox wesnoth
+    @gnome-games 0ad astromenace blobwars crawl crawl-tiles endless-sky \
+    fillets-ng freecol freecol-manual freeciv frozen-bubble gnome-2048 \
+    gnome-hearts hedgewars neverball-neverball openlierox wesnoth
 
