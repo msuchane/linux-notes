@@ -56,9 +56,9 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
     atool audacity beets beignet-opencl-icd bijiben bleachbit brasero \
     bsdgames chromium chromium-l10n clinfo cuetools dconf-editor easytag \
     epiphany-browser exfalso exfat-fuse exfat-utils f2fs-tools fbreader \
-    fish flac gedit-plugins gimp gnome-backgrounds gnome-builder \
-    gnome-calendar gnome-dictionary gnome-logs gnome-maps gnome-mpv \
-    gnome-music gnome-nettool gnome-packagekit gnome-photos \
+    firefox-esr-l10n-cs fish flac gedit-plugins gimp gnome-backgrounds \
+    gnome-builder gnome-calendar gnome-dictionary gnome-logs gnome-maps \
+    gnome-mpv gnome-music gnome-nettool gnome-packagekit gnome-photos \
     gnome-power-manager gnome-shell-extensions-gpaste gnome-sound-recorder \
     gnome-todo gnome-tweak-tool gstreamer1.0-libav gstreamer1.0-packagekit \
     gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly htop hyphen-cs \
