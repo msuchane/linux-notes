@@ -176,6 +176,23 @@ Fedora keeps only a certain number of kernel versions installed in parallel. Whe
 
 To change the number of installable kernel versions, open the `/etc/dnf/dnf.conf` and edit the `installonly_limit=3` line.
 
+=== Restrict or Disable SELinux
+
+Fedora utilizes SELinux, a kernel mechanism that watches which processes access which files and only allows those access patterns which have been allowed in SELinux rules.
+
+This is great for security, at least in theory, but might cause trouble if you're doing something for what nobody has written SELinux rules. For example, SELinux might deny some power-tweaking programs from taking effect because it deems them suspicious.
+
+If you see SELinux warnings on your desktop, there are three ways to deal with them for good:
+
+- File bugs, create new SELinux rules. `aintnobodygottimefothat.gif`
+- Configure SELinux to still show warnings but allow all access. The "permissive" mode.
+- Disable SELinux altogether.
+
+Configuration can be changed in the `/etc/selinux/config` file, on the `SELINUX=` line. The default is `SELINUX=enforcing`, and you can change it to:
+
+- `SELINUX=permissive` for the permissive mode
+- `SELINUX=disabled` to disable SELinux
+
 == Debian-Specific Options [[debian-specific]]
 
 === Configuring sudo [[sudo-config]]
