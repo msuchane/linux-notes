@@ -60,6 +60,16 @@ gnome-hearts hedgewars neverball-neverball openlierox wesnoth
 - "Moka" and "Faba" icon theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Amoka&package=moka-icon-theme[home:snwh:moka / moka-icon-theme]
 - "Paper" icons and GTK theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Apaper&package=paper-gtk-theme[home:snwh:paper / paper-gtk-theme]
 
+=== From Korora [[korora]]
+
+https://kororaproject.org/[Korora] is an interesting, Fedora-based distribution, which tries to make Fedora as user- and beginner-friendly as possible.
+
+They maintain https://dl.kororaproject.org/pub/korora/releases/[a small add-on repository] for Fedora, where they store their unique packages, not to be found in either Fedora or RPMFusion. Much of this is branding, but some useful packages can be found there, too: for example, `libdvdcss`.
+
+To enable the repository, install the appropriate `korora-release-*.noarch.rpm` package for your Fedora version.
+
+NOTE: Korora versions follow Fedora releases, but are always a few months late.
+
 
 == In Debian [[debian]]
 
