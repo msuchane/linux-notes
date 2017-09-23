@@ -53,19 +53,24 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
 
 === General Packages [[debian-general]]
 
-    atool audacity beets beignet-opencl-icd bijiben bleachbit brasero \
-    bsdgames chromium chromium-l10n clinfo cuetools dconf-editor easytag \
-    epiphany-browser exfalso exfat-fuse exfat-utils f2fs-tools fbreader \
-    firefox-esr-l10n-cs fish flac gedit-plugins gimp gnome-backgrounds \
+    amd64-microcode atool audacity beets \
+    beignet-opencl-icd bijiben bleachbit brasero bsdgames \
+    chromium chromium-l10n clinfo cuetools dconf-editor \
+    easytag epiphany-browser exfalso exfat-fuse exfat-utils f2fs-tools \
+    fbreader firefox-esr-l10n-cs firmware-amd-graphics firmware-atheros \
+    firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-linux \
+    firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree \
+    firmware-realtek fish flac gedit-plugins gimp gnome-backgrounds \
     gnome-builder gnome-calendar gnome-dictionary gnome-logs gnome-maps \
     gnome-mpv gnome-music gnome-nettool gnome-packagekit gnome-photos \
     gnome-power-manager gnome-shell-extensions-gpaste gnome-sound-recorder \
     gnome-todo gnome-tweak-tool gstreamer1.0-libav gstreamer1.0-packagekit \
     gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly htop hyphen-cs \
-    inkscape iotop kde-wallpapers kdenlive krita lame libreoffice-help-cs \
-    libreoffice-l10n-cs libreoffice-style-sifr libtxc-dxtn-s2tc \
-    libtxc-dxtn-s2tc-bin libva-drm1 libva-egl1 libva-intel-vaapi-driver \
-    libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 lzip lziprecover lzop mc \
+    inkscape intel-microcode iotop iucode-tool kde-wallpapers kdenlive krita \
+    lame libreoffice-help-cs libreoffice-l10n-cs libreoffice-style-sifr \
+    libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin libva-drm1 libva-egl1 \
+    libva-intel-vaapi-driver libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 \
+    lzip lziprecover lzop mc \
     mcomix mediainfo mesa-vdpau-drivers mesa-vulkan-drivers mpv nano neovim \
     opus-tools p7zip-full pandoc powertop quodlibet scribus shntool \
     simple-scan sox sudo testdisk tlp tracker-gui transmission-gtk unrar \
