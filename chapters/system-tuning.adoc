@@ -123,22 +123,22 @@ However, note that there is little "scientific" proof that modifying these actua
 After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
 
 - On Debian, all you have to do is type:
-
++
 [source,bash]
 ----
 sudo update-grub2
 ----
-
++
 - On Fedora, follow these steps:
 . Locate the compiled configuration file:
-
++
 [source,bash]
 ----
 sudo find /boot -name grub.cfg
 ----
-
++
 . Copy the file name the previous command gave you and use it here:
-
++
 [source,bash]
 ----
 sudo grub2-mkconfig -o /path/to/grub.cfg
@@ -166,35 +166,43 @@ TODO
 
 === Configuring sudo [[sudo-config]]
 
-// Add a reference to the Packages chapter
-. Install the `sudo` package. This is already included in the _Packages_ chapter, but anyway, to make sure:
-
+. Become root the traditional way:
++
 [source,bash]
 ----
 su
+----
++
+// TODO: Add a reference to the Packages chapter
+. Install the `sudo` package. This is already included in the _Packages_ chapter, but anyway, to make sure:
++
+[source,bash]
+----
 apt install sudo
 ----
-
++
 . Add your user to the group `sudo`:
-
++
 [source,bash]
 ----
 usermod -a -G sudo your_user_name
 ----
++
+. Reboot your system.
 
 === journald as Default Log [[journald-default]]
 
 By default, Debian uses `rsyslog` as the system log service. However, `journald` is running anyway all the time and there's no reason to have two log service, other than that `rsyslog` provides plain-text logs. If that doesn't sound compelling to you:
 
 - Disable `rsyslog`:
-
++
 [source,bash]
 ----
 sudo systemctl disable rsyslog
 ----
-
++
 - Make `journald` store its log permanently (instead of at runtime only). In `/etc/systemd/journald.conf` set:
-
++
 ----
 Storage=persistent
 ----
@@ -204,14 +212,14 @@ Storage=persistent
 `command-not-found` is a helpful little program, which offers you to install the correct package when you type the command of a program that hasn't been installed yet. Fedora and Ubuntu do this automatically; in Debian, a little effort is needed.
 
 . Install `command-not-found`:
-
++
 [source,bash]
 ----
 sudo apt install command-not-found
 ----
-
++
 . Update the packages & commands database:
-
++
 [source,bash]
 ----
 sudo apt-file update
