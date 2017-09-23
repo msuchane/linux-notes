@@ -1,0 +1,23 @@
+= Applications Tuning [[applications]]
+
+== Firefox [[firefox]]
+
+=== No Middle Mouse Button Paste [[middle-mouse-paste]]
+
+By default, Firefox recognizes the middle mouse button (mouse-wheel click) the traditional UNIX way, that is it pastes clipboard content or, worse yet, loads URL from clipboard. This is surprising to all people except the two bearded sysadmins still alive today who frequent Root.cz.
+
+To turn off middle mouse clipboard pasting, go to `about:config` in Firefox and the following keys to `false`:
+
+- `middlemouse.paste`
+- `middlemouse.contentLoadURL`
+
+=== No Alt Main Menu [[alt-menu]]
+
+When you press the `Alt` key in Firefox, the main menu bar jumps at you from the top of the window. This may be convenient to you if you're used to the bar, but it hapens way too often unintentionally when pressing keyboard shortcuts.
+
+To disable the `Alt` key menu activation, open `about:config` in Firefox and change the following key to `0`:
+
+- `ui.key.menuAccessKey`
+
+`18` represents `Alt` here; `17` stands for `Ctrl` if you're interested.
+
