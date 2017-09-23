@@ -68,7 +68,7 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
     libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 lzip lziprecover lzop mc \
     mcomix mediainfo mesa-vdpau-drivers mesa-vulkan-drivers mpv nano neovim \
     opus-tools p7zip-full pandoc powertop quodlibet scribus shntool \
-    simple-scan sox testdisk tlp tracker-gui transmission-gtk unrar \
+    simple-scan sox sudo testdisk tlp tracker-gui transmission-gtk unrar \
     vdpauinfo vim-nox vlc vorbis-tools vulkan-utils xfsdump youtube-dl \
     zfs-dkms zfs-initramfs zfsutils-linux zsh
 
