@@ -30,3 +30,18 @@ For example:
     dconf dump /org/gnome/ > gnome-dconf-settings.txt
     dconf load /org/gnome/ < gnome-dconf-settings.txt
 
+== Configuring the Compose Key [[compose-key]]
+
+The Compose key allows you to combine a couple of characters on your keyboard to type exotic characters and diacritics. Available combinations are listed in the https://help.ubuntu.com/community/GtkComposeTable[GtkComposeTable] article on the Ubuntu Community Help Wiki.
+
+You can configure your Compose key using the Tweak Tool in the Typing tab. Set it to a key you only rarely use, for example the Menu key or PrintScreen.
+
+To set the Compose key to the Menu, PrintScreen, and Right Win keys (missing keys are ignored), you might also use `dconf`:
+
+    dconf write /org/gnome/desktop/input-sources/xkb-options \
+    "['compose:menu', 'compose:prsc', 'compose:rwin']"
+
+NOTE: This `dconf` command rewrites all your Typing preferences you set in the Tweak Tool.
+
+Starting with version 3.20, GTK can read traditional XLib Compose configuration files. You can configure your own composition rules this way, storing them in the `~/.config/gtk-3.0/Compose` or `~/.XCompose` files. For more information, see _Defining custom Compose sequences_ in the http://blog.cyberborean.org/2008/01/06/compose-key-magic[Compose key magic] article on the Cyberborean Chronicles blog.
+
