@@ -1,8 +1,8 @@
-= System Tuning
+= System Tuning [[system-tuning]]
 
-== Common Options
+== Common Options [[common-options]]
 
-== XFS
+== XFS [[xfs]]
 
 XFS is the default file system in Red Hat Enterprise Linux.
 
@@ -16,7 +16,7 @@ XFS is great for:
 
 Also, its kernel code is said to be very clean and maintainable, compared to ext4.
 
-The CFQ disk scheduler, which is currently the default, enforces single-threaded access to the disk and, consequently, prevents XFS from utilizing its parallelism fully. To enjoy your parallelism, switch to a different scheduler: for example, deadline, or Kyber when using blk-mq. However, you should only do this on an SSD or another fast disk. HDDs perform best when access is single-threaded.
+The CFQ disk scheduler, which is currently the default, enforces single-threaded access to the disk and, consequently, prevents XFS from utilizing its parallelism fully. To enjoy your parallelism, switch to a different scheduler: for example, deadline, or Kyber when using blk-mq. (For blk-mq, see <<blk-mq>>.) However, you should only do this on an SSD or another fast disk. HDDs perform best when access is single-threaded.
 
 Some XFS-related tools:
 
@@ -27,7 +27,7 @@ Some XFS-related tools:
 
 Red Hat documentation: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch-xfs.html[XFS in the Storage Administration Guide]
 
-=== zswap
+=== zswap [[zswap]]
 
 `zswap` is a kernel feature, which compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
 
@@ -39,7 +39,7 @@ The current state of `zswap` can be read from the /sys/module/zswap/parameters/e
 
 Run-time `zswap` statistics are recorded in the /sys/kernel/debug/zswap file.
 
-=== journald
+=== journald [[journald]]
 
 The current disk usage of `journalctl` can be displayed using the following command:
 
@@ -50,7 +50,7 @@ The current disk usage of `journalctl` can be displayed using the following comm
     SystemMaxUse=256M
     RuntimeMaxUse=128M
 
-=== Block Device Multi Queue
+=== Block Device Multi Queue [[blk-mq]]
 
 The multiqueue block layer can be enabled by setting the `scsi_mod.use_blk_mq=1` kernel parameter in /etc/default/grub.
 
@@ -76,7 +76,7 @@ If your kernel has been compiled with BFQ and Kyber set as modules, you also nee
 
 NOTE: The way the kernel detects rotational vs. non-rotational devices isn't very reliable. It falls back on rotational. All my flash drives have been detected as rotational for some reason. Therefore, configure the schedulers more explicitly if you want consistent behavior.
 
-=== Memory Tuning for Interactive Use
+=== Memory Tuning for Interactive Use [[memory-tuning]]
 
 https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[Certain people] argue that the way Linux handles interactive desktop usage leaves much to be desired. They also suggest ways to improve that.
 
@@ -97,7 +97,7 @@ In comparison, the default values are:
 
 However, note that there is little "scientific" proof that modifying these actually helps. Experiment if you need to be sure. Rodd-O https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[devises a way to test the impact] in their article mentioned earlier.
 
-=== Gnome
+=== Gnome [[gnome]]
 
 To show battery percentage in the top panel, change the `org.gnome.desktop.interface.show-battery-percentage` dconf key:
 
@@ -111,11 +111,11 @@ Nautilus ("Files") opens directories when you hover a dragged item over them. Pe
 
     dconf write /org/gnome/nautilus/preferences/open-folder-on-dnd-hover false
 
-== Fedora-Specific Options
+== Fedora-Specific Options [[fedora-specific]]
 
 TODO
 
-== Debian-Specific Options
+== Debian-Specific Options [[debian-specific]]
 
 TODO
 
