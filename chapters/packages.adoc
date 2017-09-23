@@ -7,7 +7,7 @@ NOTE: Some of these packages require the RPMFusion Free or Non-free repositories
 === General Packages
 
     \*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \
-    bijiben bleachbit brasero bsd-games krita clinfo \
+    bijiben bleachbit brasero bsd-games clinfo \
     cuetools dconf-editor easytag epiphany exfalso exfat-utils f2fs-tools \
     fbreader fish flac freetype-freeworld fuse-exfat gedit-plugins gimp \
     gnome-books gnome-builder gnome-calendar gnome-dictionary gnome-logs \
@@ -15,7 +15,7 @@ NOTE: Some of these packages require the RPMFusion Free or Non-free repositories
     gnome-power-manager gnome-shell-extension-gpaste gnome-sound-recorder \
     gnome-todo gnome-tweak-tool gstreamer1-libav gstreamer1-plugins-bad-free \
     gstreamer1-plugins-bad-free-fluidsynth gstreamer1-plugins-bad-freeworld \
-    gstreamer1-plugins-ugly htop chromium inkscape iotop kdenlive lame \
+    gstreamer1-plugins-ugly htop chromium inkscape iotop kdenlive krita lame \
     langpacks-cs libreoffice-langpack-cs libtxc_dxtn libva \
     libva-intel-driver libva-utils libva-vdpau-driver libvdpau lollypop \
     lzip lziprecover lzop mac mc mcomix mediainfo mesa-vdpau-drivers \
