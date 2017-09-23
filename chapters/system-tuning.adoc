@@ -172,3 +172,16 @@ By default, Debian uses `rsyslog` as the system log service. However, `journald`
 
     Storage=persistent
 
+=== Setting Up command-not-found
+
+`command-not-found` is a helpful little program, which offers you to install the correct package when you type the command of a program that hasn't been installed yet. Fedora and Ubuntu do this automatically; in Debian, a little effort is needed.
+
+. Install `command-not-found`:
+
+    sudo apt install command-not-found
+
+. Update the packages & commands database:
+
+    sudo apt-file update
+    sudo update-command-not-found
+
