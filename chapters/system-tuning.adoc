@@ -148,5 +148,27 @@ TODO
 
 == Debian-Specific Options [[debian-specific]]
 
-TODO
+=== Configuring sudo
+
+// Add a reference to the Packages chapter
+. Install the `sudo` package. This is already included in the _Packages_ chapter, but anyway, to make sure:
+
+    su
+    apt install sudo
+
+. Add your user to the group `sudo`:
+
+    usermod -a -G sudo your_user_name
+
+=== journald as Default Log
+
+By default, Debian uses `rsyslog` as the system log service. However, `journald` is running anyway all the time and there's no reason to have two log service, other than that `rsyslog` provides plain-text logs. If that doesn't sound compelling to you:
+
+- Disable `rsyslog`:
+
+    sudo systemctl disable rsyslog
+
+- Make `journald` store its log permanently (instead of at runtime only). In `/etc/systemd/journald.conf` set:
+
+    Storage=persistent
 
