@@ -1,0 +1,24 @@
+= Useful Packages
+
+== In Fedora
+
+    \*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \+
+    bijiben bleachbit blender brasero bsd-games calligra-krita clinfo \+
+    cuetools dconf-editor easytag epiphany exfalso exfat-utils f2fs-tools \+
+    fbreader fish flac freetype-freeworld fuse-exfat gedit-plugins gimp \+
+    gnome-books gnome-builder gnome-calendar gnome-dictionary gnome-logs \+
+    gnome-maps gnome-mpv gnome-music gnome-nettool gnome-photos \+
+    gnome-power-manager gnome-shell-extension-gpaste gnome-sound-recorder \+
+    gnome-todo gnome-tweak-tool gstreamer1-libav gstreamer1-plugins-bad-free \+
+    gstreamer1-plugins-bad-free-fluidsynth gstreamer1-plugins-bad-freeworld \+
+    gstreamer1-plugins-ugly htop chromium inkscape iotop kdenlive lame \+
+    langpacks-cs libreoffice-langpack-cs libtxc_dxtn libva \+
+    libva-intel-driver libva-utils libva-vdpau-driver libvdpau lollypop \+
+    lzip lziprecover lzop mac mc mcomix mediainfo mesa-vdpau-drivers \+
+    mesa-vulkan-drivers mpv nano opus-tools p7zip p7zip-plugins pandoc \+
+    powertop quodlibet shntool simple-scan scribus sox testdisk tlp \+
+    tracker-preferences transmission-gtk tuned unrar vdpauinfo vim vlc \+
+    vorbis-tools youtube-dl zsh
+
+NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
+
