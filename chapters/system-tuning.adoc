@@ -2,6 +2,31 @@
 
 == Common Options
 
+== XFS
+
+XFS is the default file system in Red Hat Enterprise Linux.
+
+XFS requires no tuning per se, but there are useful tools for it and things to consider when using XFS.
+
+XFS is great for:
+
+- large files
+- large partitions
+- parallel access to many files
+
+Also, its kernel code is said to be very clean and maintainable, compared to ext4.
+
+The CFQ disk scheduler, which is currently the default, enforces single-threaded access to the disk and, consequently, prevents XFS from utilizing its parallelism fully. To enjoy your parallelism, switch to a different scheduler: for example, deadline, or Kyber when using blk-mq. However, you should only do this on an SSD or another fast disk. HDDs perform best when access is single-threaded.
+
+Some XFS-related tools:
+
+- To get information about an XFS partition: `xfs_info`
+- To repair an XFS file system: `xfs_repair`
+- To calculate the fragmentation of a file system: `xfs_db -c frag -r <partition>`
+- To defragment a file system: `xfs_fsr <partition>`
+
+Red Hat documentation: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch-xfs.html[XFS in the Storage Administration Guide]
+
 === zswap
 
 `zswap` is a kernel feature, which compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
