@@ -76,6 +76,8 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
 
 TODO
 
+    fonts-symbola
+
 === Some Free Games
 
     0ad astromenace blobwars crawl crawl-tiles endless-sky fillets-ng \
