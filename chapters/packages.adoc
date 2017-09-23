@@ -4,6 +4,8 @@
 
 NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
 
+=== General Packages
+
     \*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \
     bijiben bleachbit brasero bsd-games krita clinfo \
     cuetools dconf-editor easytag epiphany exfalso exfat-utils f2fs-tools \
@@ -22,7 +24,7 @@ NOTE: Some of these packages require the RPMFusion Free or Non-free repositories
     tracker-preferences transmission-gtk tuned unrar vdpauinfo vim vlc \
     vorbis-tools youtube-dl zsh
 
-Pretty *fonts* packaged in Fedora repositories:
+=== Fonts
 
     ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
     sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
@@ -32,9 +34,24 @@ Pretty *fonts* packaged in Fedora repositories:
     open-sans-fonts paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
     adobe-source\*fonts gdouros-symbola-fonts
 
-Some free *games*:
+=== Some Free Games
 
     @gnome-games 0ad astromenace blobwars crawl crawl-tiles endless-sky \
     fillets-ng freecol freecol-manual freeciv frozen-bubble gnome-2048 \
     gnome-hearts hedgewars neverball-neverball openlierox wesnoth
+
+=== From Copr
+
+- Neovim: `dperson/neovim`
+- Tilix: `heikoada/terminix`
+- SyncThing: `tune2fs/syncthing`
+
+
+== In Debian
+
+=== General Packages
+
+=== Fonts
+
+=== Some Free Games
 
