@@ -22,7 +22,7 @@
 
 NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
 
-Pretty fonts packaged in Fedora repositories:
+Pretty *fonts* packaged in Fedora repositories:
 
     ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
     sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
