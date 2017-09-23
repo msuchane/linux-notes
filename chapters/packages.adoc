@@ -81,7 +81,8 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
 
     fonts-cabin fonts-cabinsketch fonts-cantarell \
     fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
-    fonts-fanwood fonts-inconsolata fonts-isabella fonts-lato \
+    fonts-fanwood fonts-inconsolata fonts-isabella \
+    fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
     fonts-liberation2 fonts-linuxlibertine fonts-noto-hinted \
     fonts-oldstandard fonts-opendyslexic fonts-quattrocento \
     fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
