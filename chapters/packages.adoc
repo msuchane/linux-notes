@@ -1,10 +1,10 @@
-= Useful Packages
+= Useful Packages [[packages]]
 
-== In Fedora
+== In Fedora [[fedora]]
 
 NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
 
-=== General Packages
+=== General Packages [[fedora-general]]
 
     \*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \
     bijiben bleachbit brasero bsd-games clinfo \
@@ -24,7 +24,7 @@ NOTE: Some of these packages require the RPMFusion Free or Non-free repositories
     tracker-preferences transmission-gtk tuned unrar vdpauinfo vim vlc \
     vorbis-tools xfsdump youtube-dl zsh
 
-=== Fonts
+=== Fonts [[fedora-fonts]]
 
     ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
     sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
@@ -34,24 +34,24 @@ NOTE: Some of these packages require the RPMFusion Free or Non-free repositories
     open-sans-fonts paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
     adobe-source\*fonts gdouros-symbola-fonts
 
-=== Some Free Games
+=== Some Free Games [[fedora-games]]
 
     @gnome-games 0ad astromenace blobwars crawl crawl-tiles endless-sky \
     fillets-ng freecol freecol-manual freeciv frozen-bubble gnome-2048 \
     gnome-hearts hedgewars neverball-neverball openlierox wesnoth
 
-=== From Copr
+=== From Copr [[copr]]
 
 - Neovim: `dperson/neovim`
 - Tilix: `heikoada/terminix`
 - SyncThing: `tune2fs/syncthing`
 
 
-== In Debian
+== In Debian [[debian]]
 
 NOTE: Some of these packages may require the Contrib or Nonfree repositories enabled.
 
-=== General Packages
+=== General Packages [[debian-general]]
 
     atool audacity beets beignet-opencl-icd bijiben bleachbit brasero \
     bsdgames chromium chromium-l10n clinfo cuetools dconf-editor easytag \
@@ -72,13 +72,13 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
     vdpauinfo vim-nox vlc vorbis-tools vulkan-utils xfsdump youtube-dl \
     zfs-dkms zfs-initramfs zfsutils-linux zsh
 
-=== Fonts
+=== Fonts [[debian-fonts]]
 
 TODO
 
     fonts-symbola
 
-=== Some Free Games
+=== Some Free Games [[debian-games]]
 
     0ad astromenace blobwars crawl crawl-tiles endless-sky fillets-ng \
     freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
