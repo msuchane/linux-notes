@@ -31,54 +31,63 @@ Red Hat documentation: https://access.redhat.com/documentation/en-US/Red_Hat_Ent
 
 `zswap` is a kernel feature, which compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
 
-It can be enabled using this kernel parameter in /etc/default/grub:
+It can be enabled using this kernel parameter in `/etc/default/grub`:
 
-    zswap.enabled=1
+----
+zswap.enabled=1
+----
 
 After that, update `grub2` configuration as described in <<update-grub>> and reboot.
 
-The current state of `zswap` can be read from the /sys/module/zswap/parameters/enabled file: 0 for off, 1 for on.
+The current state of `zswap` can be read from the `/sys/module/zswap/parameters/enabled` file: 0 for off, 1 for on.
 
-Run-time `zswap` statistics are recorded in the /sys/kernel/debug/zswap file.
+Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
 
 === journald [[journald]]
 
 The current disk usage of `journalctl` can be displayed using the following command:
 
-    sudo journalctl --disk-usage
+[source,bash]
+----
+sudo journalctl --disk-usage
+----
 
-`journald` configuration is located in the /etc/systemd/journald.conf file. It's probably a good idea to explicitly limit how much data `journald` can store. In the configuration file, set something like:
+`journald` configuration is located in the `/etc/systemd/journald.conf` file. It's probably a good idea to explicitly limit how much data `journald` can store. In the configuration file, set something like:
 
-    SystemMaxUse=256M
-    RuntimeMaxUse=128M
+----
+SystemMaxUse=256M
+RuntimeMaxUse=128M
+----
 
 === Block Device Multi Queue [[blk-mq]]
 
-The multiqueue block layer can be enabled by setting the `scsi_mod.use_blk_mq=1` kernel parameter in /etc/default/grub.
+The multiqueue block layer can be enabled by setting the `scsi_mod.use_blk_mq=1` kernel parameter in `/etc/default/grub`.
 
-The current value is available in the /sys/module/scsi_mod/parameters/use_blk_mq file.
+The current value is available in the `/sys/module/scsi_mod/parameters/use_blk_mq` file.
 
 The blk-mq has its own set of disk schedulers, which are multiqueue-capable. They can no longer be set using the `elevator` kernel parameter. They are configured by setting udev rules instead.
 
-To configure blk-mq disk schedulers, create a /etc/udev/rules.d/60-scheduler.rules file containing something like this:
+To configure blk-mq disk schedulers, create a `/etc/udev/rules.d/60-scheduler.rules` file containing something like this:
 
 ----
 ## Set the BFQ scheduler for all disks:
 # ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
 
 ## Set the BFQ scheduler for all rotational disks:
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1",           
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1",
   ATTR{queue/scheduler}="bfq"
 
 ## Set the Kyber scheduler for all non-rotational disks:
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0",           
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0",
   ATTR{queue/scheduler}="kyber"
 ----
 
-If your kernel has been compiled with BFQ and Kyber set as modules, you also need to create the /etc/modules-load.d/schedulers.conf file. In it, put the module names to be loaded:
+If your kernel has been compiled with BFQ and Kyber set as modules, you also need to create the `/etc/modules-load.d/schedulers.conf` file. In it, put the module names to be loaded:
 
-    bfq
-    kyber-iosched
+----
+bfq
+kyber-iosched
+----
 
 NOTE: The way the kernel detects rotational vs. non-rotational devices isn't very reliable. It falls back on rotational. All my flash drives have been detected as rotational for some reason. Therefore, configure the schedulers more explicitly if you want consistent behavior.
 
@@ -86,37 +95,54 @@ NOTE: The way the kernel detects rotational vs. non-rotational devices isn't ver
 
 https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[Certain people] argue that the way Linux handles interactive desktop usage leaves much to be desired. They also suggest ways to improve that.
 
-In the /etc/sysctl.conf file, set:
+In the `/etc/sysctl.conf` file, set:
 
-    vm.swappiness=10
-    vm.vfs_cache_pressure=50
+----
+vm.swappiness=10
+vm.vfs_cache_pressure=50
+----
 
 Or, if you want to be more conservative, set:
 
-    vm.swappiness=20
-    vm.vfs_cache_pressure=80
+----
+vm.swappiness=20
+vm.vfs_cache_pressure=80
+----
 
 In comparison, the default values are:
 
-    vm.swappiness=60
-    vm.vfs_cache_pressure=100
+----
+vm.swappiness=60
+vm.vfs_cache_pressure=100
+----
 
 However, note that there is little "scientific" proof that modifying these actually helps. Experiment if you need to be sure. Rodd-O https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[devises a way to test the impact] in their article mentioned earlier.
 
 === Update grub2 Configuration [[update-grub]]
 
-After editing the /etc/default/grub file, the configuration has to be compiled for `grub2` to be able to use it:
+After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
 
 - On Debian, all you have to do is type:
-    sudo update-grub2
+
+[source,bash]
+----
+sudo update-grub2
+----
+
 - On Fedora, follow these steps:
 . Locate the compiled configuration file:
 
-    sudo find /boot -name grub.cfg
+[source,bash]
+----
+sudo find /boot -name grub.cfg
+----
 
 . Copy the file name the previous command gave you and use it here:
 
-    sudo grub2-mkconfig -o /path/to/grub.cfg
+[source,bash]
+----
+sudo grub2-mkconfig -o /path/to/grub.cfg
+----
 
 === Setting Up the "Magic SysRq Keys" [[magic-sysrq]]
 
@@ -128,7 +154,9 @@ Many more shortcuts are listed in the https://en.wikipedia.org/wiki/Magic_SysRq_
 
 To set up Magic SysRq, open the `/etc/sysctl.conf` file as root and add:
 
-    kernel.sysrq = 1
+----
+kernel.sysrq = 1
+----
 
 == Fedora-Specific Options [[fedora-specific]]
 
@@ -141,12 +169,18 @@ TODO
 // Add a reference to the Packages chapter
 . Install the `sudo` package. This is already included in the _Packages_ chapter, but anyway, to make sure:
 
-    su
-    apt install sudo
+[source,bash]
+----
+su
+apt install sudo
+----
 
 . Add your user to the group `sudo`:
 
-    usermod -a -G sudo your_user_name
+[source,bash]
+----
+usermod -a -G sudo your_user_name
+----
 
 === journald as Default Log [[journald-default]]
 
@@ -154,11 +188,16 @@ By default, Debian uses `rsyslog` as the system log service. However, `journald`
 
 - Disable `rsyslog`:
 
-    sudo systemctl disable rsyslog
+[source,bash]
+----
+sudo systemctl disable rsyslog
+----
 
 - Make `journald` store its log permanently (instead of at runtime only). In `/etc/systemd/journald.conf` set:
 
-    Storage=persistent
+----
+Storage=persistent
+----
 
 === Setting Up command-not-found [[set-up-cnf]]
 
@@ -166,12 +205,18 @@ By default, Debian uses `rsyslog` as the system log service. However, `journald`
 
 . Install `command-not-found`:
 
-    sudo apt install command-not-found
+[source,bash]
+----
+sudo apt install command-not-found
+----
 
 . Update the packages & commands database:
 
-    sudo apt-file update
-    sudo update-command-not-found
+[source,bash]
+----
+sudo apt-file update
+sudo update-command-not-found
+----
 
 === Periodic Packages Cleaning
 
@@ -179,9 +224,13 @@ By default, the `apt` package manager keeps all downloaded packages on disk inde
 
 To configure `apt` to clean outdated downloaded packages periodically every 7 days (and keep only up-to-date packages), create the `/etc/apt/apt.conf.d/02periodic` file containing:
 
-    APT::Periodic::AutocleanInterval "7";
+----
+APT::Periodic::AutocleanInterval "7";
+----
 
 Or to periodically clean all downloaded packages regardless of them being up-to-date or not:
 
-    APT::Periodic::CleanInterval "7";
+----
+APT::Periodic::CleanInterval "7";
+----
 

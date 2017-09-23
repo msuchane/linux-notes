@@ -6,39 +6,48 @@ NOTE: Some of these packages require the RPMFusion Free or Non-free repositories
 
 === General Packages [[fedora-general]]
 
-    \*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \
-    bijiben bleachbit brasero bsd-games clinfo \
-    cuetools dconf-editor easytag epiphany exfalso exfat-utils f2fs-tools \
-    fbreader fish flac freetype-freeworld fuse-exfat gedit-plugins gimp \
-    gnome-books gnome-builder gnome-calendar gnome-dictionary gnome-logs \
-    gnome-maps gnome-mpv gnome-music gnome-nettool gnome-photos \
-    gnome-power-manager gnome-shell-extension-gpaste gnome-sound-recorder \
-    gnome-todo gnome-tweak-tool gstreamer1-libav gstreamer1-plugins-bad-free \
-    gstreamer1-plugins-bad-free-fluidsynth gstreamer1-plugins-bad-freeworld \
-    gstreamer1-plugins-ugly htop chromium inkscape iotop kdenlive krita lame \
-    langpacks-cs libreoffice-langpack-cs libtxc_dxtn libva \
-    libva-intel-driver libva-utils libva-vdpau-driver libvdpau lollypop \
-    lzip lziprecover lzop mac mc mcomix mediainfo mesa-vdpau-drivers \
-    mesa-vulkan-drivers mpv nano opus-tools p7zip p7zip-plugins pandoc \
-    powertop quodlibet shntool simple-scan scribus sox testdisk tlp \
-    tracker-preferences transmission-gtk tuned unrar vdpauinfo vim vlc \
-    vorbis-tools xfsdump youtube-dl zsh
+[source,bash]
+----
+\*-backgrounds-extras-gnome atool audacity-freeworld beets beignet \
+bijiben bleachbit brasero bsd-games clinfo \
+cuetools dconf-editor easytag epiphany exfalso exfat-utils f2fs-tools \
+fbreader fish flac freetype-freeworld fuse-exfat gedit-plugins gimp \
+gnome-books gnome-builder gnome-calendar gnome-dictionary gnome-logs \
+gnome-maps gnome-mpv gnome-music gnome-nettool gnome-photos \
+gnome-power-manager gnome-shell-extension-gpaste gnome-sound-recorder \
+gnome-todo gnome-tweak-tool gstreamer1-libav gstreamer1-plugins-bad-free \
+gstreamer1-plugins-bad-free-fluidsynth gstreamer1-plugins-bad-freeworld \
+gstreamer1-plugins-ugly htop chromium inkscape iotop kdenlive krita lame \
+langpacks-cs libreoffice-langpack-cs libtxc_dxtn libva \
+libva-intel-driver libva-utils libva-vdpau-driver libvdpau lollypop \
+lzip lziprecover lzop mac mc mcomix mediainfo mesa-vdpau-drivers \
+mesa-vulkan-drivers mpv nano opus-tools p7zip p7zip-plugins pandoc \
+powertop quodlibet shntool simple-scan scribus sox testdisk tlp \
+tracker-preferences transmission-gtk tuned unrar vdpauinfo vim vlc \
+vorbis-tools xfsdump youtube-dl zsh
+----
 
 === Fonts [[fedora-fonts]]
 
-    ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
-    sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
-    levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
-    linux-libertine\* google-noto-sans-fonts google-noto-mono-fonts \
-    google-noto-serif-fonts google-noto-emoji-fonts oldstandard-sfd-fonts \
-    open-sans-fonts paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
-    adobe-source\*fonts gdouros-symbola-fonts
+[source,bash]
+----
+ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
+sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
+levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
+linux-libertine\* google-noto-sans-fonts google-noto-mono-fonts \
+google-noto-serif-fonts google-noto-emoji-fonts oldstandard-sfd-fonts \
+open-sans-fonts paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
+adobe-source\*fonts gdouros-symbola-fonts
+----
 
 === Some Free Games [[fedora-games]]
 
-    @gnome-games 0ad astromenace blobwars crawl crawl-tiles endless-sky \
-    fillets-ng freecol freecol-manual freeciv frozen-bubble gnome-2048 \
-    gnome-hearts hedgewars neverball-neverball openlierox wesnoth
+[source,bash]
+----
+@gnome-games 0ad astromenace blobwars crawl crawl-tiles endless-sky \
+fillets-ng freecol freecol-manual freeciv frozen-bubble gnome-2048 \
+gnome-hearts hedgewars neverball-neverball openlierox wesnoth
+----
 
 === From Copr [[copr]]
 
@@ -53,44 +62,53 @@ NOTE: Some of these packages may require the Contrib or Nonfree repositories ena
 
 === General Packages [[debian-general]]
 
-    amd64-microcode atool audacity beets \
-    beignet-opencl-icd bijiben bleachbit brasero bsdgames \
-    chromium chromium-l10n clinfo cuetools dconf-editor \
-    easytag epiphany-browser exfalso exfat-fuse exfat-utils f2fs-tools \
-    fbreader firefox-esr-l10n-cs firmware-amd-graphics firmware-atheros \
-    firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-linux \
-    firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree \
-    firmware-realtek fish flac gedit-plugins gimp gnome-backgrounds \
-    gnome-builder gnome-calendar gnome-dictionary gnome-logs gnome-maps \
-    gnome-mpv gnome-music gnome-nettool gnome-packagekit gnome-photos \
-    gnome-power-manager gnome-shell-extensions-gpaste gnome-sound-recorder \
-    gnome-todo gnome-tweak-tool gstreamer1.0-libav gstreamer1.0-packagekit \
-    gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly htop hyphen-cs \
-    inkscape intel-microcode iotop iucode-tool kde-wallpapers kdenlive krita \
-    lame libreoffice-help-cs libreoffice-l10n-cs libreoffice-style-sifr \
-    libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin libva-drm1 libva-egl1 \
-    libva-intel-vaapi-driver libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 \
-    lzip lziprecover lzop mc \
-    mcomix mediainfo mesa-vdpau-drivers mesa-vulkan-drivers mpv nano neovim \
-    opus-tools p7zip-full pandoc powertop quodlibet scribus shntool \
-    simple-scan sox sudo testdisk tlp tracker-gui transmission-gtk unrar \
-    vdpauinfo vim-nox vlc vorbis-tools vulkan-utils xfsdump youtube-dl \
-    zfs-dkms zfs-initramfs zfsutils-linux zsh
+[source,bash]
+----
+amd64-microcode atool audacity beets \
+beignet-opencl-icd bijiben bleachbit brasero bsdgames \
+chromium chromium-l10n clinfo cuetools dconf-editor \
+easytag epiphany-browser exfalso exfat-fuse exfat-utils f2fs-tools \
+fbreader firefox-esr-l10n-cs firmware-amd-graphics firmware-atheros \
+firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-linux \
+firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree \
+firmware-realtek fish flac gedit-plugins gimp gnome-backgrounds \
+gnome-builder gnome-calendar gnome-dictionary gnome-logs gnome-maps \
+gnome-mpv gnome-music gnome-nettool gnome-packagekit gnome-photos \
+gnome-power-manager gnome-shell-extensions-gpaste gnome-sound-recorder \
+gnome-todo gnome-tweak-tool gstreamer1.0-libav gstreamer1.0-packagekit \
+gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly htop hyphen-cs \
+inkscape intel-microcode iotop iucode-tool kde-wallpapers kdenlive krita \
+lame libreoffice-help-cs libreoffice-l10n-cs libreoffice-style-sifr \
+libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin libva-drm1 libva-egl1 \
+libva-intel-vaapi-driver libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 \
+lzip lziprecover lzop mc \
+mcomix mediainfo mesa-vdpau-drivers mesa-vulkan-drivers mpv nano neovim \
+opus-tools p7zip-full pandoc powertop quodlibet scribus shntool \
+simple-scan sox sudo testdisk tlp tracker-gui transmission-gtk unrar \
+vdpauinfo vim-nox vlc vorbis-tools vulkan-utils xfsdump youtube-dl \
+zfs-dkms zfs-initramfs zfsutils-linux zsh
+----
 
 === Fonts [[debian-fonts]]
 
-    fonts-cabin fonts-cabinsketch fonts-cantarell \
-    fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
-    fonts-fanwood fonts-inconsolata fonts-isabella \
-    fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
-    fonts-liberation2 fonts-linuxlibertine fonts-noto-hinted \
-    fonts-oldstandard fonts-opendyslexic fonts-quattrocento \
-    fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
-    ttf-anonymous-pro ttf-essays1743
+[source,bash]
+----
+fonts-cabin fonts-cabinsketch fonts-cantarell \
+fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
+fonts-fanwood fonts-inconsolata fonts-isabella \
+fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
+fonts-liberation2 fonts-linuxlibertine fonts-noto-hinted \
+fonts-oldstandard fonts-opendyslexic fonts-quattrocento \
+fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
+ttf-anonymous-pro ttf-essays1743
+----
 
 === Some Free Games [[debian-games]]
 
-    0ad astromenace blobwars crawl crawl-tiles endless-sky fillets-ng \
-    freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
-    lierolibre neverball sauerbraten wesnoth
+[source,bash]
+----
+0ad astromenace blobwars crawl crawl-tiles endless-sky fillets-ng \
+freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
+lierolibre neverball sauerbraten wesnoth
+----
 
