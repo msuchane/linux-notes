@@ -313,3 +313,70 @@ Therefore, it has been decided to change the default setting to disabled flat vo
 flat-volumes = no
 ----
 
+=== Set Up Plymouth
+
+Plymouth is the pretty animated picture you see when the system is booting up or shutting down. Debian doesn't like pretty stuff by default, and therefore, Plymouth has to be installed manually.
+
+The process is https://wiki.debian.org/plymouth[documented on the Debian Wiki]. However, to save you a few clicks and some reading:
+
+. Install Plymouth and its themes:
++
+[source,bash]
+----
+sudo apt install plymouth plymouth-themes
+----
++
+. Edit the `/etc/initramfs-tools/modules` and add modesetting modules for your graphics card:
+- For Intel GPUs:
++
+----
+# KMS
+intel_agp
+drm
+i915 modeset=1
+----
++
+- For nVidia GPUs using the Nouveau driver:
++
+----
+# KMS
+drm
+nouveau modeset=1
+----
++
+- For AMD GPUs (may be slightly outdated):
++
+----
+# KMS
+drm
+radeon modeset=1
+----
++
+. Open the `/etc/default/grub` file.
+. There, uncomment the `GRUB_GFXMODE=` line and set it to your display resolution. For example, `GRUB_GFXMODE=1024x768`. (This may not be necessary and might even uglify grub; test it.)
+. Also, edit the kernel line, that is the one starting with `GRUB_CMDLINE_LINUX_DEFAULT=`. Add `splash` at the end and delete `quiet` if you'd like to be able to see detailed `systemd` boot output when you switch out of the pretty animated picture.
+. Save the file and update `grub2`:
++
+[source,bash]
+----
+sudo update-grub2
+----
++
+. Get the list of installed Plymouth themes:
++
+[source,bash]
+----
+sudo plymouth-set-default-theme -l
+----
++
+The default theme in Debian Stretch is `softwaves`. The rest are either the themes of earlier Debian releases or are bundled with Plymouth itself, originally coming from Fedora.
++
+. Set a theme for Plymouth to actually use:
++
+[source,bash]
+----
+sudo plymouth-set-default-theme -R your_selected_theme
+----
++
+. Reboot and watch the result. Repeat the last two steps if you want to see more themes in action.
+
