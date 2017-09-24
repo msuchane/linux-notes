@@ -2,7 +2,10 @@
 
 TODO: Explain yourself here. Point to documents.
 
-The <<single-page.adoc#linux-notes-single-page,single-page>> variant compiled from all chapters
+// This is the recommended way to link relative adoc files, but it doesn't work well with GitLab's previews. Maybe revisit it after we do proper adoc building.
+// The <<single-page.adoc#linux-notes-single-page,single-page>> variant compiled from all chapters
+// This isn't recommended, but works for my use case.
+The link:single-page.adoc[single-page] variant compiled from all chapters
 
 // TODO: Add a 'Free Fonts' file.
 
