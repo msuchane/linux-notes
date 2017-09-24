@@ -4,3 +4,7 @@ TODO: Explain yourself here. Point to documents.
 
 // TODO: Add a single document 'including' all chapters inside.
 
+// TODO: Add a 'Free Fonts' file.
+
+// TODO: Link to my dotfiles.
+
