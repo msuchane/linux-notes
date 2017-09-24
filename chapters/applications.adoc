@@ -9,7 +9,7 @@
 
 By default, Firefox recognizes the middle mouse button (mouse-wheel click) the traditional UNIX way, that is it pastes clipboard content or, worse yet, loads URL from clipboard. This is surprising to all people except the two bearded sysadmins still alive today who frequent Root.cz.
 
-To turn off middle mouse clipboard pasting, go to `about:config` in Firefox and the following keys to `false`:
+To turn off middle mouse clipboard pasting, go to `about:config` in Firefox and set the following keys to `false`:
 
 - `middlemouse.paste`
 - `middlemouse.contentLoadURL`
