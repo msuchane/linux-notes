@@ -1,4 +1,7 @@
 = Gnome [[gnome]]
+:author: Marek Suchánek
+:email: marek.suchanek@protonmail.com
+:toc:
 
 == Battery Percentage Indicator [[battery-percent]]
 

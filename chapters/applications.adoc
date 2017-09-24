@@ -1,4 +1,7 @@
 = Applications Tuning [[applications]]
+:author: Marek Suchánek
+:email: marek.suchanek@protonmail.com
+:toc:
 
 == Firefox [[firefox]]
 

@@ -1,0 +1,17 @@
+= Linux Notes [[linux-notes-single-page]]
+Marek Suchánek
+:toc:
+// :toclevels: 3
+
+:leveloffset: +1
+
+include::chapters/packages.adoc[]
+
+include::chapters/system-tuning.adoc[]
+
+include::chapters/gnome.adoc[]
+
+include::chapters/applications.adoc[]
+
+:leveloffset: -1
+

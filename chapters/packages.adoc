@@ -1,4 +1,7 @@
 = Useful Packages [[packages]]
+:author: Marek Suchánek
+:email: marek.suchanek@protonmail.com
+:toc:
 
 == In Fedora [[fedora]]
 

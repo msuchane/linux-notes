@@ -1,8 +1,11 @@
 = System Tuning [[system-tuning]]
+:author: Marek Suchánek
+:email: marek.suchanek@protonmail.com
+:toc:
 
 == Common Options [[common-options]]
 
-== XFS [[xfs]]
+=== XFS [[xfs]]
 
 XFS is the default file system in Red Hat Enterprise Linux. It requires no tuning per se, but there are useful tools for it and things to consider when using XFS.
 

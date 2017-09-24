@@ -2,7 +2,7 @@
 
 TODO: Explain yourself here. Point to documents.
 
-// TODO: Add a single document 'including' all chapters inside.
+The <<single-page.adoc#linux-notes-single-page,single-page>> variant compiled from all chapters
 
 // TODO: Add a 'Free Fonts' file.
 
