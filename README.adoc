@@ -16,6 +16,8 @@ Originally, they made little sense to anyone but me. Currently, I'm trying to re
 
 // TODO: Add a 'Free Fonts' file.
 
+// TODO: Add a 'Handy References' file.
+
 // TODO: Link to my dotfiles.
 
 These are the "`chapters`" currently available:
@@ -24,5 +26,5 @@ These are the "`chapters`" currently available:
 - link:chapters/system-tuning.adoc[System Tuning]: tweaking at the lower level
 - link:chapters/gnome.adoc[Gnome]: getting the most out of Gnome and its applications
 - link:chapters/applications.adoc[Applications Tuning]: notes related to other applications
-//- link:chapters/fonts.adoc[Some Free Fonts]: links to pretty fonts released under a free license
+- link:chapters/fonts.adoc[Some Free Fonts]: pretty fonts released under a free license; for the Linux user who has everything
 

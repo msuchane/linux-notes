@@ -1,0 +1,82 @@
+= Some Free Fonts [[free-fonts]]
+:author: Marek Suchánek
+:email: marek.suchanek@protonmail.com
+//:source-highlighter: highlightjs
+:source-highlighter: prettify
+:sectnums:
+:toc:
+
+== Sans-serif
+
+[cols="<50a,^25,^25",options="header"]
+|===
+| Font Name | Available in Fedora repos? | Available in Debian repos?
+| Alegreya Sans | Yes | No
+| Croscore:
+
+- Arimo (matching MS Arial)
+- Carlito (matching MS Calibri)
+| Yes | Yes
+| Droid Sans | Yes | No
+| Fira Sans | Yes | No
+| Lato | Yes | Yes
+| Libre Franklin | No | No
+| Linux Biolinum | Yes | Yes
+| Merriweather Sans | No | No
+| Noto Sans | Yes | Yes
+| Open Sans | Yes | ?
+| PT Sans | Yes | ?
+| Raleway | ? | No
+| Roboto | Yes | Yes
+| Source Sans Pro | Yes | ?
+| Work Sans | No | No
+|===
+
+
+== Serif
+
+[cols="<50a,^25,^25",options="header"]
+|===
+| Font Name | Available in Fedora repos? | Available in Debian repos?
+| Alegreya | Yes | No
+| Croscore:
+
+- Caladea (matching MS Cambria)
+- Tinos (matching MS Times New Roman)
+| Yes | Yes
+| Droid Serif | Yes | No
+| Fanwood | No | Yes
+| Gentium (Gentium Plus for better Unicode coverage) | Yes | Yes
+| Heuristica | Yes | No
+| Isabella | ? | ?
+| Libre Baskerville | No | No
+| Linux Libertine | Yes | Yes
+| Merriweather | No | No
+| Noticia Text | No | No
+| Noto Serif | Yes | Yes
+| Old Standard | Yes | Yes
+| PT Serif | Yes | ?
+| Roboto Slab | Yes | Yes
+| Sorts Mill Goudy | Yes | ?
+| Source Serif Pro | Yes | ?
+|===
+
+
+== Fixed-width
+
+[cols="<50a,^25,^25",options="header"]
+|===
+| Font Name | Available in Fedora repos? | Available in Debian repos?
+| Croscore:
+
+- Cousine (matching MS Courier New)
+| Yes | Yes
+| Droid Mono | Yes | No
+| Fira Mono (Fira Code if you like ligatures) | Yes | No
+| Inconsolata | Yes | Yes
+| Noto Mono | Yes | Yes
+| PT Mono | Yes | ?
+| Roboto Mono | Yes | Yes
+| Source Code Pro | Yes | ?
+|===
+
