@@ -25,8 +25,8 @@ The CFQ disk scheduler, which is currently the default, enforces single-threaded
 Some XFS-related tools:
 
 - To get information about an XFS partition: `xfs_info`
-- To back-up a file system: `xfsdump`
-- To recover from back up: `xsfrestore`
+- To back up a file system: `xfsdump`
+- To recover from backup: `xsfrestore`
 - To repair an XFS file system: `xfs_repair`
 - To calculate the fragmentation of a file system: `xfs_db -c frag -r <partition>`
 - To defragment a file system: `xfs_fsr <partition>`
