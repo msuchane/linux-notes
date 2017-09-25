@@ -1,13 +1,28 @@
 = Linux Notes
 
-TODO: Explain yourself here. Point to documents.
+These are some of my personal notes that help me when installing Linux. They're great for me to:
+
+- Copy commands syntax
+- Copy lists of packages to paste into the package manager
+- Remember to do all the stuff I like to do
+- Keep track of various config files and tuning parameters
+
+Originally, they made little sense to anyone but me. Currently, I'm trying to rewrite them to be more accessible and structured. Not guaranteed to be comprehensible at all times.
 
 // This is the recommended way to link relative adoc files, but it doesn't work well with GitLab's previews. Maybe revisit it after we do proper adoc building.
 // The <<single-page.adoc#linux-notes-single-page,single-page>> variant compiled from all chapters
 // This isn't recommended, but works for my use case.
-The link:single-page.adoc[single-page] variant compiled from all chapters
+// The link:single-page.adoc[single-page] variant compiled from all chapters
 
 // TODO: Add a 'Free Fonts' file.
 
 // TODO: Link to my dotfiles.
+
+These are the "`chapters`" currently available:
+
+- link:chapters/packages.adoc[Useful Packages]: lists of some packages for Fedora and Debian to quickly copy and paste
+- link:chapters/system-tuning.adoc[System Tuning]: tweaking at the lower level
+- link:chapters/gnome.adoc[Gnome]: getting the most out of Gnome and its applications
+- link:chapters/applications.adoc[Applications Tuning]: notes related to other applications
+//- link:chapters/fonts.adoc[Some Free Fonts]: links to pretty fonts released under a free license
 
