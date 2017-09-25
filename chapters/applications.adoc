@@ -1,6 +1,9 @@
 = Applications Tuning [[applications]]
 :author: Marek Suchánek
 :email: marek.suchanek@protonmail.com
+//:source-highlighter: highlightjs
+:source-highlighter: prettify
+:sectnums:
 :toc:
 
 == Firefox [[firefox]]

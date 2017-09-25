@@ -1,6 +1,9 @@
 = Useful Packages [[packages]]
 :author: Marek Suchánek
 :email: marek.suchanek@protonmail.com
+//:source-highlighter: highlightjs
+:source-highlighter: prettify
+:sectnums:
 :toc:
 
 == In Fedora [[fedora]]

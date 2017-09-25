@@ -1,6 +1,9 @@
 = System Tuning [[system-tuning]]
 :author: Marek Suchánek
 :email: marek.suchanek@protonmail.com
+//:source-highlighter: highlightjs
+:source-highlighter: prettify
+:sectnums:
 :toc:
 
 == Common Options [[common-options]]
