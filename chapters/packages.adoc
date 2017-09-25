@@ -61,9 +61,9 @@ gnome-hearts hedgewars neverball-neverball openlierox wesnoth
 
 === From openSUSE Build Service [[obs]]
 
-- "Vibrancy" icon theme: https://software.opensuse.org/download.html?project=home%3APival81&package=vibrancy-colors-icon-theme[home:Pival81 / vibrancy-colors-icon-theme]
-- "Moka" and "Faba" icon theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Amoka&package=moka-icon-theme[home:snwh:moka / moka-icon-theme]
-- "Paper" icons and GTK theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Apaper&package=paper-gtk-theme[home:snwh:paper / paper-gtk-theme]
+- "`Vibrancy`" icon theme: https://software.opensuse.org/download.html?project=home%3APival81&package=vibrancy-colors-icon-theme[home:Pival81 / vibrancy-colors-icon-theme]
+- "`Moka`" and "`Faba`" icon theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Amoka&package=moka-icon-theme[home:snwh:moka / moka-icon-theme]
+- "`Paper`" icons and GTK theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Apaper&package=paper-gtk-theme[home:snwh:paper / paper-gtk-theme]
 
 === From Korora [[korora]]
 
