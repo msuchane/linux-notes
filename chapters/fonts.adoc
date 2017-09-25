@@ -8,11 +8,11 @@
 
 == Sans-serif
 
-[cols="<50a,^25,^25",options="header"]
+[cols="<50,^25,^25",options="header"]
 |===
 | Font Name | Available in Fedora repos? | Available in Debian repos?
 | Alegreya Sans | Yes | No
-| Croscore:
+a| Croscore:
 
 - Arimo (matching MS Arial)
 - Carlito (matching MS Calibri)
@@ -35,11 +35,11 @@
 
 == Serif
 
-[cols="<50a,^25,^25",options="header"]
+[cols="<50,^25,^25",options="header"]
 |===
 | Font Name | Available in Fedora repos? | Available in Debian repos?
 | Alegreya | Yes | No
-| Croscore:
+a| Croscore:
 
 - Caladea (matching MS Cambria)
 - Tinos (matching MS Times New Roman)
@@ -64,10 +64,10 @@
 
 == Fixed-width
 
-[cols="<50a,^25,^25",options="header"]
+[cols="<50,^25,^25",options="header"]
 |===
 | Font Name | Available in Fedora repos? | Available in Debian repos?
-| Croscore:
+a| Croscore:
 
 - Cousine (matching MS Courier New)
 | Yes | Yes
