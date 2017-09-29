@@ -6,30 +6,32 @@
 :sectnums:
 :toc:
 
+// TODO: Add links to fonts and verify packages in repos
+
 == Sans-serif
 
 [cols="<50,^25,^25",options="header"]
 |===
-| Font Name | Available in Fedora repos? | Available in Debian repos?
-| Alegreya Sans | Yes | No
+| Font Name                     | In Fedora repos?  | In Debian repos?
+| Alegreya Sans                 | Yes               | No
 a| Croscore:
 
 - Arimo (matching MS Arial)
 - Carlito (matching MS Calibri)
-| Yes | Yes
-| Droid Sans | Yes | No
-| Fira Sans | Yes | No
-| Lato | Yes | Yes
-| Libre Franklin | No | No
-| Linux Biolinum | Yes | Yes
-| Merriweather Sans | No | No
-| Noto Sans | Yes | Yes
-| Open Sans | Yes | ?
-| PT Sans | Yes | ?
-| Raleway | ? | No
-| Roboto | Yes | Yes
-| Source Sans Pro | Yes | ?
-| Work Sans | No | No
+                                | Yes               | Yes
+| Droid Sans                    | Yes               | No
+| Fira Sans                     | Yes               | No
+| Lato                          | Yes               | Yes
+| Libre Franklin                | No                | No
+| Linux Biolinum                | Yes               | Yes
+| Merriweather Sans             | No                | No
+| Noto Sans                     | Yes               | Yes
+| Open Sans                     | Yes               | ?
+| PT Sans                       | Yes               | ?
+| Raleway                       | ?                 | No
+| Roboto                        | Yes               | Yes
+| Source Sans Pro               | Yes               | ?
+| Work Sans                     | No                | No
 |===
 
 
@@ -37,28 +39,28 @@ a| Croscore:
 
 [cols="<50,^25,^25",options="header"]
 |===
-| Font Name | Available in Fedora repos? | Available in Debian repos?
-| Alegreya | Yes | No
+| Font Name                     | In Fedora repos?  | In Debian repos?
+| Alegreya                      | Yes               | No
 a| Croscore:
 
 - Caladea (matching MS Cambria)
 - Tinos (matching MS Times New Roman)
-| Yes | Yes
-| Droid Serif | Yes | No
-| Fanwood | No | Yes
+                                | Yes               | Yes
+| Droid Serif                   | Yes               | No
+| Fanwood                       | No                | Yes
 | Gentium (Gentium Plus for better Unicode coverage) | Yes | Yes
-| Heuristica | Yes | No
-| Isabella | ? | ?
-| Libre Baskerville | No | No
-| Linux Libertine | Yes | Yes
-| Merriweather | No | No
-| Noticia Text | No | No
-| Noto Serif | Yes | Yes
-| Old Standard | Yes | Yes
-| PT Serif | Yes | ?
-| Roboto Slab | Yes | Yes
-| Sorts Mill Goudy | Yes | ?
-| Source Serif Pro | Yes | ?
+| Heuristica                    | Yes               | No
+| Isabella                      | ?                 | ?
+| Libre Baskerville             | No                | No
+| Linux Libertine               | Yes               | Yes
+| Merriweather                  | No                | No
+| Noticia Text                  | No                | No
+| Noto Serif                    | Yes               | Yes
+| Old Standard                  | Yes               | Yes
+| PT Serif                      | Yes               | ?
+| Roboto Slab                   | Yes               | Yes
+| Sorts Mill Goudy              | Yes               | ?
+| Source Serif Pro              | Yes               | ?
 |===
 
 
@@ -66,17 +68,17 @@ a| Croscore:
 
 [cols="<50,^25,^25",options="header"]
 |===
-| Font Name | Available in Fedora repos? | Available in Debian repos?
+| Font Name                     | In Fedora repos?  | In Debian repos?
 a| Croscore:
 
 - Cousine (matching MS Courier New)
-| Yes | Yes
-| Droid Mono | Yes | No
+                                | Yes               | Yes
+| Droid Mono                    | Yes               | No
 | Fira Mono (Fira Code if you like ligatures) | Yes | No
-| Inconsolata | Yes | Yes
-| Noto Mono | Yes | Yes
-| PT Mono | Yes | ?
-| Roboto Mono | Yes | Yes
-| Source Code Pro | Yes | ?
+| Inconsolata                   | Yes               | Yes
+| Noto Mono                     | Yes               | Yes
+| PT Mono                       | Yes               | ?
+| Roboto Mono                   | Yes               | Yes
+| Source Code Pro               | Yes               | ?
 |===
 
