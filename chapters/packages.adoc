@@ -27,14 +27,6 @@ mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
 shntool sox vdpauinfo vlc vorbis-tools youtube-dl 
 ----
 
-=== Archiving and File Systems[[fedora-archiving-fs]]
-
-[source,bash]
-----
-atool bleachbit exfat-utils f2fs-tools fuse-exfat lzip lziprecover lzop \
-p7zip p7zip-plugins unrar testdisk xfsdump 
-----
-
 === Office, Reading and Writing [[fedora-read-write]]
 
 [source,bash]
@@ -42,13 +34,6 @@ p7zip p7zip-plugins unrar testdisk xfsdump
 bijiben fbreader gnome-books gnome-calendar gnome-dictionary gedit-plugins \
 gnome-shell-extension-gpaste gnome-todo nano pandoc \
 simple-scan scribus vim 
-----
-
-=== Czech Localization [[fedora-l10n]]
-
-[source,bash]
-----
-langpacks-cs libreoffice-langpack-cs 
 ----
 
 === Other Applications [[fedora-other-apps]]
@@ -60,11 +45,26 @@ gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
 tracker-preferences transmission-gtk 
 ----
 
+=== Archiving and File Systems[[fedora-archiving-fs]]
+
+[source,bash]
+----
+atool bleachbit exfat-utils f2fs-tools fuse-exfat lzip lziprecover lzop \
+p7zip p7zip-plugins unrar testdisk xfsdump 
+----
+
 === Various Low-level Stuff [[fedora-various-ll]]
 
 [source,bash]
 ----
 beignet clinfo fish freetype-freeworld htop iotop mc powertop tlp tuned zsh
+----
+
+=== Czech Localization [[fedora-czech-l10n]]
+
+[source,bash]
+----
+langpacks-cs libreoffice-langpack-cs 
 ----
 
 === Fonts [[fedora-fonts]]
@@ -118,34 +118,64 @@ NOTE: Korora versions follow Fedora releases, but are always a few months late.
 
 NOTE: Some of these packages may require the Contrib or Nonfree repositories enabled.
 
-=== General Packages [[debian-general]]
+=== Multimedia [[debian-multimedia]]
 
 [source,bash]
 ----
-amd64-microcode atool audacity beets \
-beignet-opencl-icd bijiben bleachbit brasero bsdgames \
-chromium chromium-l10n clinfo cuetools dconf-editor \
-easytag epiphany-browser exfalso exfat-fuse exfat-utils f2fs-tools \
-fbreader firefox-esr-l10n-cs firmware-amd-graphics firmware-atheros \
-firmware-brcm80211 firmware-ipw2x00 firmware-iwlwifi firmware-linux \
-firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree \
-firmware-realtek fish flac gedit-plugins gimp gnome-backgrounds \
-gnome-builder gnome-calendar gnome-dictionary gnome-logs gnome-maps \
-gnome-mpv gnome-music gnome-nettool gnome-packagekit gnome-photos \
-gnome-power-manager gnome-shell-extensions-gpaste gnome-sound-recorder \
-gnome-todo gnome-tweak-tool gstreamer1.0-libav gstreamer1.0-packagekit \
-gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly htop hyphen-cs \
-inkscape intel-microcode iotop iucode-tool \
-kde-wallpapers kdeartwork-wallpapers kdenlive krita \
-lame libreoffice-help-cs libreoffice-l10n-cs libreoffice-style-sifr \
-libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin libva-drm1 libva-egl1 \
-libva-intel-vaapi-driver libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 \
-lzip lziprecover lzop mc \
-mcomix mediainfo mesa-vdpau-drivers mesa-vulkan-drivers mpv nano neovim \
-opus-tools p7zip-full pandoc powertop quodlibet scribus shntool \
-simple-scan sox sudo testdisk tlp tracker-gui transmission-gtk unrar \
-vdpauinfo vim-nox vlc vorbis-tools vulkan-utils xfsdump youtube-dl \
-zfs-dkms zfs-initramfs zfsutils-linux zsh
+audacity beets cuetools easytag exfalso flac gimp gnome-backgrounds \
+gnome-mpv gnome-music gnome-photos gnome-sound-recorder \
+gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly inkscape kde-wallpapers kdeartwork-wallpapers \
+kdenlive krita lame libva-drm1 libva-egl1 libva-intel-vaapi-driver \
+libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 mcomix mediainfo \
+mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
+shntool sox vdpauinfo vlc vorbis-tools vulkan-utils youtube-dl \
+----
+
+=== Office, Reading and Writing [[debian-read-write]]
+
+[source,bash]
+----
+bijiben fbreader gedit-plugins gnome-calendar gnome-dictionary \
+gnome-todo gnome-shell-extensions-gpaste libreoffice-style-sifr \
+nano neovim pandoc scribus simple-scan vim-nox
+----
+
+=== Other Applications [[debian-other-apps]]
+
+[source,bash]
+----
+brasero chromium dconf-editor epiphany-browser gnome-builder \
+gnome-logs gnome-maps gnome-nettool gnome-packagekit \
+gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
+----
+
+=== Archiving and File Systems [[debian-archiving-fs]]
+
+[source,bash]
+----
+atool bleachbit exfat-fuse exfat-utils f2fs-tools lzip lziprecover lzop \
+p7zip-full testdisk unrar xfsdump zfs-dkms zfs-initramfs zfsutils-linux 
+----
+
+=== Various Low-level Stuff [[debian-various-ll]]
+
+[source,bash]
+----
+amd64-microcode beignet-opencl-icd clinfo firmware-amd-graphics \
+firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
+firmware-iwlwifi firmware-linux firmware-linux-free \
+firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
+fish htop intel-microcode iotop iucode-tool mc powertop \
+sudo tlp zsh
+----
+
+=== Czech Localization [[debian-czech-l10n]]
+
+[source,bash]
+----
+chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
+libreoffice-l10n-cs 
 ----
 
 === Fonts [[debian-fonts]]
@@ -162,12 +192,13 @@ fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
 ttf-anonymous-pro ttf-essays1743
 ----
 
-=== Some Free Games [[debian-games]]
+=== Games and Game-related [[debian-games]]
 
 [source,bash]
 ----
-0ad astromenace blobwars crawl crawl-tiles endless-sky fillets-ng \
+0ad astromenace blobwars bsdgames crawl crawl-tiles endless-sky fillets-ng \
 freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
-lierolibre neverball sauerbraten wesnoth
+libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
+sauerbraten wesnoth
 ----
 
