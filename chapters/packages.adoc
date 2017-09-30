@@ -136,11 +136,11 @@ deb http://ftp.cz.debian.org/debian/ stretch main contrib non-free
 deb http://ftp.cz.debian.org/debian/ stretch-updates main contrib non-free
 
 # Debian Stretch security updates
-deb http://security.debian.org/ stretch/updates main
+deb http://security.debian.org/ stretch/updates main contrib non-free
 
 # Debian Stretch backports -- the '-t stretch-backports' option
 # has to be specified explicitly to install packages from backports
-deb http://ftp.cz.debian.org/debian stretch-backports main
+deb http://ftp.cz.debian.org/debian stretch-backports main contrib non-free
 ----
 
 Alternatively, you can also use the https://deb.debian.org/[deb.debian.org] service, which automatically determines the fastest server for you each time `apt` downloads data:
@@ -153,11 +153,11 @@ deb http://deb.debian.org/debian/ stretch main contrib non-free
 deb http://deb.debian.org/debian/ stretch-updates main contrib non-free
 
 # Debian Stretch security updates
-deb http://deb.debian.org/debian-security stretch/updates main
+deb http://deb.debian.org/debian-security stretch/updates main contrib non-free
 
 # Debian Stretch backports -- the '-t stretch-backports' option
 # has to be specified explicitly to install packages from backports
-deb http://deb.debian.org/debian stretch-backports main
+deb http://deb.debian.org/debian stretch-backports main contrib non-free
 ----
 
 Further references:
