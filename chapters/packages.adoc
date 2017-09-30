@@ -259,3 +259,8 @@ libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
 sauerbraten wesnoth
 ----
 
+== Flatpak [[flatpak]]
+
+- https://flathub.org/apps.html[Flathub]
+- http://flatpak.org/apps.html[Flatpak Applications]
+
