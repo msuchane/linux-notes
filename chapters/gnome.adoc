@@ -109,3 +109,20 @@ Gnome offers ways to https://help.gnome.org/admin/system-admin-guide/stable/user
 
 To prevent specific DConf keys from being modified (to lock them down), follow the official Gnome documentation in the https://help.gnome.org/admin/system-admin-guide/stable/dconf-lockdown.html.en[Lock down specific settings] article.
 
+== Epiphany Adblock Lists [[epiphany-adblock]]
+
+The _Epiphany_ web browser, also called _Web_ or _WWW_, blocks ads by default. However, the blocking list is rather limited. New lists can be added by changing the `/org/gnome/epiphany/adblock-filters` DConf key.
+
+For example, to block tracking, social-networks elements, anti-adblock pop-ups, and Czech/Slovak ads:
+
+[source,bash]
+----
+dconf write \
+/org/gnome/epiphany/adblock-filters \
+"['https://easylist.to/easylist/easylist.txt', \
+'https://easylist.to/easylist/easyprivacy.txt', \
+'https://easylist.to/easylist/fanboy-social.txt', \
+'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt', \
+'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt']"
+----
+
