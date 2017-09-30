@@ -8,7 +8,11 @@
 
 == In Fedora [[fedora]]
 
-To have access to all packages listed here, enable the https://rpmfusion.org/[RPM Fusion] Free and Nonfree repositories. Follow their instructions on the https://rpmfusion.org/Configuration[Configuration] page.
+To have access to all packages listed here, enable the https://rpmfusion.org/[RPM Fusion] _Free_ and _Nonfree_ repositories. Follow their instructions on the https://rpmfusion.org/Configuration[Configuration] page.
+
+Further references:
+
+- https://admin.fedoraproject.org/mirrormanager/[Fedora mirror list]
 
 === Multimedia [[fedora-multimedia]]
 
@@ -120,9 +124,48 @@ NOTE: Korora versions follow Fedora releases, but are always a few months late.
 
 == In Debian [[debian]]
 
-// TODO: Add a sample sources.list configuration containing everything.
+To have access to all packages listed here, enable the _Contrib_ and _Non-free_ Debian repositories. This is done by editing the `/etc/apt/sources.list` file.
 
-NOTE: Some of these packages may require the Contrib or Nonfree repositories enabled.
+Here's a sample `sources.list` for Debian Stretch, configured to include all repositories and to download data from the primary Czech server:
+
+----
+# Basic repositories
+deb http://ftp.cz.debian.org/debian/ stretch main contrib non-free
+
+# Debian Stretch updates
+deb http://ftp.cz.debian.org/debian/ stretch-updates main contrib non-free
+
+# Debian Stretch security updates
+deb http://security.debian.org/ stretch/updates main
+
+# Debian Stretch backports -- the '-t stretch-backports' option
+# has to be specified explicitly to install packages from backports
+deb http://ftp.cz.debian.org/debian stretch-backports main
+----
+
+Alternatively, you can also use the https://deb.debian.org/[deb.debian.org] service, which automatically determines the fastest server for you each time `apt` downloads data:
+
+----
+# Basic repositories
+deb http://deb.debian.org/debian/ stretch main contrib non-free
+
+# Debian Stretch updates
+deb http://deb.debian.org/debian/ stretch-updates main contrib non-free
+
+# Debian Stretch security updates
+deb http://deb.debian.org/debian-security stretch/updates main
+
+# Debian Stretch backports -- the '-t stretch-backports' option
+# has to be specified explicitly to install packages from backports
+deb http://deb.debian.org/debian stretch-backports main
+----
+
+Further references:
+
+- https://wiki.debian.org/SourcesList[A sources.list article on the Debian Wiki]
+- https://www.debian.org/mirror/list[Debian mirror list]
+- https://debgen.simplylinux.ch/[A sources.list generator]
+- https://wiki.debian.org/Backports[Debian backports] – install fresh packages on Debian Stable
 
 === Multimedia [[debian-multimedia]]
 
