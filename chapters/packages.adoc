@@ -8,9 +8,7 @@
 
 == In Fedora [[fedora]]
 
-// TODO: Add links and instructions about RPMFusion.
-
-NOTE: Some of these packages require the RPMFusion Free or Non-free repositories enabled.
+To have access to all packages listed here, enable the https://rpmfusion.org/[RPM Fusion] Free and Nonfree repositories. Follow their instructions on the https://rpmfusion.org/Configuration[Configuration] page.
 
 === Multimedia [[fedora-multimedia]]
 
