@@ -194,6 +194,11 @@ kernel.nmi_watchdog=0
 
 You can read the current state of `watchdog` from the `/proc/sys/kernel/nmi_watchdog` file: `0` for disabled, `1` for enabled`.
 
+=== My Personal Dotfiles [[dotfiles]]
+
+Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my https://gitlab.com/mrksu/dotfiles[dotfiles] repository on GitLab.
+
+
 == Fedora-Specific Options [[fedora-specific]]
 
 === Limit coredump Disk Usage [[limit-coredump]]
