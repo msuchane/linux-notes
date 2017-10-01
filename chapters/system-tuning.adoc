@@ -145,10 +145,10 @@ sudo find /boot -name grub.cfg
 +
 . Copy the file name the previous command gave you and use it here:
 +
-[source,bash]
-----
-sudo grub2-mkconfig -o /path/to/grub.cfg
-----
+[source,bash,subs=+quotes]
+....
+sudo grub2-mkconfig -o /boot/__path/to/__grub.cfg
+....
 
 === Setting Up the "Magic SysRq Keys" [[magic-sysrq]]
 
@@ -255,10 +255,10 @@ apt install sudo
 +
 . Add your user to the group `sudo`:
 +
-[source,bash]
-----
-usermod -a -G sudo your_user_name
-----
+[source,bash,subs=+quotes]
+....
+usermod -a -G sudo __your_user_name__
+....
 +
 . Reboot your system.
 
@@ -384,10 +384,10 @@ The default theme in Debian Stretch is `softwaves`. The rest are either the them
 +
 . Set a theme for Plymouth to actually use:
 +
-[source,bash]
-----
-sudo plymouth-set-default-theme -R your_selected_theme
-----
+[source,bash,subs=+quotes]
+....
+sudo plymouth-set-default-theme -R __your_selected_theme__
+....
 +
 . Reboot and watch the result. Repeat the last two steps if you want to see more themes in action.
 

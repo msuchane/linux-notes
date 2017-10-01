@@ -43,10 +43,10 @@ false
 
 `dconf` settings cannot be copied over to another system or to another user like regular, plain-text files. However, you can export ("dump") them to a text file and then import ("load") them from it again:
 
-[source,bash]
+[source,bash,subs=+quotes]
 ----
-dconf dump /path/to/export/ > exported-dconf-settings.txt
-dconf load /path/to/import/ < exported-dconf-settings.txt
+dconf dump /__path/to/export/__ > __exported-dconf-settings.txt__
+dconf load /__path/to/import/__ < __exported-dconf-settings.txt__
 ----
 
 For example:
