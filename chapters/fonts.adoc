@@ -10,7 +10,7 @@
 
 == Sans-serif
 
-[cols="<50,<25,<25",options="header"]
+[cols="<40,<30,<30",options="header"]
 |===
 | Font Name                     | In Fedora repos?             | In Debian repos?
 | Alegreya Sans                 | ht-alegreya-fonts            | -
@@ -35,7 +35,7 @@
 
 == Serif
 
-[cols="<50,^25,^25",options="header"]
+[cols="<40,<30,<30",options="header"]
 |===
 | Font Name                     | In Fedora repos?             | In Debian repos?
 | Alegreya                      | ht-alegreya-fonts            | -
@@ -61,7 +61,7 @@
 
 == Fixed-width
 
-[cols="<50,^25,^25",options="header"]
+[cols="<40,<30,<30",options="header"]
 |===
 | Font Name                     | In Fedora repos?             | In Debian repos?
 | Cousine (Croscore Courier New) | google-croscore-cousine-fonts | fonts-croscore
