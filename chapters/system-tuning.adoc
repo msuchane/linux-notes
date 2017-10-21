@@ -124,6 +124,8 @@ vm.vfs_cache_pressure=100
 
 However, note that there is little "scientific" proof that modifying these actually helps. Experiment if you need to be sure. Rodd-O https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[devises a way to test the impact] in their article mentioned earlier.
 
+Afterwards, update the initial ramdisk; see <<rebuild-ramdisk>>.
+
 === Update grub2 Configuration [[update-grub]]
 
 After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
@@ -164,6 +166,8 @@ To set up Magic SysRq, open the `/etc/sysctl.conf` file as root and add:
 kernel.sysrq = 1
 ----
 
+Afterwards, update the initial ramdisk; see <<rebuild-ramdisk>>.
+
 === Synchronized Time Zones when Dual-booting with Windows [[dual-boot-time-zones]]
 
 Linux sets the hardware clock to the current time in UTC, while Windows sets it to the local time. This conflict results the clock being off a few hours when switching operating systems.
@@ -193,6 +197,33 @@ kernel.nmi_watchdog=0
 ----
 
 You can read the current state of `watchdog` from the `/proc/sys/kernel/nmi_watchdog` file: `0` for disabled, `1` for enabled`.
+
+Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
+
+=== Rebuilding the Initial Ramdisk [[rebuild-initramfs]]
+
+After changing `sysctl` settings, rebuilt the initial ramdisk in order for the updated settings to take effect early in the boot process.
+
+- In Fedora:
++
+[source,bash]
+----
+sudo dracut -f
+----
+
+- In Debian:
++
+[source,bash]
+----
+sudo update-initramfs
+----
++
+Or:
++
+[source,bash]
+----
+sudo dracut-update-initramfs
+----
 
 === My Personal Dotfiles [[dotfiles]]
 
