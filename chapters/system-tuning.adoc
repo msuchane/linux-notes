@@ -124,7 +124,7 @@ vm.vfs_cache_pressure=100
 
 However, note that there is little "scientific" proof that modifying these actually helps. Experiment if you need to be sure. Rodd-O https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[devises a way to test the impact] in their article mentioned earlier.
 
-Afterwards, update the initial ramdisk; see <<rebuild-ramdisk>>.
+Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
 === Update grub2 Configuration [[update-grub]]
 
@@ -166,7 +166,7 @@ To set up Magic SysRq, open the `/etc/sysctl.conf` file as root and add:
 kernel.sysrq = 1
 ----
 
-Afterwards, update the initial ramdisk; see <<rebuild-ramdisk>>.
+Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
 === Synchronized Time Zones when Dual-booting with Windows [[dual-boot-time-zones]]
 
