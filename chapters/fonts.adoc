@@ -12,26 +12,23 @@
 
 [cols="<50,^25,^25",options="header"]
 |===
-| Font Name                     | In Fedora repos?  | In Debian repos?
-| Alegreya Sans                 | Yes               | No
-a| Croscore:
-
-- Arimo (matching MS Arial)
-- Carlito (matching MS Calibri)
-                                | Yes               | Yes
-| Droid Sans                    | Yes               | No
-| Fira Sans                     | Yes               | No
-| Lato                          | Yes               | Yes
-| Libre Franklin                | No                | No
-| Linux Biolinum                | Yes               | Yes
-| Merriweather Sans             | No                | No
-| Noto Sans                     | Yes               | Yes
-| Open Sans                     | Yes               | ?
-| PT Sans                       | Yes               | ?
-| Raleway                       | ?                 | No
-| Roboto                        | Yes               | Yes
-| Source Sans Pro               | Yes               | ?
-| Work Sans                     | No                | No
+| Font Name                     | In Fedora repos?             | In Debian repos?
+| Alegreya Sans                 | ht-alegreya-fonts            | No
+| Arimo (Croscore Arial)        | google-croscore-arimo-fonts  | Yes
+| Carlito (Croscore Calibri)    | google-crosextra-carlito-fonts | Yes
+| Droid Sans                    | google-droid-sans-fonts      | No
+| Fira Sans                     | mozilla-fira-sans-fonts      | No
+| Lato                          | lato-fonts                   | Yes
+| Libre Franklin                | -                            | No
+| Linux Biolinum                | linux-libertine-biolinum-fonts | Yes
+| Merriweather Sans             | -                            | No
+| Noto Sans                     | google-noto-sans-fonts       | Yes
+| Open Sans                     | open-sans-fonts              | ?
+| PT Sans                       | paratype-pt-sans-fonts       | ?
+| Raleway                       | impallari-raleway-fonts      | No
+| Roboto                        | google-roboto-fonts          | Yes
+| Source Sans Pro               | adobe-source-sans-pro-fonts  | ?
+| Work Sans                     | -                            | No
 |===
 
 
@@ -39,28 +36,25 @@ a| Croscore:
 
 [cols="<50,^25,^25",options="header"]
 |===
-| Font Name                     | In Fedora repos?  | In Debian repos?
-| Alegreya                      | Yes               | No
-a| Croscore:
-
-- Caladea (matching MS Cambria)
-- Tinos (matching MS Times New Roman)
-                                | Yes               | Yes
-| Droid Serif                   | Yes               | No
-| Fanwood                       | No                | Yes
-| Gentium (Gentium Plus for better Unicode coverage) | Yes | Yes
-| Heuristica                    | Yes               | No
-| Isabella                      | ?                 | ?
-| Libre Baskerville             | No                | No
-| Linux Libertine               | Yes               | Yes
-| Merriweather                  | No                | No
-| Noticia Text                  | No                | No
-| Noto Serif                    | Yes               | Yes
-| Old Standard                  | Yes               | Yes
-| PT Serif                      | Yes               | ?
-| Roboto Slab                   | Yes               | Yes
-| Sorts Mill Goudy              | Yes               | ?
-| Source Serif Pro              | Yes               | ?
+| Font Name                     | In Fedora repos?             | In Debian repos?
+| Alegreya                      | ht-alegreya-fonts            | No
+| Caladea (Croscore Cambria)    | google-crosextra-caladea-fonts | Yes
+| Tinos (Croscore Times New Roman) | google-croscore-tinos-fonts | Yes
+| Droid Serif                   | google-droid-serif-fonts     | No
+| Fanwood                       | -                            | Yes
+| Gentium                       | sil-gentium-fonts            | Yes
+| Heuristica                    | apanov-heuristica-fonts      | No
+| Isabella                      | thibault-isabella-fonts      | ?
+| Libre Baskerville             | -                            | No
+| Linux Libertine               | linux-libertine-fonts        | Yes
+| Merriweather                  | -                            | No
+| Noticia Text                  | -                            | No
+| Noto Serif                    | google-noto-serif-fonts      | Yes
+| Old Standard                  | oldstandard-sfd-fonts        | Yes
+| PT Serif                      | paratype-pt-serif-fonts      | ?
+| Roboto Slab                   | google-roboto-slab-fonts     | Yes
+| Sorts Mill Goudy              | cf-sorts-mill-goudy-fonts    | ?
+| Source Serif Pro              | adobe-source-serif-pro-fonts | ?
 |===
 
 
@@ -68,17 +62,14 @@ a| Croscore:
 
 [cols="<50,^25,^25",options="header"]
 |===
-| Font Name                     | In Fedora repos?  | In Debian repos?
-a| Croscore:
-
-- Cousine (matching MS Courier New)
-                                | Yes               | Yes
-| Droid Mono                    | Yes               | No
-| Fira Mono (Fira Code if you like ligatures) | Yes | No
-| Inconsolata                   | Yes               | Yes
-| Noto Mono                     | Yes               | Yes
-| PT Mono                       | Yes               | ?
-| Roboto Mono                   | Yes               | Yes
-| Source Code Pro               | Yes               | ?
+| Font Name                     | In Fedora repos?             | In Debian repos?
+| Cousine (Croscore Courier New) | google-croscore-cousine-fonts | Yes
+| Droid Mono                    | google-droid-sans-mono-fonts | No
+| Fira Mono                     | mozilla-fira-mono-fonts      | No
+| Inconsolata                   | levien-inconsolata-fonts     | Yes
+| Noto Mono                     | google-noto-mono-fonts       | Yes
+| PT Mono                       | paratype-pt-mono             | ?
+| Roboto Mono                   | google-roboto-mono-fonts     | Yes
+| Source Code Pro               | adobe-source-code-pro-fonts  | ?
 |===
 

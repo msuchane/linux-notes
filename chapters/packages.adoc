@@ -86,7 +86,7 @@ levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
 linux-libertine\* google-noto-sans-fonts google-noto-mono-fonts \
 google-noto-serif-fonts google-noto-emoji-fonts oldstandard-sfd-fonts \
 open-sans-fonts paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
-adobe-source\*fonts gdouros-symbola-fonts
+adobe-source\*fonts gdouros-symbola-fonts impallari-raleway-fonts
 ----
 
 === Games and Game-related [[fedora-games]]
