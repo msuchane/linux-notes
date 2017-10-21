@@ -209,6 +209,27 @@ If your computer uses a solid-state disk (SSD), you should https://en.wikipedia.
 echo '#!/bin/sh\nfstrim -a\n' | sudo tee /etc/cron.weekly/fstrim.sh
 ----
 
+=== Configuring the Virtual Console [[console-font]]
+
+The Linux virtual console, which displays, for example, the boot process, uses its own font and keyboard layout settings. These can be modified either on the kernel command line or in the `/etc/vsonsole.conf` configuration file.
+
+By default, Fedora uses the classic _eurlatgr_ font, while Debian has switched to the great, but much more opinionated, _Terminus_ font. To see the console fonts available on your system, browse the `/lib/kbd/consolefonts/` directory. To install _Terminus_ on Fedora, use:
+
+[source,bash]
+----
+sudo dnf install terminus-fonts-console
+----
+
+Then, edit the `/etc/vconsole.conf` file and set the `FONT` variable. For example, for the console to use _Terminus_ size 18 for Central European encodings:
+
+----
+FONT="ter-218n"
+----
+
+This can also be achieved by adding the `vconsole.font=ter-218n` parameter to the kernel command line in the `/etc/default/grub` file.
+
+// TODO: Find out whether there's any benefit in using the kernel option.
+
 === Rebuilding the Initial Ramdisk [[rebuild-initramfs]]
 
 After changing `sysctl` settings, rebuilt the initial ramdisk in order for the updated settings to take effect early in the boot process.
