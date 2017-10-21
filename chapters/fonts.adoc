@@ -6,8 +6,6 @@
 :sectnums:
 :toc:
 
-// TODO: Add links to fonts and verify packages in repos
-
 == Sans-serif
 
 [cols="<40,<30,<30",options="header"]
