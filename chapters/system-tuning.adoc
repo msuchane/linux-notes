@@ -284,22 +284,21 @@ Configuration can be changed in the `/etc/selinux/config` file, on the `SELINUX=
 ----
 su
 ----
-+
-// TODO: Add a reference to the Packages chapter
-. Install the `sudo` package. This is already included in the _Packages_ chapter, but anyway, to make sure:
+
+. Install the `sudo` package. This is already included in the <<packages#packages,Useful Packages>> chapter, but anyway, to make sure:
 +
 [source,bash]
 ----
 apt install sudo
 ----
-+
+
 . Add your user to the group `sudo`:
 +
 [source,bash,subs=+quotes]
 ....
 usermod -a -G sudo __your_user_name__
 ....
-+
+
 . Reboot your system.
 
 === journald as the Only Log [[only-journald]]

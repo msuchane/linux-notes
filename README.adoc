@@ -14,11 +14,7 @@ Originally, they made little sense to anyone but me. Currently, I'm trying to re
 // This isn't recommended, but works for my use case.
 // The link:single-page.adoc[single-page] variant compiled from all chapters
 
-// TODO: Add a 'Free Fonts' file.
-
 // TODO: Add a 'Handy References' file.
-
-// TODO: Link to my dotfiles.
 
 These are the "`chapters`" currently available:
 
