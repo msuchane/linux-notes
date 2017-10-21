@@ -10,25 +10,26 @@
 
 == Sans-serif
 
-[cols="<50,^25,^25",options="header"]
+[cols="<50,<25,<25",options="header"]
 |===
 | Font Name                     | In Fedora repos?             | In Debian repos?
-| Alegreya Sans                 | ht-alegreya-fonts            | No
-| Arimo (Croscore Arial)        | google-croscore-arimo-fonts  | Yes
-| Carlito (Croscore Calibri)    | google-crosextra-carlito-fonts | Yes
-| Droid Sans                    | google-droid-sans-fonts      | No
-| Fira Sans                     | mozilla-fira-sans-fonts      | No
-| Lato                          | lato-fonts                   | Yes
-| Libre Franklin                | -                            | No
-| Linux Biolinum                | linux-libertine-biolinum-fonts | Yes
-| Merriweather Sans             | -                            | No
-| Noto Sans                     | google-noto-sans-fonts       | Yes
-| Open Sans                     | open-sans-fonts              | ?
-| PT Sans                       | paratype-pt-sans-fonts       | ?
-| Raleway                       | impallari-raleway-fonts      | No
-| Roboto                        | google-roboto-fonts          | Yes
-| Source Sans Pro               | adobe-source-sans-pro-fonts  | ?
-| Work Sans                     | -                            | No
+| Alegreya Sans                 | ht-alegreya-fonts            | -
+| Arimo (Croscore Arial)        | google-croscore-arimo-fonts  | fonts-croscore
+| Cabin                         | -                            | fonts-cabin
+| Carlito (Croscore Calibri)    | google-crosextra-carlito-fonts | fonts-crosextra-carlito
+| Droid Sans                    | google-droid-sans-fonts      | -
+| Fira Sans                     | mozilla-fira-sans-fonts      | -
+| Lato                          | lato-fonts                   | fonts-lato
+| Libre Franklin                | -                            | -
+| Linux Biolinum                | linux-libertine-biolinum-fonts | fonts-linuxlibertine
+| Merriweather Sans             | -                            | -
+| Noto Sans                     | google-noto-sans-fonts       | fonts-noto-hinted
+| Open Sans                     | open-sans-fonts              | fonts-open-sans
+| PT Sans                       | paratype-pt-sans-fonts       | -
+| Raleway                       | impallari-raleway-fonts      | -
+| Roboto                        | google-roboto-fonts          | fonts-roboto-hinted
+| Source Sans Pro               | adobe-source-sans-pro-fonts  | -
+| Work Sans                     | -                            | -
 |===
 
 
@@ -37,24 +38,24 @@
 [cols="<50,^25,^25",options="header"]
 |===
 | Font Name                     | In Fedora repos?             | In Debian repos?
-| Alegreya                      | ht-alegreya-fonts            | No
-| Caladea (Croscore Cambria)    | google-crosextra-caladea-fonts | Yes
-| Tinos (Croscore Times New Roman) | google-croscore-tinos-fonts | Yes
-| Droid Serif                   | google-droid-serif-fonts     | No
-| Fanwood                       | -                            | Yes
-| Gentium                       | sil-gentium-fonts            | Yes
-| Heuristica                    | apanov-heuristica-fonts      | No
-| Isabella                      | thibault-isabella-fonts      | ?
-| Libre Baskerville             | -                            | No
-| Linux Libertine               | linux-libertine-fonts        | Yes
-| Merriweather                  | -                            | No
-| Noticia Text                  | -                            | No
-| Noto Serif                    | google-noto-serif-fonts      | Yes
-| Old Standard                  | oldstandard-sfd-fonts        | Yes
-| PT Serif                      | paratype-pt-serif-fonts      | ?
-| Roboto Slab                   | google-roboto-slab-fonts     | Yes
-| Sorts Mill Goudy              | cf-sorts-mill-goudy-fonts    | ?
-| Source Serif Pro              | adobe-source-serif-pro-fonts | ?
+| Alegreya                      | ht-alegreya-fonts            | -
+| Caladea (Croscore Cambria)    | google-crosextra-caladea-fonts | fonts-crosextra-caladea
+| Tinos (Croscore Times New Roman) | google-croscore-tinos-fonts | fonts-croscore
+| Droid Serif                   | google-droid-serif-fonts     | -
+| Fanwood                       | -                            | -
+| Gentium                       | sil-gentium-fonts            | fonts-sil-gentium
+| Heuristica                    | apanov-heuristica-fonts      | -
+| Isabella                      | thibault-isabella-fonts      | fonts-isabella
+| Libre Baskerville             | -                            | -
+| Linux Libertine               | linux-libertine-fonts        | fonts-linuxlibertine
+| Merriweather                  | -                            | -
+| Noticia Text                  | -                            | -
+| Noto Serif                    | google-noto-serif-fonts      | fonts-noto-hinted
+| Old Standard                  | oldstandard-sfd-fonts        | fonts-oldstandard
+| PT Serif                      | paratype-pt-serif-fonts      | -
+| Roboto Slab                   | google-roboto-slab-fonts     | -
+| Sorts Mill Goudy              | cf-sorts-mill-goudy-fonts    | -
+| Source Serif Pro              | adobe-source-serif-pro-fonts | -
 |===
 
 
@@ -63,13 +64,13 @@
 [cols="<50,^25,^25",options="header"]
 |===
 | Font Name                     | In Fedora repos?             | In Debian repos?
-| Cousine (Croscore Courier New) | google-croscore-cousine-fonts | Yes
-| Droid Mono                    | google-droid-sans-mono-fonts | No
-| Fira Mono                     | mozilla-fira-mono-fonts      | No
-| Inconsolata                   | levien-inconsolata-fonts     | Yes
-| Noto Mono                     | google-noto-mono-fonts       | Yes
-| PT Mono                       | paratype-pt-mono             | ?
-| Roboto Mono                   | google-roboto-mono-fonts     | Yes
-| Source Code Pro               | adobe-source-code-pro-fonts  | ?
+| Cousine (Croscore Courier New) | google-croscore-cousine-fonts | fonts-croscore
+| Droid Mono                    | google-droid-sans-mono-fonts | -
+| Fira Mono                     | mozilla-fira-mono-fonts      | fonts-firacode
+| Inconsolata                   | levien-inconsolata-fonts     | fonts-inconsolata
+| Noto Mono                     | google-noto-mono-fonts       | fonts-noto-mono
+| PT Mono                       | paratype-pt-mono             | -
+| Roboto Mono                   | google-roboto-mono-fonts     | -
+| Source Code Pro               | adobe-source-code-pro-fonts  | -
 |===
 

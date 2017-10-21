@@ -240,10 +240,10 @@ libreoffice-l10n-cs
 apt install \
 fonts-cabin fonts-cabinsketch fonts-cantarell \
 fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
-fonts-fanwood fonts-inconsolata fonts-isabella \
+fonts-fanwood fonts-firacode fonts-inconsolata fonts-isabella \
 fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
-fonts-liberation2 fonts-linuxlibertine fonts-noto-hinted \
-fonts-oldstandard fonts-opendyslexic fonts-quattrocento \
+fonts-liberation2 fonts-linuxlibertine fonts-noto-hinted fonts-noto-mono \
+fonts-oldstandard fonts-opendyslexic fonts-open-sans fonts-quattrocento \
 fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
 ttf-anonymous-pro ttf-essays1743
 ----
