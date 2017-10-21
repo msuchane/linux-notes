@@ -200,6 +200,15 @@ You can read the current state of `watchdog` from the `/proc/sys/kernel/nmi_watc
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
+=== Trimming Your SSD [[fstrim]]
+
+If your computer uses a solid-state disk (SSD), you should https://en.wikipedia.org/wiki/Trim_(computing)["trim"] the file systems on it regularly. Your distributions might already do that for you; if not, create a `cron` script to be executed once every week using this command:
+
+[source,bash]
+----
+echo '#!/bin/sh\nfstrim -a\n' | sudo tee /etc/cron.weekly/fstrim.sh
+----
+
 === Rebuilding the Initial Ramdisk [[rebuild-initramfs]]
 
 After changing `sysctl` settings, rebuilt the initial ramdisk in order for the updated settings to take effect early in the boot process.
