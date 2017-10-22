@@ -230,6 +230,8 @@ This can also be achieved by adding the `vconsole.font=ter-218n` parameter to th
 
 // TODO: Find out whether there's any benefit in using the kernel option.
 
+See also the *vconsole.conf*(5) man page for more information on configuring the console, including the keyboard layout.
+
 === Rebuilding the Initial Ramdisk [[rebuild-initramfs]]
 
 After changing `sysctl` settings, rebuilt the initial ramdisk in order for the updated settings to take effect early in the boot process.
