@@ -1,0 +1,171 @@
+= Documentation and Useful References
+:author: Marek Suchánek
+:email: marek.suchanek@protonmail.com
+//:source-highlighter: highlightjs
+:source-highlighter: prettify
+:sectnums:
+:toc:
+
+== Red Hat Enterprise Linux 7 Documentation [[rhel-docs]]
+
+This is a larger part of the https://access.redhat.com/documentation/en/red-hat-enterprise-linux/[RHEL 7 documentation], publicly available.
+
+=== Getting Started [[rhel-get-st]]
+
+Information that helps you start using software quickly
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/index[Installation Guide]
++
+Installing Red Hat Enterprise Linux 7 and Red Hat Enterprise Linux Atomic Host on all architectures
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/getting_started_with_cockpit/[Getting Started with Cockpit]
++
+Introduction to the Cockpit web-based administration interface
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/migration_planning_guide/[Migration Planning Guide]
++
+Migrating to Red Hat Enterprise Linux 7
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/desktop_migration_and_administration_guide/[Desktop Migration and Administration Guide]
++
+A guide to the GNOME 3 Desktop migration planning and administration on Red Hat Enterprise Linux 7.
+
+=== System Administration [[rhel-admin]]
+
+Deployment, administration, and tuning
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/index[System Administrator's Guide]
++
+Deployment, Configuration, and Administration of Red Hat Enterprise Linux 7
+* https://access.redhat.com/articles/1189123[Common administrative commands]
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/[Networking Guide]
++
+Configuration and Administration of networking for Red Hat Enterprise Linux 7
+* https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Kernel_Administration_Guide/index.html[Kernel Administration Guide]
++
+Examples of tasks for managing the kernel
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/kernel_crash_dump_guide/[Kernel Crash Dump Guide]
++
+Kernel Crash Dump Configuration and Analysis
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/performance_tuning_guide/[Performance Tuning Guide]
++
+Optimizing subsystem throughput in Red Hat Enterprise Linux 7
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/power_management_guide/[Power Management Guide]
++
+Managing power consumption on Red Hat Enterprise Linux 7
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/resource_management_guide/[Resource Management Guide]
++
+Managing system resources on Red Hat Enterprise Linux 7
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/systemtap_beginners_guide/[SystemTap Beginners Guide]
++
+Introduction to SystemTap
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/systemtap_tapset_reference/index[SystemTap Tapset Reference]
++
+For SystemTap in Red Hat Enterprise Linux 7
+
+=== Storage [[rhel-storage]]
+
+Storage and filesystems
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/index[Storage Administration Guide]
++
+Deploying and configuring single-node storage in Red Hat Enterprise Linux 7
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/index[Logical Volume Manager Administration]
++
+LVM Administrator Guide
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/dm_multipath/index[DM Multipath]
++
+DM Multipath Configuration and Administration
+
+=== Development [[rhel-dev]]
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/developer_guide/[Developer Guide]
++
+An introduction to application development tools in Red Hat Enterprise Linux 7
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/rpm_packaging_guide/[RPM Packaging Guide]
++
+Tutorial on basic and a reference on advanced RPM packaging topics
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/anaconda_customization_guide/[Anaconda Customization Guide]
++
+Customizing and enhancing the installer
+
+=== Virtualization [[rhel-virt]]
+
+Deployment, administration, and tuning of virtual machines
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_getting_started_guide/index[Virtualization Getting Started Guide]
++
+An introduction to virtualization concepts
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/[Virtualization Deployment and Administration Guide]
++
+Installing, configuring, and managing virtual machines on a Red Hat Enterprise Linux physical machine
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/[Virtualization Tuning and Optimization Guide]
++
+Optimizing your virtual environment
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_security_guide/[Virtualization Security Guide]
+
+=== Security [[rhel-sec]]
+
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/index[Security Guide]
++
+A Guide to Securing Red Hat Enterprise Linux 7
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/[SELinux User's and Administrator's Guide]
++
+Basic and advanced configuration of Security-Enhanced Linux (SELinux)
+
+== Fedora Documentation [[fedora-docs]]
+
+Currently, Fedora documentation boils down to an installation guide.
+
+See the https://docs.fedoraproject.org/[Fedora Documentation Site].
+
+== Debian Documentation [[debian-docs]]
+
+Main articles from the https://wiki.debian.org/[Debian Wiki].
+
+=== General [[debian-general]]
+
+* https://wiki.debian.org/News[News]
+* https://wiki.debian.org/DebianIntroduction[Introduction]
+* https://wiki.debian.org/QuickInstall[Installation]
+* https://wiki.debian.org/Community[Community]
+
+=== Users [[debian-users]]
+
+* https://wiki.debian.org/DesktopEnvironment[Desktop]
+* https://wiki.debian.org/Software[Software]
+* https://wiki.debian.org/Hardware[Hardware]
+* https://wiki.debian.org/PackageManagement[Package Management]
+
+=== Administrators [[debian-admin]]
+
+* https://wiki.debian.org/SystemAdministration[System Administration]
+* https://wiki.debian.org/Network[Network Services]
+* https://wiki.debian.org/CommandLineInterface[Command Line Interface]
+
+=== Developers [[debian-devs]]
+
+* https://wiki.debian.org/DebianDevelopment[Debian Development]
+* https://wiki.debian.org/ProgrammingLanguage[Programming]
+* https://wiki.debian.org/ProgrammingApplication[Tools]
+
+== Arch
+
+The awesome https://wiki.archlinux.org/[Arch Wiki].
+
+* https://wiki.archlinux.org/index.php/Arch_Linux[Arch Linux]
++
+Overview of Arch Linux describing what to expect from an Arch Linux system.
+* https://wiki.archlinux.org/index.php/Frequently_asked_questions[Frequently asked questions]
++
+Notable questions and facts about the distribution.
+* https://wiki.archlinux.org/index.php/Arch_compared_to_other_distributions[Arch compared to other distributions]
++
+Summarizes the similarities and differences between Arch and other distributions.
+* https://wiki.archlinux.org/index.php/Installation_guide[Installation guide]
++
+Guide through the process of installing Arch Linux.
+* https://wiki.archlinux.org/index.php/General_recommendations[General recommendations]
++
+Annotated index of post-installation tutorials and other popular articles.
+* https://wiki.archlinux.org/index.php/List_of_applications[List of applications]
++
+Categorized presentation of common official and AUR packages.
+
