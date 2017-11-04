@@ -126,3 +126,11 @@ dconf write \
 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt']"
 ----
 
+== Some Gnome Shell Extensions [[gs-extensions]]
+
+https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
+https://extensions.gnome.org/extension/1160/dash-to-panel/[Dash to Panel] :: Similar to Dash to Dock, but creates a Windows-like panel instead.
+Gpaste :: Manages the clipboard (selectable history of copy-and-paste). Install from distribution packages: `gnome-shell-extension-gpaste` in Fedora and `gnome-shell-extensions-gpaste` in Debian.
+https://extensions.gnome.org/extension/723/pixel-saver/[Pixel Saver] :: Hides the titlebar of maximized windows that don't use a headerbar.
+https://extensions.gnome.org/extension/495/topicons/[TopIcons] or https://extensions.gnome.org/extension/1031/topicons/[TopIcons Plus] :: Displays tray icons in the top panel.
+
