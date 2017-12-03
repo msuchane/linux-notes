@@ -47,7 +47,7 @@ simple-scan scribus vim
 sudo dnf install \
 brasero dconf-editor epiphany gnome-builder gnome-logs gnome-maps \
 gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
-tracker-preferences transmission-gtk 
+transmission-gtk 
 ----
 
 === Archiving and File Systems[[fedora-archiving-fs]]

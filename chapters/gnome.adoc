@@ -155,6 +155,23 @@ dconf reset \
 
 NOTE: For now, a reasonable alternative to fractional scaling is to scale just the fonts. Use the "Scaling Factor" in the "Fonts" tab in Tweaks. Additionally, you may want to set a similar value for Firefox to scale CSS. See the Applications chapter, Firefox section for more information.
 
+== Lowering the Load of File Metadata Mining [[tracker-preferences]]
+
+Gnome includes the Tracker service to extract file metadata and provide a search database. This tends to spin the disk a lot (especially with HDDs) and eat a large portion of the CPU sometimes.
+
+If you're on a slower, HDD-backed system or want to conserve energy, it might be a good idea to limit the reach and intensity of Tracker. There used to be the "Tracker Preferences" application, which has now been discontinued, as it seems. Luckily, DConf settings remain accessible in the following key directory:
+
+----
+/org/freedesktop/tracker/
+----
+
+Consider exploring the following:
+
+----
+/org/freedesktop/tracker/extract/
+/org/freedesktop/tracker/miner/files/
+----
+
 == Some Gnome Shell Extensions [[gs-extensions]]
 
 https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
