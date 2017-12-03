@@ -124,6 +124,18 @@ However, note that there is little "scientific" proof that modifying these actua
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
+=== Early OOM Killer [[early-oom]]
+
+The Linux "out-of-memory killer" (OOM Killer) is supposed to terminate the process that uses the most memory when the system is running out of RAM. However, it hardly ever actually executes: it is overly optimistic that the system can eventually handle the problem on its own. This leads to situations when the memory is hopelessly full while the system stays unresponsive for hours until the user presses the power button.
+
+Therefore, an alternative, user-space implementation has been created, `earlyoom`, which is much more strict and predictable.
+
+The `earlyoom` service runs in the background and checks for memory conditions. By default, it kills a process when both the RAM and the swap partition are at least 90% full. These values are configurable.
+
+For details on installation and usage, see the GitHub page: https://github.com/rfjakob/earlyoom[rfjakob/earlyoom]. The context was also discussed on Reddit: https://www.reddit.com/r/linux/comments/7e0pgm/earlyoom_early_oom_daemon/[earlyoom - Early OOM daemon].
+
+Note that this is just a suggestion. Look into the alternative OOM Killer only if you think your setup might benefit from it.
+
 === Update grub2 Configuration [[update-grub]]
 
 After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
