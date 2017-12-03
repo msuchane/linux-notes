@@ -126,6 +126,35 @@ dconf write \
 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt']"
 ----
 
+== Fractional Scaling [[fractional-scaling]]
+
+Currently (v3.26), Gnome and the GTK+ toolkit allow interface scaling by integers only by default. That is, by the factor of 1.0, 2.0, etc. If you're using a screen that has a semi-high pixel density, neither of these settings work very well and your user interface elements look either too small or too big.
+
+However, in 3.26, a new, experimental option has been introduced to allow fractional, non-integer scaling: for example, 1.25× or 1.5×. It doesn't work that great yet but you can try it out to see what it's like. You need to set the `/org/gnome/mutter/experimental-features` DConf key and do a little config dance:
+
+. Enable the experimental feature in DConf:
++
+[source,bash]
+----
+dconf write \
+/org/gnome/mutter/experimental-features \
+"['scale-monitor-framebuffer']"
+----
+
+. Log out of Gnome and log back in again.
+
+. Go to Gnome Settings → Devices → Displays and select a "Scale" value that you're comfortable with. You can set a different scaling factor for each of your displays.
+
+If you decide to disable the feature and go back to integer scaling, unset the key:
+
+[source,bash]
+----
+dconf reset \
+/org/gnome/mutter/experimental-features
+----
+
+NOTE: For now, a reasonable alternative to fractional scaling is to scale just the fonts. Use the "Scaling Factor" in the "Fonts" tab in Tweaks. Additionally, you may want to set a similar value for Firefox to scale CSS. See the Applications chapter, Firefox section for more information.
+
 == Some Gnome Shell Extensions [[gs-extensions]]
 
 https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
