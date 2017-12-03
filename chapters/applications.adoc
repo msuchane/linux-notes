@@ -8,6 +8,26 @@
 
 == Firefox [[firefox]]
 
+=== Web Pages and Interface Scaling [[web-scaling]]
+
+Depending on the pixel density (DPI) of your display, your eyesight, and the distance between you and the display, text on the web might be too small. There are multiple ways to deal with it:
+
+* some people just zoom any web page as soon as they visit it;
+
+* other people increase the minimal font size in settings;
+
+* the _smartest_ people adjust the CSS pixels scaling ratio.
+
+The benefit of the last approach is that the scaling is:
+
+* automatic: no need to zoom by hand;
+
+* transparent and consistent: all pages and their elements and even the Firefox interface itself are scaled by the same factor.
+
+To utilize this great setting, go to the `about:config` page and set the following key to a comfortable value, e.g. `1.5`:
+
+* `layout.css.devPixelsPerPx`
+
 === No Middle Mouse Button Paste [[middle-mouse-paste]]
 
 By default, Firefox recognizes the middle mouse button (mouse-wheel click) the traditional UNIX way, that is it pastes clipboard content or, worse yet, loads URL from clipboard. This is surprising to all people except the two bearded sysadmins still alive today who frequent Root.cz.
@@ -33,7 +53,7 @@ There is a time interval setting in Firefox, which controls how often the conten
 
 Nevertheless, if you're a heavy tabs user, you might want to consider lowering the load on your system a bit. To change the interval to 5 minutes, go to `about:config` and set the following key to `300000`:
 
-- browser.sessionstore.interval
+- `browser.sessionstore.interval`
 
 This issue was brought up in the https://forums.servethehome.com/index.php?threads/firefox-is-chewing-through-your-nand.11346/[STH forums].
 
