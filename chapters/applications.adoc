@@ -63,6 +63,7 @@ The built-in PDF viewer that Firefox uses is nice, but it lacks some features to
 
 On a low-memory system, you may consider configuring Firefox to always open your native PDF viewer instead. To do that, open Preferences, find the Applications section, search for `pdf`, and for the item that appears in the results box, change the "Action" to "Use Document Viewer".
 
+See also the Mozilla documentation article: https://support.mozilla.org/en-US/kb/disable-built-pdf-viewer-and-use-another-viewer[How to disable the built-in PDF viewer and use another viewer]
 
 == Gimp
 
