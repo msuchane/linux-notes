@@ -57,6 +57,12 @@ Nevertheless, if you're a heavy tabs user, you might want to consider lowering t
 
 This issue was brought up in the https://forums.servethehome.com/index.php?threads/firefox-is-chewing-through-your-nand.11346/[STH forums].
 
+=== Using the Native PDF Application [[firefox-pdf]]
+
+The built-in PDF viewer that Firefox uses is nice, but it lacks some features to display all PDFs correctly and tends to be rather heavy-weight due to being written in JavaScript.
+
+On a low-memory system, you may consider configuring Firefox to always open your native PDF viewer instead. To do that, open Preferences, find the Applications section, search for `pdf`, and for the item that appears in the results box, change the "Action" to "Use Document Viewer".
+
 
 == Gimp
 
