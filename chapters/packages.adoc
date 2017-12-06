@@ -36,7 +36,7 @@ shntool sox vdpauinfo vlc vorbis-tools youtube-dl
 ----
 sudo dnf install \
 bijiben fbreader gnome-books gnome-calendar gnome-dictionary gedit-plugins \
-gnome-shell-extension-gpaste gnome-todo nano pandoc \
+gnome-shell-extension-gpaste gnome-todo nano neovim pandoc \
 simple-scan scribus vim 
 ----
 
@@ -47,7 +47,7 @@ simple-scan scribus vim
 sudo dnf install \
 brasero dconf-editor epiphany gnome-builder gnome-logs gnome-maps \
 gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
-transmission-gtk 
+tilix transmission-gtk 
 ----
 
 === Archiving and File Systems[[fedora-archiving-fs]]
@@ -99,11 +99,6 @@ endless-sky fillets-ng freecol freecol-manual freeciv frozen-bubble \
 gnome-2048 gnome-hearts hedgewars libtxc_dxtn neverball-neverball \
 openlierox wesnoth
 ----
-
-=== From Copr [[copr]]
-
-- Neovim: https://copr.fedorainfracloud.org/coprs/dperson/neovim/[dperson/neovim]
-- Tilix: https://copr.fedorainfracloud.org/coprs/heikoada/terminix/[heikoada/terminix]
 
 === From openSUSE Build Service [[obs]]
 
