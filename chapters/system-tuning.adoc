@@ -49,7 +49,7 @@ The current state of `zswap` can be read from the `/sys/module/zswap/parameters/
 
 Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
 
-=== journald [[journald]]
+=== journald Disk Usage [[journald-disk-usage]]
 
 The current disk usage of `journalctl` can be displayed using the following command:
 
@@ -63,6 +63,25 @@ sudo journalctl --disk-usage
 ----
 SystemMaxUse=256M
 RuntimeMaxUse=128M
+----
+
+=== System Logging in a Console [[console-log]]
+
+You can configure your system log service to print log entries in a system console: for example, TTY10. In case of `journald`, this boils down to adding the following lines to the `/etc/systemd/journald.conf` configuration file:
+
+[subs=+quotes]
+----
+ForwardToConsole=yes
+TTYPath=/dev/tty__N__
+----
+
+Replace `__N__` with the number of the console of your choosing. Note that Fedora assigns graphical user interfaces to `tty1` and subsequent consoles, while more traditional distributions like Debian start from `tty7`.
+
+Afterwards, restart the `journald` service:
+
+[source,bash]
+----
+sudo systemctl restart systemd-journald
 ----
 
 === Block Device Multi Queue [[blk-mq]]
