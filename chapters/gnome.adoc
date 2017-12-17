@@ -172,6 +172,39 @@ Consider exploring the following:
 /org/freedesktop/tracker/miner/files/
 ----
 
+== Ensuring Gedit Can Use the Clipboard on Wayland [[gedit-wayland-clipboard]]
+
+Currently (2017-12-17), the Gedit text editor is left without a maintainer. Due to what seems like a bug, Gedit has trouble copying and pasting text when running Gnome on Wayland.
+
+Since this is such an essential task for a text editor, consider starting Gedit under the XWayland compatibility layer as a workaround. This can be done by launching Gedit with a couple of environmental variables:
+
+[source,bash]
+----
+GDK_BACKEND=x11 CLUTTER_BACKEND=x11 gedit
+----
+
+In order for Gedit to always use these variables when launched from a graphical menu, modify its `desktop` file:
+
+. Make a user copy of the system-wide launcher:
++
+[source,bash]
+----
+cp \
+   /usr/share/applications/org.gnome.gedit.desktop \
+   ~/.local/share/applications/
+----
+
+. Edit all instances of the `Exec` keyword in the `~/.local/share/applications/org.gnome.gedit.desktop` file to include the X11 variables. For example:
++
+[subs=+quotes]
+----
+Exec=**GDK_BACKEND=x11 CLUTTER_BACKEND=x11** gedit %U
+----
+
+. Log out of Gnome and log back in.
+
+To verify whether Gedit utilizes Wayland or XWayland (X11), use the _Windows_ tab in https://wiki.gnome.org/Projects/GnomeShell/LookingGlass[Looking Glass].
+
 == Some Gnome Shell Extensions [[gs-extensions]]
 
 https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
