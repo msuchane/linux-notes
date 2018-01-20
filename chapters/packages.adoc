@@ -83,7 +83,8 @@ sudo dnf install \
 ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
 sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
 levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
-linux-libertine\* google-noto-sans-fonts google-noto-mono-fonts \
+linux-libertine\* msimonson-anonymouspro-fonts \
+google-noto-sans-fonts google-noto-mono-fonts \
 google-noto-serif-fonts google-noto-emoji-fonts oldstandard-sfd-fonts \
 open-sans-fonts paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
 adobe-source\*fonts gdouros-symbola-fonts impallari-raleway-fonts
@@ -99,6 +100,10 @@ endless-sky fillets-ng freecol freecol-manual freeciv frozen-bubble \
 gnome-2048 gnome-hearts hedgewars libtxc_dxtn neverball-neverball \
 openlierox wesnoth
 ----
+
+=== From Copr [[fedora-copr]]
+
+- Hack fonts: https://copr.fedorainfracloud.org/coprs/heliocastro/hack-fonts/[heliocastro/hack-fonts]
 
 === From openSUSE Build Service [[obs]]
 
@@ -237,7 +242,8 @@ fonts-cabin fonts-cabinsketch fonts-cantarell \
 fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
 fonts-fanwood fonts-firacode fonts-inconsolata fonts-isabella \
 fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
-fonts-liberation2 fonts-linuxlibertine fonts-noto-hinted fonts-noto-mono \
+fonts-liberation2 fonts-linuxlibertine fonts-hack-otf \
+fonts-noto-hinted fonts-noto-mono \
 fonts-oldstandard fonts-opendyslexic fonts-open-sans fonts-quattrocento \
 fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
 ttf-anonymous-pro ttf-essays1743

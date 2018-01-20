@@ -62,9 +62,11 @@
 [cols="<40,<30,<30",options="header"]
 |===
 | Font Name                     | In Fedora repos?             | In Debian repos?
+| Anonymous Pro                 | msimonson-anonymouspro-fonts | ttf-anonymous-pro
 | Cousine (Croscore Courier New) | google-croscore-cousine-fonts | fonts-croscore
 | Droid Mono                    | google-droid-sans-mono-fonts | -
 | Fira Mono                     | mozilla-fira-mono-fonts      | fonts-firacode
+| Hack                          | Copr: heliocastro/hack-fonts | fonts-hack-otf
 | Inconsolata                   | levien-inconsolata-fonts     | fonts-inconsolata
 | Noto Mono                     | google-noto-mono-fonts       | fonts-noto-mono
 | PT Mono                       | paratype-pt-mono             | -
