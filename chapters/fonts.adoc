@@ -23,6 +23,7 @@
 | Merriweather Sans             | -                            | -
 | Noto Sans                     | google-noto-sans-fonts       | fonts-noto-hinted
 | Open Sans                     | open-sans-fonts              | fonts-open-sans
+| Overpass                      | overpass-fonts               | -
 | PT Sans                       | paratype-pt-sans-fonts       | -
 | Raleway                       | impallari-raleway-fonts      | -
 | Roboto                        | google-roboto-fonts          | fonts-roboto-hinted
@@ -69,6 +70,7 @@
 | Hack                          | Copr: heliocastro/hack-fonts | fonts-hack-otf
 | Inconsolata                   | levien-inconsolata-fonts     | fonts-inconsolata
 | Noto Mono                     | google-noto-mono-fonts       | fonts-noto-mono
+| Overpass Mono                 | overpass-mono-fonts          | -
 | PT Mono                       | paratype-pt-mono             | -
 | Roboto Mono                   | google-roboto-mono-fonts     | -
 | Source Code Pro               | adobe-source-code-pro-fonts  | -
