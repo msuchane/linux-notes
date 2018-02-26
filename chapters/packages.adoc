@@ -64,7 +64,8 @@ p7zip p7zip-plugins unrar testdisk xfsdump
 [source,bash]
 ----
 sudo dnf install \
-beignet clinfo fish freetype-freeworld htop iotop mc powertop tlp tuned zsh
+beignet clinfo fish freetype-freeworld htop iftop iotop mc \
+powertop tlp tuned zsh
 ----
 
 === Czech Localization [[fedora-czech-l10n]]
@@ -221,7 +222,7 @@ amd64-microcode beignet-opencl-icd clinfo firmware-amd-graphics \
 firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
 firmware-iwlwifi firmware-linux firmware-linux-free \
 firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
-fish htop intel-microcode iotop iucode-tool mc powertop \
+fish htop intel-microcode iftop iotop iucode-tool mc powertop \
 sudo tlp zsh
 ----
 
