@@ -172,6 +172,7 @@ Consider exploring the following:
 /org/freedesktop/tracker/miner/files/
 ----
 
+////
 == Ensuring Gedit Can Use the Clipboard on Wayland [[gedit-wayland-clipboard]]
 
 Currently (2017-12-17), the Gedit text editor is left without a maintainer. Due to what seems like a bug, Gedit has trouble copying and pasting text when running Gnome on Wayland.
@@ -204,6 +205,7 @@ Exec=**GDK_BACKEND=x11 CLUTTER_BACKEND=x11** gedit %U
 . Log out of Gnome and log back in.
 
 To verify whether Gedit utilizes Wayland or XWayland (X11), use the _Windows_ tab in https://wiki.gnome.org/Projects/GnomeShell/LookingGlass[Looking Glass].
+////
 
 == Some Gnome Shell Extensions [[gs-extensions]]
 
