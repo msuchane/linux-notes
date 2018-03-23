@@ -207,6 +207,26 @@ Exec=**GDK_BACKEND=x11 CLUTTER_BACKEND=x11** gedit %U
 To verify whether Gedit utilizes Wayland or XWayland (X11), use the _Windows_ tab in https://wiki.gnome.org/Projects/GnomeShell/LookingGlass[Looking Glass].
 ////
 
+== Editing Files as Root in GUI Editors [[gui-root-edit]]
+
+Graphical text editors that use the `gvfs` Gnome infrastructure, such as Gedit, Geany, or Gnome Builder, can natively edit with root permissions even when you run them as a regular user. This has been available since Gnome 3.24.
+
+To use this feature:
+
+. Open the editor.
+. In the editor, open the file chooser dialog, for example by pressing Ctrl+O.
+. In the dialog, activate the directory path field, for example by pressing Ctrl+L.
+. Type the following into the field:
++
+[subs=+quotes]
+----
+admin:///_containing-directory_/
+----
++
+Replace _containing-directory_ with the path to the directory that contains the file you want to edit. Note that there are three slashes at the beginning, the third of which stands for the root directory in the absolute path; the slash after the path is also required. For example, to edit the `/etc/fstab` file, open the `/etc/` directory by typing `admin:///etc/`.
+. Enter your password in the prompt that shows up.
+. Select the file to edit in the file chooser.
+
 == Some Gnome Shell Extensions [[gs-extensions]]
 
 https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
