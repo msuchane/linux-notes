@@ -64,7 +64,8 @@ p7zip p7zip-plugins unrar testdisk xfsdump
 [source,bash]
 ----
 sudo dnf install \
-beignet clinfo fish freetype-freeworld htop iftop iotop mc \
+beignet clinfo fish freetype-freeworld htop iftop iotop \
+util-linux-user mc \
 powertop tlp tuned zsh
 ----
 
