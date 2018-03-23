@@ -45,7 +45,8 @@ simple-scan scribus vim
 [source,bash]
 ----
 sudo dnf install \
-brasero dconf-editor epiphany gnome-builder gnome-logs gnome-maps \
+brasero dconf-editor epiphany firewall-config gnome-builder \
+gnome-logs gnome-maps \
 gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
 tilix transmission-gtk 
 ----
