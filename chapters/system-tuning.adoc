@@ -293,6 +293,12 @@ Many people keep their config files in a git repository, myself included. If you
 
 == Fedora-Specific Options [[fedora-specific]]
 
+=== Enable Automatic Updates in Fedora [[fedora-auto-update]]
+
+Fedora can automatically install package updates at configurable times using the `dnf-automatic` package and the `dnf-automatic-download.timer` or `dnf-automatic-install.timer` systemd units.
+
+For more information, see the https://www.ctrl.blog/entry/how-to-dnf-automatic[How to get Fedora to take care of its own updates] article on the _Ctrl blog_.
+
 === Limit coredump Disk Usage [[limit-coredump]]
 
 `coredump` is a mechanism that Fedora uses to analyze application crashes and send automated bug reports. The application's memory space is saved to a file on your disk. These files can easily be gigabytes in size, and while the default configuration places some limits on their total size, we can be more strict.
@@ -352,6 +358,12 @@ usermod -a -G sudo __your_user_name__
 ....
 
 . Reboot your system.
+
+=== Enable Automatic Updates in Debian [[debian-auto-update]]
+
+Debian can automatically install package updates at configurable times using the Unattended Upgrades feature.
+
+For more information, see the https://wiki.debian.org/UnattendedUpgrades[UnattendedUpgrades] page on the Debian Wiki.
 
 === journald as the Only Log [[only-journald]]
 
