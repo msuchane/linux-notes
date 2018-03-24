@@ -268,4 +268,5 @@ sauerbraten wesnoth
 
 - https://flathub.org/apps.html[Flathub]
 - http://flatpak.org/apps.html[Flatpak Applications]
+- https://wiki.gnome.org/Apps/Fractal/Documentation[Fractal], a Matrix messaging client for Gnome
 
