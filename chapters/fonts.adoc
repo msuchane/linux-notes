@@ -18,9 +18,9 @@
 | Droid Sans                    | google-droid-sans-fonts      | -
 | Fira Sans                     | mozilla-fira-sans-fonts      | -
 | Lato                          | lato-fonts                   | fonts-lato
-| Libre Franklin                | -                            | -
+| Libre Franklin              2+| https://fonts.google.com/specimen/Libre+Franklin/
 | Linux Biolinum                | linux-libertine-biolinum-fonts | fonts-linuxlibertine
-| Merriweather Sans             | -                            | -
+| Merriweather Sans           2+| https://fonts.google.com/specimen/Merriweather+Sans/
 | Noto Sans                     | google-noto-sans-fonts       | fonts-noto-hinted
 | Open Sans                     | open-sans-fonts              | fonts-open-sans
 | Overpass                      | overpass-fonts               | -
@@ -28,7 +28,7 @@
 | Raleway                       | impallari-raleway-fonts      | -
 | Roboto                        | google-roboto-fonts          | fonts-roboto-hinted
 | Source Sans Pro               | adobe-source-sans-pro-fonts  | -
-| Work Sans                     | -                            | -
+| Work Sans                   2+| https://fonts.google.com/specimen/Work+Sans/
 |===
 
 
@@ -41,14 +41,14 @@
 | Caladea (Croscore Cambria)    | google-crosextra-caladea-fonts | fonts-crosextra-caladea
 | Tinos (Croscore Times New Roman) | google-croscore-tinos-fonts | fonts-croscore
 | Droid Serif                   | google-droid-serif-fonts     | -
-| Fanwood                       | -                            | -
+| Fanwood                     2+| https://www.theleagueofmoveabletype.com/fanwood
 | Gentium                       | sil-gentium-fonts            | fonts-sil-gentium
 | Heuristica                    | apanov-heuristica-fonts      | -
 | Isabella                      | thibault-isabella-fonts      | fonts-isabella
-| Libre Baskerville             | -                            | -
+| Libre Baskerville           2+| https://fonts.google.com/specimen/Libre+Baskerville
 | Linux Libertine               | linux-libertine-fonts        | fonts-linuxlibertine
-| Merriweather                  | -                            | -
-| Noticia Text                  | -                            | -
+| Merriweather                2+| https://fonts.google.com/specimen/Merriweather
+| Noticia Text                2+| https://fonts.google.com/specimen/Noticia+Text
 | Noto Serif                    | google-noto-serif-fonts      | fonts-noto-hinted
 | Old Standard                  | oldstandard-sfd-fonts        | fonts-oldstandard
 | PT Serif                      | paratype-pt-serif-fonts      | -
@@ -69,6 +69,7 @@
 | Fira Mono                     | mozilla-fira-mono-fonts      | fonts-firacode
 | Hack                          | Copr: heliocastro/hack-fonts | fonts-hack-otf
 | Inconsolata                   | levien-inconsolata-fonts     | fonts-inconsolata
+| Inconsolata LGC             2+| https://fontlibrary.org/en/font/inconsolata-lgc
 | Noto Mono                     | google-noto-mono-fonts       | fonts-noto-mono
 | Overpass Mono                 | overpass-mono-fonts          | -
 | PT Mono                       | paratype-pt-mono             | -
