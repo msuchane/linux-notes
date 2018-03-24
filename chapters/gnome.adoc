@@ -207,24 +207,34 @@ Exec=**GDK_BACKEND=x11 CLUTTER_BACKEND=x11** gedit %U
 To verify whether Gedit utilizes Wayland or XWayland (X11), use the _Windows_ tab in https://wiki.gnome.org/Projects/GnomeShell/LookingGlass[Looking Glass].
 ////
 
-== Editing Files as Root in GUI Editors [[gui-root-edit]]
+== Viewing and Editing Files as Root in Gnome [[gui-root-edit]]
 
-Graphical text editors that use the `gvfs` Gnome infrastructure, such as Gedit, Geany, or Gnome Builder, can natively edit with root permissions even when you run them as a regular user. This has been available since Gnome 3.24.
+=== In the File Manager
 
-To use this feature:
+In the *Files* application, you can open any directory with root permissions. This has been available since Gnome 3.24. To do that:
 
-. Open the editor.
-. In the editor, open the file chooser dialog, for example by pressing Ctrl+O.
-. In the dialog, activate the directory path field, for example by pressing Ctrl+L.
+. In  *Files*, activate the directory path field, for example by pressing Ctrl+L.
 . Type the following into the field:
 +
 [subs=+quotes]
 ----
-admin:///_containing-directory_/
+admin:///_directory-path_/
 ----
 +
-Replace _containing-directory_ with the path to the directory that contains the file you want to edit. Note that there are three slashes at the beginning, the third of which stands for the root directory in the absolute path; the slash after the path is also required. For example, to edit the `/etc/fstab` file, open the `/etc/` directory by typing `admin:///etc/`.
+Replace _directory-path_ with the path to the directory that you want to access. Note that there are three slashes at the beginning, the third of which stands for the root directory in the absolute path; the slash after the path is also required. For example, to access the `/etc/default/` directory, type `admin:///etc/default/`.
 . Enter your password in the prompt that shows up.
+
+Applications launched from the *Files* window can also inherit the same root privileges.
+
+=== In Editors
+
+Graphical text editors that use the `gvfs` Gnome infrastructure, such as Gedit, Geany, or Gnome Builder, can natively edit with root permissions.
+
+To use this feature:
+
+. In the editor, open the file chooser dialog, for example by pressing Ctrl+O.
+. In the dialog, activate the directory path field, for example by pressing Ctrl+L.
+. Use the method described in the previous section to open the directory that contains the file you want to edit as root.
 . Select the file to edit in the file chooser.
 
 == Some Gnome Shell Extensions [[gs-extensions]]
