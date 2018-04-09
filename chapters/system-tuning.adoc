@@ -231,16 +231,28 @@ Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
 === Trimming Your SSD [[fstrim]]
 
-If your computer uses a solid-state disk (SSD), you should https://en.wikipedia.org/wiki/Trim_(computing)["trim"] the file systems on it regularly. Your distributions might already do that for you; if not, create a `cron` script to be executed once every week using this command:
+If your computer uses a solid-state disk (SSD), you should https://en.wikipedia.org/wiki/Trim_(computing)["trim"] the file systems on it regularly. Your distributions might already do that for you: Ubuntu runs `fstrim` weekly.
 
+On Fedora and Debian, you need to manually enable a service that trims disks periodically:
+
+. If you're using Debian, copy the service file so that it can be actually used:
++
 [source,bash]
 ----
-echo '#!/bin/sh\nfstrim -a\n' | sudo tee /etc/cron.weekly/fstrim.sh
+sudo cp /usr/share/doc/util-linux/examples/fstrim.{service,timer} \
+        -t /etc/systemd/system/
+----
+
+. Enable the weekly timer:
++
+[source,bash]
+----
+sudo systemctl enable fstrim.timer
 ----
 
 === Configuring the Virtual Console [[console-font]]
 
-The Linux virtual console, which displays, for example, the boot process, uses its own font and keyboard layout settings. These can be modified either on the kernel command line or in the `/etc/vsonsole.conf` configuration file.
+The Linux virtual console, which displays, for example, the boot process, uses its own font and keyboard layout settings. These can be modified either on the kernel command line or in the `/etc/vconsole.conf` configuration file.
 
 By default, Fedora uses the classic _eurlatgr_ font, while Debian has switched to the great, but much more opinionated, _Terminus_ font. To see the console fonts available on your system, browse the `/lib/kbd/consolefonts/` directory. To install _Terminus_ on Fedora, use:
 

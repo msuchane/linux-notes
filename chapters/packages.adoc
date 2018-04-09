@@ -109,6 +109,7 @@ openlierox wesnoth
 === From Copr [[fedora-copr]]
 
 - Hack fonts: https://copr.fedorainfracloud.org/coprs/heliocastro/hack-fonts/[heliocastro/hack-fonts]
+- https://about.riot.im/[Riot], a front-end client implementing the decentralized, secure, messaging and data-transport protocol, https://matrix.org/[Matrix]: https://copr.fedorainfracloud.org/coprs/taw/Riot/[taw/Riot]
 
 === From openSUSE Build Service [[obs]]
 
