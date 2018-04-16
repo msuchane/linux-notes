@@ -8,6 +8,17 @@
 
 == Firefox [[firefox]]
 
+=== Enable Acceleration [[firefox-accel]]
+
+Hardware acceleration in Firefox is still marked as experimental on Linux because some graphics drivers are buggy. However, you can try if it works OK on your configuration. Potentially, the benefits are smoother browsing and lower CPU usage for video playback.
+
+To enable acceleration, set the following keys on the `about:config` page to `true`:
+
+* `layers.acceleration.force-enabled`
+* `gfx.canvas.azure.accelerated` – Create this one if it doesn't exist.
+
+To verify, open the `about:support` page and take a look at the _Graphics_ section.
+
 === Web Pages and Interface Scaling [[web-scaling]]
 
 Depending on the pixel density (DPI) of your display, your eyesight, and the distance between you and the display, text on the web might be too small. There are multiple ways to deal with it:
