@@ -57,7 +57,7 @@ tilix transmission-gtk
 ----
 sudo dnf install \
 atool bleachbit borgbackup exfat-utils f2fs-tools fuse-exfat \
-lzip lziprecover lzop \
+hfsutils jfsutils lzip lziprecover lzop \
 p7zip p7zip-plugins unrar testdisk xfsdump 
 ----
 
@@ -214,7 +214,7 @@ gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
 ----
 apt install \
 atool bleachbit borgbackup exfat-fuse exfat-utils f2fs-tools \
-lzip lziprecover lzop \
+hfsplus hfsutils lzip lziprecover lzop \
 p7zip-full testdisk unrar xfsdump zfs-dkms zfs-initramfs zfsutils-linux 
 ----
 
