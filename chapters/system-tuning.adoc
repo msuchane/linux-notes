@@ -155,6 +155,10 @@ For details on installation and usage, see the GitHub page: https://github.com/r
 
 Note that this is just a suggestion. Look into the alternative OOM Killer only if you think your setup might benefit from it.
 
+.oomd
+
+There's also an alternative service written by Facebook: link: https://github.com/facebookincubator/oomd[]. According to the readme, it's more flexible, allowing arbitrary code to be executed in low-memory situations.
+
 === Update grub2 Configuration [[update-grub]]
 
 After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
