@@ -76,9 +76,9 @@ On a low-memory system, you may consider configuring Firefox to always open your
 
 See also the Mozilla documentation article: https://support.mozilla.org/en-US/kb/disable-built-pdf-viewer-and-use-another-viewer[How to disable the built-in PDF viewer and use another viewer]
 
-== Gimp
+== Gimp [[gimp]]
 
-=== Font Aliasing
+=== Font Aliasing [[gimp-font-alias]]
 
 The way Gimp renders text and anti-aliases fonts is configurable. This is useful because Gimp tends to apply RGB anti-alias and https://plus.google.com/+WorldofGnomeOrg/posts/QjR629U6HQd[produce weird colorful lines] around letters.
 
@@ -111,4 +111,27 @@ To set a font configuration that is sensible for image editors, create the `/etc
   </match>
 </fontconfig>
 ----
+
+== Chromium and Google Chrome [[chromium]]
+
+=== UI Scaling [[chromium-scaling]]
+
+To scale Chromium UI on high-DPI displays:
+
+. Install the `menulibre` application.
+
+. In `menulibre`, navigate to Internet -> Chromium Web Browser.
+
+. Edit the *Command* field to include the `--high-dpi-support=1` and `--force-device-scale-factor=__my-scale-factor__` scaling options:
++
+[subs=+quotes]
+----
+/usr/bin/chromium-browser --high-dpi-support=1 --force-device-scale-factor=__my-scale-factor__ %U
+----
++
+Replace _my-scaling-factor_ with a floating-point number specifying how much to scale the UI. For example, use `1.25` to scale the UI to 125%.
+
+. Press *Ctrl-S* to save the launcher.
+
+. Restart all your Chromium windows for the setting to take effect.
 
