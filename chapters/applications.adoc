@@ -131,6 +131,8 @@ To scale Chromium UI on high-DPI displays:
 +
 Replace _my-scaling-factor_ with a floating-point number specifying how much to scale the UI. For example, use `1.25` to scale the UI to 125%.
 
+. Similarly, edit the commands in all entries under the *Actions* tab below.
+
 . Press *Ctrl-S* to save the launcher.
 
 . Restart all your Chromium windows for the setting to take effect.
