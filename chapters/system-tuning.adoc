@@ -157,7 +157,7 @@ Note that this is just a suggestion. Look into the alternative OOM Killer only i
 
 .oomd
 
-There's also an alternative service written by Facebook: link: https://github.com/facebookincubator/oomd[]. According to the readme, it's more flexible, allowing arbitrary code to be executed in low-memory situations.
+There's also an alternative service written by Facebook: link:https://github.com/facebookincubator/oomd[]. According to the readme, it's more flexible, allowing arbitrary code to be executed in low-memory situations.
 
 === Update grub2 Configuration [[update-grub]]
 
@@ -300,6 +300,23 @@ Or:
 [source,bash]
 ----
 sudo dracut-update-initramfs
+----
+
+=== Updating Firmware
+
+Some manufacturers (mostly Dell, Lenovo) provide firmware updates via the native Linux `fwupd` mechanism.
+
+* To check for updates:
++
+----
+sudo fwupdmgr refresh
+sudo fwupdmgr get-updates
+----
+
+* To apply them:
++
+----
+sudo fwupdmgr update
 ----
 
 === My Personal Dotfiles [[dotfiles]]
