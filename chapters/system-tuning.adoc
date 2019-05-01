@@ -319,12 +319,28 @@ sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ----
 
-=== My Personal Dotfiles [[dotfiles]]
+=== My Personal Dotfiles [[my-dotfiles]]
 
 Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my https://gitlab.com/mrksu/dotfiles[dotfiles] repository on GitLab.
 
+=== Guides to Set Up Dotfiles [[dotfiles-guides]]
+
+* link:https://dotfiles.github.io/[]
+* link:https://www.gnu.org/software/stow/[]
+* link:https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789[]
+
+=== Password Management [[passwords]]
+
+* link:https://bitwarden.com/[]
+
 
 == Fedora-Specific Options [[fedora-specific]]
+
+==== Remove Unnecessary Services [[fedora-unnecessary-services]]
+
+Until this gets fixed:
+
+link:https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/UFGNO5MTPCLEK5B5RCJGGZUFTZ7JTWI5/[]
 
 === Enable Automatic Updates in Fedora [[fedora-auto-update]]
 
