@@ -48,7 +48,7 @@ sudo dnf install \
 brasero dconf-editor epiphany firewall-config gnome-builder \
 gnome-logs gnome-maps \
 gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
-tilix transmission-gtk 
+chromium-libs-media-freeworld tilix transmission-gtk 
 ----
 
 === Archiving and File Systems [[fedora-archiving-fs]]
