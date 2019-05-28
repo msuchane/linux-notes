@@ -95,6 +95,8 @@ paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
 adobe-source\*fonts gdouros-symbola-fonts impallari-raleway-fonts
 ----
 
+Also remove the `aajohan-comfortaa-fonts` package. The Comfortaa font tends to insert itself at inappropriate places, especially in Firefox, and it isn't very readable.
+
 === Games and Game-related [[fedora-games]]
 
 [source,bash]
