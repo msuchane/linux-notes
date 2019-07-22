@@ -319,6 +319,59 @@ sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ----
 
+=== A Tuned profile to increase desktop responsiveness [[tuned-responsiveness]]
+
+. Install and enable the `tuned` service.
+
+. Create the `/etc/tuned/interactive/tuned.conf` file with the following content:
++
+----
+[main]
+summary=My own Tuned profile for an interactive desktop system
+include=desktop
+
+[cpu]
+governor=ondemand|powersave
+
+[sysctl]
+# The defaults on Fedora 30; these values are interdependent:
+# kernel.sched_min_granularity_ns=2250000   
+# kernel.sched_latency_ns=18000000
+# kernel.sched_wakeup_granularity_ns=3000000  
+
+# The defaults divided by 4 to reduce latency:
+kernel.sched_min_granularity_ns=562500   
+kernel.sched_latency_ns=4500000
+kernel.sched_wakeup_granularity_ns=750000
+
+vm.swappiness=10
+vm.vfs_cache_pressure=50
+
+[disk]
+# On all disks, use BFQ, which is an excellent scheduler for interactivity
+elevator=bfq
+
+[sysfs]
+# Apply some tunings to sda, which should be the primary and also the fastest disk on your system (at least on desktops and laptops)
+
+# Low latency in mq-deadline in case it's set instead of BFQ:
+# /sys/block/sda/queue/iosched/fifo_batch=8
+# /sys/block/sda/queue/iosched/read_expire=50
+
+# Low latency in BFQ (optional because BFQ already works well on its own):
+# Halve the idle wait time; should improve throughput on SSDs
+/sys/block/sda/queue/iosched/slice_idle=4
+# Halve the time to expire read requests
+/sys/block/sda/queue/iosched/fifo_expire_sync=62
+/sys/block/sda/queue/iosched/timeout_sync=62
+----
+
+. Apply the profile:
++
+----
+sudo tuned-adm profile interactive
+----
+
 === My Personal Dotfiles [[my-dotfiles]]
 
 Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my https://gitlab.com/mrksu/dotfiles[dotfiles] repository on GitLab.
@@ -336,7 +389,7 @@ Many people keep their config files in a git repository, myself included. If you
 
 == Fedora-Specific Options [[fedora-specific]]
 
-==== Remove Unnecessary Services [[fedora-unnecessary-services]]
+=== Remove Unnecessary Services [[fedora-unnecessary-services]]
 
 Until this gets fixed:
 
