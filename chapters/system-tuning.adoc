@@ -319,7 +319,7 @@ sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ----
 
-=== A Tuned profile to increase desktop responsiveness [[tuned-responsiveness]]
+=== A Tuned Profile to Increase Desktop Responsiveness [[tuned-responsiveness]]
 
 . Install and enable the `tuned` service.
 
@@ -371,6 +371,17 @@ elevator=bfq
 ----
 sudo tuned-adm profile interactive
 ----
+
+
+=== Improving Audio Quality [[audio-quality]]
+
+There's been an excellent discussion on Reddit about the audio stack on Linux: link:https://www.reddit.com/r/linux/comments/coi4dt/a_complete_guide_of_and_debunking_of_audio_on/[A complete guide of and debunking of audio on Linux, ALSA and Pulse].
+
+The easiest and most obvious option to improve sound quality is to set a better resampling algorithm using the `resample-method` option in the `/etc/pulse/daemon.conf` file. Consider:
+
+* `speex-float-3` as recommended by the developers of Speex: link:https://www.speex.org/docs/manual/speex-manual/node7.html#SECTION00760000000000000000[]
+* `speex-float-5` as suggested by freedesktop.org: link:https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Audiophile/[]
+
 
 === My Personal Dotfiles [[my-dotfiles]]
 
