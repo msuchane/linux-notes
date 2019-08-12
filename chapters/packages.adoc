@@ -48,8 +48,10 @@ sudo dnf install \
 brasero dconf-editor epiphany firewall-config gnome-builder \
 gnome-logs gnome-maps \
 gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
-chromium-libs-media-freeworld tilix transmission-gtk 
+chromium-libs-media-freeworld chromium-vaapi tilix transmission-gtk 
 ----
+
+NOTE: The `chromium-libs-media-freeworld` codec package tends to be outdated often (Fedora 29, Fedora 30). As a result, it prevents `chromium` from updating, which is a bad situation in a web browser that needs security updates. As an alternative, you can install just `chromium-vaapi`, which also provides codecs but is updated much more reliably.
 
 === Archiving and File Systems [[fedora-archiving-fs]]
 
