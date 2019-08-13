@@ -20,7 +20,7 @@ Further references:
 ----
 sudo dnf install \
 \*-backgrounds-extras-gnome audacity-freeworld beets \
-cuetools easytag exfalso flac gimp gnome-mpv \
+celluloid cuetools easytag exfalso flac gimp \
 gnome-music gnome-photos gnome-sound-recorder gstreamer1-libav \
 gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-fluidsynth \
 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly inkscape \
@@ -68,7 +68,7 @@ p7zip p7zip-plugins unrar testdisk xfsdump
 [source,bash]
 ----
 sudo dnf install \
-beignet clinfo fish freetype-freeworld htop iftop iotop \
+beignet clinfo earlyoom fish freetype-freeworld htop iftop iotop \
 util-linux-user mc \
 powertop tlp tuned zsh
 ----
@@ -227,7 +227,7 @@ p7zip-full testdisk unrar xfsdump zfs-dkms zfs-initramfs zfsutils-linux
 [source,bash]
 ----
 apt install \
-amd64-microcode beignet-opencl-icd clinfo firmware-amd-graphics \
+amd64-microcode beignet-opencl-icd clinfo earlyoom firmware-amd-graphics \
 firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
 firmware-iwlwifi firmware-linux firmware-linux-free \
 firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
