@@ -18,16 +18,21 @@ Further references:
 
 [source,bash]
 ----
+sudo dnf config-manager --set-enabled fedora-cisco-openh264
+
 sudo dnf install \
 \*-backgrounds-extras-gnome audacity-freeworld beets \
-celluloid cuetools easytag exfalso flac gimp \
+celluloid compat-ffmpeg28 cuetools easytag exfalso flac gimp \
 gnome-music gnome-photos gnome-sound-recorder gstreamer1-libav \
+gstreamer1-plugin-openh264 \
 gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-fluidsynth \
 gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly inkscape \
 kdenlive krita lame libva libva-intel-driver libva-utils \
-libva-vdpau-driver libvdpau lollypop mac mcomix mediainfo \
+libva-vdpau-driver libvdpau lollypop mac mcomix mediainfo mozilla-openh264 \
 mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
 shntool sox vdpauinfo vlc vorbis-tools youtube-dl 
+
+sudo dnf groupupdate Multimedia
 ----
 
 === Office, Reading and Writing [[fedora-read-write]]
