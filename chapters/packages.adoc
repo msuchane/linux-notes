@@ -65,7 +65,7 @@ NOTE: The `chromium-libs-media-freeworld` codec package tends to be outdated oft
 sudo dnf install \
 atool bleachbit borgbackup exfat-utils f2fs-tools fuse-exfat \
 hfsutils jfsutils lzip lziprecover lzop \
-p7zip p7zip-plugins unrar testdisk xfsdump 
+p7zip p7zip-plugins progress testdisk udftools unrar xfsdump 
 ----
 
 === Various Low-level Stuff [[fedora-various-ll]]
@@ -214,7 +214,8 @@ gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
 apt install \
 atool bleachbit borgbackup exfat-fuse exfat-utils f2fs-tools \
 hfsplus hfsutils lzip lziprecover lzop \
-p7zip-full testdisk unrar xfsdump zfs-dkms zfs-initramfs zfsutils-linux 
+p7zip-full progress testdisk udftools unrar xfsdump \
+zfs-dkms zfs-initramfs zfsutils-linux 
 ----
 
 === Various Low-level Stuff [[debian-various-ll]]
