@@ -22,7 +22,7 @@ sudo dnf config-manager --set-enabled fedora-cisco-openh264
 
 sudo dnf install \
 \*-backgrounds-extras-gnome audacity-freeworld beets \
-celluloid compat-ffmpeg28 cuetools easytag exfalso flac gimp \
+celluloid compat-ffmpeg28 cuetools easytag exfalso ffmpeg-libs flac gimp \
 gnome-music gnome-photos gnome-sound-recorder gstreamer1-libav \
 gstreamer1-plugin-openh264 \
 gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-fluidsynth \
