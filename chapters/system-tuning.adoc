@@ -365,6 +365,10 @@ elevator=bfq
 # Halve the time to expire read requests
 /sys/block/sda/queue/iosched/fifo_expire_sync=62
 /sys/block/sda/queue/iosched/timeout_sync=62
+
+# Power-saving features
+[audio]
+timeout=10
 ----
 
 . Apply the profile:
