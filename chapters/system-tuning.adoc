@@ -388,6 +388,26 @@ The easiest and most obvious option to improve sound quality is to set a better 
 * `speex-float-5` as suggested by freedesktop.org: link:https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Audiophile/[]
 
 
+
+=== Enable VSync in X.org [[xorg-vsync]]
+
+VSync is a graphics feature that prevents screen tearing, such as when scrolling web pages. Try enabling VSync and test if it helps under different conditions.
+
+To enable VSync in X.org for the Intel driver:
+
+. Create the `/etc/X11/xorg.conf.d/20-intel.conf` configuration file containing:
++
+----
+Section "Device"
+    Identifier "Intel Graphics"
+    Driver "intel"
+    Option "TearFree" "true"
+EndSection
+----
+
+. Restart your session.
+
+
 === My Personal Dotfiles [[my-dotfiles]]
 
 Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my https://gitlab.com/mrksu/dotfiles[dotfiles] repository on GitLab.
