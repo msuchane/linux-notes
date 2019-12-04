@@ -15,6 +15,7 @@ Hardware acceleration in Firefox is still marked as experimental on Linux becaus
 To enable acceleration, set the following keys on the `about:config` page to `true`:
 
 * `layers.acceleration.force-enabled`
+* `media.hardware-video-decoding.force-enabled`
 * `gfx.canvas.azure.accelerated` – Create this one if it doesn't exist.
 
 To verify, open the `about:support` page and take a look at the _Graphics_ section.
