@@ -1,4 +1,4 @@
-image: alpine:latest
+image: asciidoctor/docker-asciidoctor:latest
 
 pages:
   stage: deploy
