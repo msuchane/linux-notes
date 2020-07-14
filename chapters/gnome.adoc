@@ -248,6 +248,28 @@ WantedBy=timers.target
 # systemctl enable --now flatpak-uninstall-unused.timer
 ----
 
+== Enabling Wayland and File Access in Firefox from Flatpak
+
+The Firefox Flatpak package on FLathub is missing some permissions, and as a result, it runs under XWayland and can access files only in the `Downloads` directory.
+
+To fix this, you can override the package permissions.
+
+. Enable Firefox to run on Wayland:
++
+----
+# flatpak override --env=GDK_BACKEND=wayland --socket=wayland org.mozilla.firefox
+----
+
+. Enable Firefox to read and write files in all the standard user directories:
++
+----
+# flatpak override --filesystem=xdg-documents \
+                   --filesystem=xdg-music \
+		   --filesystem=xdg-pictures \
+		   --filesystem=xdg-videos \
+		   org.mozilla.firefox
+----
+
 == Some Gnome Shell Extensions [[gs-extensions]]
 
 https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
