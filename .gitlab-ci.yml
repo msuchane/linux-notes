@@ -3,7 +3,7 @@ image: asciidoctor/docker-asciidoctor:latest
 pages:
   stage: deploy
   script:
-  - echo 'Nothing to do...'
+  - asciidoctor --safe -v -n single-page.adoc -o public/index.html
   artifacts:
     paths:
     - public
