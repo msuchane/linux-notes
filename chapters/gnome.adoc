@@ -172,41 +172,6 @@ Consider exploring the following:
 /org/freedesktop/tracker/miner/files/
 ----
 
-////
-== Ensuring Gedit Can Use the Clipboard on Wayland [[gedit-wayland-clipboard]]
-
-Currently (2017-12-17), the Gedit text editor is left without a maintainer. Due to what seems like a bug, Gedit has trouble copying and pasting text when running Gnome on Wayland.
-
-Since this is such an essential task for a text editor, consider starting Gedit under the XWayland compatibility layer as a workaround. This can be done by launching Gedit with a couple of environmental variables:
-
-[source,bash]
-----
-GDK_BACKEND=x11 CLUTTER_BACKEND=x11 gedit
-----
-
-In order for Gedit to always use these variables when launched from a graphical menu, modify its `desktop` file:
-
-. Make a user copy of the system-wide launcher:
-+
-[source,bash]
-----
-cp \
-   /usr/share/applications/org.gnome.gedit.desktop \
-   ~/.local/share/applications/
-----
-
-. Edit all instances of the `Exec` keyword in the `~/.local/share/applications/org.gnome.gedit.desktop` file to include the X11 variables. For example:
-+
-[subs=+quotes]
-----
-Exec=**GDK_BACKEND=x11 CLUTTER_BACKEND=x11** gedit %U
-----
-
-. Log out of Gnome and log back in.
-
-To verify whether Gedit utilizes Wayland or XWayland (X11), use the _Windows_ tab in https://wiki.gnome.org/Projects/GnomeShell/LookingGlass[Looking Glass].
-////
-
 == Viewing and Editing Files as Root in Gnome [[gui-root-edit]]
 
 === In the File Manager
@@ -236,6 +201,52 @@ To use this feature:
 . In the dialog, activate the directory path field, for example by pressing Ctrl+L.
 . Use the method described in the previous section to open the directory that contains the file you want to edit as root.
 . Select the file to edit in the file chooser.
+
+== Automatically Uninstalling Unused Flatpak Runtimes [[autoremove-flatpak-runtimes]]
+
+As Flatpak applications update, they switch to newer versions of their runtimes. Flatpak still keeps the old runtimes installed even after no application depends on it anymore. The unused runtimes might then occupy a significant amount of disk space.
+
+You can configure a systemd timer unit to automatically remove unused runtimes once a week.
+
+. Save the following configuration as the `/etc/systemd/system/flatpak-uninstall-unused.service` file:
++
+----
+[Unit]
+Description=Uninstall unused Flatpak runtimes
+Documentation=man:flatpak
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak uninstall --unused --noninteractive
+----
+
+. Save the following configuration as the `/etc/systemd/system/flatpak-uninstall-unused.timer` file:
++
+----
+[Unit]
+Description=Uninstall unused Flatpak runtimes once a week
+Documentation=man:flatpak
+
+[Timer]
+OnCalendar=weekly
+AccuracySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+----
+
+. Reload systemd units:
++
+----
+# systemctl daemon-reload
+----
+
+. Enable the timer:
++
+----
+# systemctl enable --now flatpak-uninstall-unused.timer
+----
 
 == Some Gnome Shell Extensions [[gs-extensions]]
 
