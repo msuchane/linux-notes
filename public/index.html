@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Marek Suchánek">
 <title>Linux Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -436,64 +437,2287 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body id="linux-notes-single-page" class="article">
 <div id="header">
 <h1>Linux Notes</h1>
+<div class="details">
+<span id="author" class="author">Marek Suchánek</span><br>
+<span id="email" class="email"><a href="mailto:marek.suchanek@protonmail.com">marek.suchanek@protonmail.com</a></span><br>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#packages">1. Useful Packages</a>
+<ul class="sectlevel2">
+<li><a href="#fedora">1.1. In Fedora</a></li>
+<li><a href="#debian">1.2. In Debian</a></li>
+<li><a href="#flatpak">1.3. Flatpak</a></li>
+</ul>
+</li>
+<li><a href="#system-tuning">2. System Tuning</a>
+<ul class="sectlevel2">
+<li><a href="#common-options">2.1. Common Options</a></li>
+<li><a href="#fedora-specific">2.2. Fedora-Specific Options</a></li>
+<li><a href="#debian-specific">2.3. Debian-Specific Options</a></li>
+</ul>
+</li>
+<li><a href="#gnome">3. Gnome</a>
+<ul class="sectlevel2">
+<li><a href="#battery-percent">3.1. Battery Percentage Indicator</a></li>
+<li><a href="#night-temp">3.2. Night Light Temperature</a></li>
+<li><a href="#nautilus-dnd">3.3. Nautilus Drag-and-Drop Behavior</a></li>
+<li><a href="#dconf-backup">3.4. Backing Up dconf Settings</a></li>
+<li><a href="#compose-key">3.5. Configuring the Compose Key</a></li>
+<li><a href="#win-switching">3.6. Window Switching Shortcuts</a></li>
+<li><a href="#dconf-lockdown">3.7. Lock Down DConf</a></li>
+<li><a href="#epiphany-adblock">3.8. Epiphany Adblock Lists</a></li>
+<li><a href="#fractional-scaling">3.9. Fractional Scaling</a></li>
+<li><a href="#tracker-preferences">3.10. Lowering the Load of File Metadata Mining</a></li>
+<li><a href="#gui-root-edit">3.11. Viewing and Editing Files as Root in Gnome</a></li>
+<li><a href="#autoremove-flatpak-runtimes">3.12. Automatically Uninstalling Unused Flatpak Runtimes</a></li>
+<li><a href="#_enabling_wayland_and_file_access_in_firefox_from_flatpak">3.13. Enabling Wayland and File Access in Firefox from Flatpak</a></li>
+<li><a href="#gs-extensions">3.14. Some Gnome Shell Extensions</a></li>
+</ul>
+</li>
+<li><a href="#applications">4. Applications Tuning</a>
+<ul class="sectlevel2">
+<li><a href="#firefox">4.1. Firefox</a></li>
+<li><a href="#gimp">4.2. Gimp</a></li>
+<li><a href="#chromium">4.3. Chromium and Google Chrome</a></li>
+</ul>
+</li>
+<li><a href="#free-fonts">5. Some Free Fonts</a>
+<ul class="sectlevel2">
+<li><a href="#_sans_serif">5.1. Sans-serif</a></li>
+<li><a href="#_serif">5.2. Serif</a></li>
+<li><a href="#_fixed_width">5.3. Fixed-width</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="packages">1. Useful Packages</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="fedora">1.1. In Fedora</h3>
 <div class="paragraph">
-<p>These are some of my personal notes that help me when installing Linux. They&#8217;re great for me to:</p>
+<p>To have access to all packages listed here, enable the <a href="https://rpmfusion.org/">RPM Fusion</a> <em>Free</em> and <em>Nonfree</em> repositories. Follow their instructions on the <a href="https://rpmfusion.org/Configuration">Configuration</a> page.</p>
+</div>
+<div class="paragraph">
+<p>Further references:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Copy commands syntax</p>
-</li>
-<li>
-<p>Copy lists of packages to paste into the package manager</p>
-</li>
-<li>
-<p>Remember to do all the stuff I like to do</p>
-</li>
-<li>
-<p>Keep track of various config files and tuning parameters</p>
+<p><a href="https://admin.fedoraproject.org/mirrormanager/">Fedora mirror list</a></p>
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="fedora-multimedia">1.1.1. Multimedia</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf config-manager --set-enabled fedora-cisco-openh264
+
+sudo dnf install \
+\*-backgrounds-extras-gnome audacity-freeworld beets \
+celluloid compat-ffmpeg28 cuetools easytag exfalso ffmpeg-libs flac gimp \
+gnome-music gnome-photos gnome-sound-recorder gstreamer1-libav \
+gstreamer1-plugin-openh264 \
+gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-fluidsynth \
+gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly inkscape \
+kdenlive krita lame libva libva-intel-driver libva-utils \
+libva-vdpau-driver libvdpau lollypop mac mcomix mediainfo mozilla-openh264 \
+mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
+shntool sox vdpauinfo vlc vorbis-tools youtube-dl
+
+sudo dnf groupupdate Multimedia</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-read-write">1.1.2. Office, Reading and Writing</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install \
+bijiben fbreader gnome-books gnome-calendar gnome-dictionary gedit-plugins \
+gnome-shell-extension-gpaste gnome-todo nano neovim pandoc \
+simple-scan scribus vim</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-other-apps">1.1.3. Other Applications</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install \
+brasero dconf-editor epiphany firewall-config gnome-builder \
+gnome-logs gnome-maps \
+gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
+chromium-libs-media-freeworld chromium-vaapi tilix transmission-gtk</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The <code>chromium-libs-media-freeworld</code> codec package tends to be outdated often (Fedora 29, Fedora 30). As a result, it prevents <code>chromium</code> from updating, which is a bad situation in a web browser that needs security updates. As an alternative, you can install just <code>chromium-vaapi</code>, which also provides codecs but is updated much more reliably.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-archiving-fs">1.1.4. Archiving and File Systems</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install \
+atool bleachbit borgbackup exfat-utils f2fs-tools fuse-exfat \
+hfsutils jfsutils lzip lziprecover lzop \
+p7zip p7zip-plugins progress testdisk udftools unrar xfsdump</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-various-ll">1.1.5. Various Low-level Stuff</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install \
+beignet clinfo earlyoom fish freetype-freeworld htop iftop iotop \
+util-linux-user mc \
+powertop tlp tuned zsh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-czech-l10n">1.1.6. Czech Localization</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install \
+langpacks-cs libreoffice-langpack-cs</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-fonts">1.1.7. Fonts</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install \
+ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
+sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
+levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
+linux-libertine\* msimonson-anonymouspro-fonts \
+google-noto-sans-fonts google-noto-mono-fonts \
+google-noto-serif-fonts google-noto-emoji-fonts oldstandard-sfd-fonts \
+open-sans-fonts overpass-fonts overpass-mono-fonts \
+paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
+adobe-source\*fonts gdouros-symbola-fonts impallari-raleway-fonts</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>Originally, they made little sense to anyone but me. Currently, I&#8217;m trying to rewrite them to be more accessible and structured. Not guaranteed to be comprehensible at all times.</p>
+<p>Also remove the <code>aajohan-comfortaa-fonts</code> package. The Comfortaa font tends to insert itself at inappropriate places, especially in Firefox, and it isn&#8217;t very readable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-games">1.1.8. Games and Game-related</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install \
+@gnome-games 0ad astromenace blobwars bsd-games crawl crawl-tiles \
+endless-sky fillets-ng freecol freecol-manual freeciv frozen-bubble \
+gnome-2048 gnome-hearts hedgewars libtxc_dxtn neverball-neverball \
+openlierox wesnoth</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-copr">1.1.9. From Copr</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Hack fonts: <a href="https://copr.fedorainfracloud.org/coprs/heliocastro/hack-fonts/">heliocastro/hack-fonts</a></p>
+</li>
+<li>
+<p><a href="https://about.riot.im/">Riot</a>, a front-end client implementing the decentralized, secure, messaging and data-transport protocol, <a href="https://matrix.org/">Matrix</a>: <a href="https://copr.fedorainfracloud.org/coprs/taw/Riot/">taw/Riot</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="obs">1.1.10. From openSUSE Build Service</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>&#8220;Vibrancy&#8221; icon theme: <a href="https://software.opensuse.org/download.html?project=home%3APival81&amp;package=vibrancy-colors-icon-theme">home:Pival81 / vibrancy-colors-icon-theme</a></p>
+</li>
+<li>
+<p>&#8220;Moka&#8221; and &#8220;Faba&#8221; icon theme: <a href="https://software.opensuse.org/download.html?project=home%3Asnwh%3Amoka&amp;package=moka-icon-theme">home:snwh:moka / moka-icon-theme</a></p>
+</li>
+<li>
+<p>&#8220;Paper&#8221; icons and GTK theme: <a href="https://software.opensuse.org/download.html?project=home%3Asnwh%3Apaper&amp;package=paper-gtk-theme">home:snwh:paper / paper-gtk-theme</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="debian">1.2. In Debian</h3>
+<div class="paragraph">
+<p>To have access to all packages listed here, enable the <em>Contrib</em> and <em>Non-free</em> Debian repositories. This is done by editing the <code>/etc/apt/sources.list</code> file.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a sample <code>sources.list</code> for Debian Stretch, configured to include all repositories and to download data from the primary Czech server:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Basic repositories
+deb http://ftp.cz.debian.org/debian/ stretch main contrib non-free
+
+# Debian Stretch updates
+deb http://ftp.cz.debian.org/debian/ stretch-updates main contrib non-free
+
+# Debian Stretch security updates
+deb http://security.debian.org/ stretch/updates main contrib non-free
+
+# Debian Stretch backports -- the '-t stretch-backports' option
+# has to be specified explicitly to install packages from backports
+deb http://ftp.cz.debian.org/debian stretch-backports main contrib non-free</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can also use the <a href="https://deb.debian.org/">deb.debian.org</a> service, which automatically determines the fastest server for you each time <code>apt</code> downloads data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Basic repositories
+deb http://deb.debian.org/debian/ stretch main contrib non-free
+
+# Debian Stretch updates
+deb http://deb.debian.org/debian/ stretch-updates main contrib non-free
+
+# Debian Stretch security updates
+deb http://deb.debian.org/debian-security stretch/updates main contrib non-free
+
+# Debian Stretch backports -- the '-t stretch-backports' option
+# has to be specified explicitly to install packages from backports
+deb http://deb.debian.org/debian stretch-backports main contrib non-free</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Further references:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://wiki.debian.org/SourcesList">A sources.list article on the Debian Wiki</a></p>
+</li>
+<li>
+<p><a href="https://www.debian.org/mirror/list">Debian mirror list</a></p>
+</li>
+<li>
+<p><a href="https://debgen.simplylinux.ch/">A sources.list generator</a></p>
+</li>
+<li>
+<p><a href="https://wiki.debian.org/Backports">Debian backports</a> – install fresh packages on Debian Stable</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="debian-multimedia">1.2.1. Multimedia</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+audacity beets cuetools easytag exfalso flac gimp gnome-backgrounds \
+gnome-mpv gnome-music gnome-photos gnome-sound-recorder \
+gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly inkscape kde-wallpapers kdeartwork-wallpapers \
+kdenlive krita lame libva-drm1 libva-egl1 libva-intel-vaapi-driver \
+libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 mcomix mediainfo \
+mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
+shntool sox vdpauinfo vlc vorbis-tools vulkan-utils youtube-dl \</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-read-write">1.2.2. Office, Reading and Writing</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+bijiben fbreader gedit-plugins gnome-calendar gnome-dictionary \
+gnome-todo gnome-shell-extensions-gpaste libreoffice-style-sifr \
+nano neovim pandoc scribus simple-scan vim-nox</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-other-apps">1.2.3. Other Applications</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+brasero chromium dconf-editor epiphany-browser gnome-builder \
+gnome-logs gnome-maps gnome-nettool gnome-packagekit \
+gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-archiving-fs">1.2.4. Archiving and File Systems</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+atool bleachbit borgbackup exfat-fuse exfat-utils f2fs-tools \
+hfsplus hfsutils lzip lziprecover lzop \
+p7zip-full progress testdisk udftools unrar xfsdump \
+zfs-dkms zfs-initramfs zfsutils-linux</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-various-ll">1.2.5. Various Low-level Stuff</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+amd64-microcode beignet-opencl-icd clinfo earlyoom firmware-amd-graphics \
+firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
+firmware-iwlwifi firmware-linux firmware-linux-free \
+firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
+fish htop intel-microcode iftop iotop iucode-tool mc powertop \
+sudo tlp zsh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-czech-l10n">1.2.6. Czech Localization</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
+libreoffice-l10n-cs</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-fonts">1.2.7. Fonts</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+fonts-cabin fonts-cabinsketch fonts-cantarell \
+fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
+fonts-fanwood fonts-firacode fonts-inconsolata fonts-isabella \
+fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
+fonts-liberation2 fonts-linuxlibertine fonts-hack-otf \
+fonts-noto-hinted fonts-noto-mono \
+fonts-oldstandard fonts-opendyslexic fonts-open-sans fonts-quattrocento \
+fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
+ttf-anonymous-pro ttf-essays1743</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-games">1.2.8. Games and Game-related</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install \
+0ad astromenace blobwars bsdgames crawl crawl-tiles endless-sky fillets-ng \
+freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
+libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
+sauerbraten wesnoth</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="flatpak">1.3. Flatpak</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://flathub.org/apps.html">Flathub</a></p>
+</li>
+<li>
+<p><a href="http://flatpak.org/apps.html">Flatpak Applications</a></p>
+</li>
+<li>
+<p><a href="https://wiki.gnome.org/Apps/Fractal/Documentation">Fractal</a>, a Matrix messaging client for Gnome</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_chapters">1. Chapters</h2>
+<h2 id="system-tuning">2. System Tuning</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="common-options">2.1. Common Options</h3>
+<div class="sect3">
+<h4 id="xfs">2.1.1. XFS</h4>
 <div class="paragraph">
-<p>These are the &#8220;chapters&#8221; currently available:</p>
+<p>XFS is the default file system in Red Hat Enterprise Linux. It requires no tuning per se, but there are useful tools for it and things to consider when using XFS.</p>
+</div>
+<div class="paragraph">
+<p>XFS is great for:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="chapters/packages.adoc">Useful Packages</a>: lists of some packages for Fedora and Debian to quickly copy and paste</p>
+<p>large files</p>
 </li>
 <li>
-<p><a href="chapters/system-tuning.adoc">System Tuning</a>: tweaking at the lower level</p>
+<p>large partitions</p>
 </li>
 <li>
-<p><a href="chapters/gnome.adoc">Gnome</a>: getting the most out of Gnome and its applications</p>
-</li>
-<li>
-<p><a href="chapters/applications.adoc">Applications Tuning</a>: notes related to other applications</p>
-</li>
-<li>
-<p><a href="chapters/fonts.adoc">Some Free Fonts</a>: pretty fonts released under a free license; for the Linux user who has everything</p>
-</li>
-<li>
-<p><a href="chapters/references.adoc">Documentation and Useful References</a>: links to various documentation projects etc.</p>
+<p>parallel access to many files</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Also, its kernel code is said to be very clean and maintainable, compared to ext4.</p>
+</div>
+<div class="paragraph">
+<p>The CFQ disk scheduler, which is currently the default, enforces single-threaded access to the disk and, consequently, prevents XFS from utilizing its parallelism fully. To enjoy your parallelism, switch to a different scheduler: for example, deadline, or Kyber when using blk-mq. (For blk-mq, see <a href="#blk-mq">Block Device Multi Queue</a>.) However, you should only do this on an SSD or another fast disk. HDDs perform best when access is single-threaded.</p>
+</div>
+<div class="paragraph">
+<p>Some XFS-related tools:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To get information about an XFS partition: <code>xfs_info</code></p>
+</li>
+<li>
+<p>To back up a file system: <code>xfsdump</code></p>
+</li>
+<li>
+<p>To recover from backup: <code>xsfrestore</code></p>
+</li>
+<li>
+<p>To repair an XFS file system: <code>xfs_repair</code></p>
+</li>
+<li>
+<p>To calculate the fragmentation of a file system: <code>xfs_db -c frag -r &lt;partition&gt;</code></p>
+</li>
+<li>
+<p>To defragment a file system: <code>xfs_fsr &lt;partition&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Red Hat documentation: <a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch-xfs.html">XFS in the Storage Administration Guide</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="zswap">2.1.2. zswap</h4>
+<div class="paragraph">
+<p><code>zswap</code> is a kernel feature, which compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.</p>
+</div>
+<div class="paragraph">
+<p>It can be enabled using this kernel parameter in <code>/etc/default/grub</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>zswap.enabled=1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After that, update <code>grub2</code> configuration as described in <a href="#update-grub">Update grub2 Configuration</a> and reboot.</p>
+</div>
+<div class="paragraph">
+<p>The current state of <code>zswap</code> can be read from the <code>/sys/module/zswap/parameters/enabled</code> file: 0 for off, 1 for on.</p>
+</div>
+<div class="paragraph">
+<p>Run-time <code>zswap</code> statistics are recorded in the <code>/sys/kernel/debug/zswap</code> file.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="journald-disk-usage">2.1.3. journald Disk Usage</h4>
+<div class="paragraph">
+<p>The current disk usage of <code>journalctl</code> can be displayed using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo journalctl --disk-usage</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>journald</code> configuration is located in the <code>/etc/systemd/journald.conf</code> file. It&#8217;s probably a good idea to explicitly limit how much data <code>journald</code> can store. In the configuration file, set something like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>SystemMaxUse=256M
+RuntimeMaxUse=128M</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="console-log">2.1.4. System Logging in a Console</h4>
+<div class="paragraph">
+<p>You can configure your system log service to print log entries in a system console: for example, TTY10. In case of <code>journald</code>, this boils down to adding the following lines to the <code>/etc/systemd/journald.conf</code> configuration file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>ForwardToConsole=yes
+TTYPath=/dev/tty<em>N</em></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code><em>N</em></code> with the number of the console of your choosing. Note that Fedora assigns graphical user interfaces to <code>tty1</code> and subsequent consoles, while more traditional distributions like Debian start from <code>tty7</code>.</p>
+</div>
+<div class="paragraph">
+<p>Afterwards, restart the <code>journald</code> service:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo systemctl restart systemd-journald</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="blk-mq">2.1.5. Block Device Multi Queue</h4>
+<div class="paragraph">
+<p>The multiqueue block layer can be enabled by setting the <code>scsi_mod.use_blk_mq=1</code> kernel parameter in <code>/etc/default/grub</code>.</p>
+</div>
+<div class="paragraph">
+<p>The current value is available in the <code>/sys/module/scsi_mod/parameters/use_blk_mq</code> file.</p>
+</div>
+<div class="paragraph">
+<p>The blk-mq has its own set of disk schedulers, which are multiqueue-capable. They can no longer be set using the <code>elevator</code> kernel parameter. They are configured by setting udev rules instead.</p>
+</div>
+<div class="paragraph">
+<p>To configure blk-mq disk schedulers, create a <code>/etc/udev/rules.d/60-scheduler.rules</code> file containing something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>## Set the BFQ scheduler for all disks:
+# ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
+
+## Set the BFQ scheduler for all rotational disks:
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+
+## Set the Kyber scheduler for all non-rotational disks:
+ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="kyber"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If your kernel has been compiled with BFQ and Kyber set as modules, you also need to create the <code>/etc/modules-load.d/schedulers.conf</code> file. In it, put the module names to be loaded:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>bfq
+kyber-iosched</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The way the kernel detects rotational vs. non-rotational devices isn&#8217;t very reliable. It falls back on rotational. All my flash drives have been detected as rotational for some reason. Therefore, configure the schedulers more explicitly if you want consistent behavior.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="memory-tuning">2.1.6. Memory Tuning for Interactive Use</h4>
+<div class="paragraph">
+<p><a href="https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that">Certain people</a> argue that the way Linux handles interactive desktop usage leaves much to be desired. They also suggest ways to improve that.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>/etc/sysctl.conf</code> file, set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>vm.swappiness=10
+vm.vfs_cache_pressure=50</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or, if you want to be more conservative, set:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>vm.swappiness=20
+vm.vfs_cache_pressure=80</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In comparison, the default values are:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>vm.swappiness=60
+vm.vfs_cache_pressure=100</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, note that there is little "scientific" proof that modifying these actually helps. Experiment if you need to be sure. Rodd-O <a href="https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that">devises a way to test the impact</a> in their article mentioned earlier.</p>
+</div>
+<div class="paragraph">
+<p>Afterwards, update the initial ramdisk; see <a href="#rebuild-initramfs">Rebuilding the Initial Ramdisk</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="early-oom">2.1.7. Early OOM Killer</h4>
+<div class="paragraph">
+<p>The Linux "out-of-memory killer" (OOM Killer) is supposed to terminate the process that uses the most memory when the system is running out of RAM. However, it hardly ever actually executes: it is overly optimistic that the system can eventually handle the problem on its own. This leads to situations when the memory is hopelessly full while the system stays unresponsive for hours until the user presses the power button.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, an alternative, user-space implementation has been created, <code>earlyoom</code>, which is much more strict and predictable.</p>
+</div>
+<div class="paragraph">
+<p>The <code>earlyoom</code> service runs in the background and checks for memory conditions. By default, it kills a process when both the RAM and the swap partition are at least 90% full. These values are configurable.</p>
+</div>
+<div class="paragraph">
+<p>For details on installation and usage, see the GitHub page: <a href="https://github.com/rfjakob/earlyoom">rfjakob/earlyoom</a>. The context was also discussed on Reddit: <a href="https://www.reddit.com/r/linux/comments/7e0pgm/earlyoom_early_oom_daemon/">earlyoom - Early OOM daemon</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>earlyoom</code> service is packaged both for Fedora and Debian.</p>
+</div>
+<div class="paragraph">
+<div class="title">oomd</div>
+<p>There&#8217;s also an alternative service written by Facebook: <a href="https://github.com/facebookincubator/oomd" class="bare">https://github.com/facebookincubator/oomd</a>. According to the readme, it&#8217;s more flexible, allowing arbitrary code to be executed in low-memory situations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="update-grub">2.1.8. Update grub2 Configuration</h4>
+<div class="paragraph">
+<p>After editing the <code>/etc/default/grub</code> file, the configuration has to be compiled for <code>grub2</code> to be able to use it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On Debian, all you have to do is type:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo update-grub2</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>On Fedora, follow these steps:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Locate the compiled configuration file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo find /boot -name grub.cfg</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copy the file name the previous command gave you and use it here:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo grub2-mkconfig -o /boot/<em>path/to/</em>grub.cfg</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="magic-sysrq">2.1.9. Setting Up the "Magic SysRq Keys"</h4>
+<div class="paragraph">
+<p>"Magic SysRq Keys" are keyboard shortcuts that are registered at the kernel level and allow you to control the basic functions of system even if it has otherwise completely frozen.</p>
+</div>
+<div class="paragraph">
+<p>A common use case is to shut down the frozen system safely by typing <code>Alt</code>-<code>SysRq</code>-<code>s</code> to write (sync) all disk buffers, followed by <code>Alt</code>-<code>SysRq</code>-<code>u</code> to remount all disks read-only, and <code>Alt</code>-<code>SysRq</code>-<code>b</code> to reboot the system immediately.</p>
+</div>
+<div class="paragraph">
+<p>Many more shortcuts are listed in the <a href="https://en.wikipedia.org/wiki/Magic_SysRq_key#Commands">Magic SysRq key</a> article on Wikipedia.</p>
+</div>
+<div class="paragraph">
+<p>To set up Magic SysRq, open the <code>/etc/sysctl.conf</code> file as root and add:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kernel.sysrq = 1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Afterwards, update the initial ramdisk; see <a href="#rebuild-initramfs">Rebuilding the Initial Ramdisk</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="dual-boot-time-zones">2.1.10. Synchronized Time Zones when Dual-booting with Windows</h4>
+<div class="paragraph">
+<p>Linux sets the hardware clock to the current time in UTC, while Windows sets it to the local time. This conflict results the clock being off a few hours when switching operating systems.</p>
+</div>
+<div class="paragraph">
+<p>One solution is to persuade Linux to use local time instead. Surprisingly, this is extremely hard, as core system services expect UTC.</p>
+</div>
+<div class="paragraph">
+<p>The other way is to configure Windows to use UTC. This is relatively easy. The Arch Linux Wiki describes the process in the <a href="https://wiki.archlinux.org/index.php/Time#UTC_in_Windows">UTC in Windows</a> section of the <a href="https://wiki.archlinux.org/index.php/Time">Time</a> article.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_disable_watchdog">2.1.11. Disable watchdog</h4>
+<div class="paragraph">
+<p><code>watchdog</code> is a kernel service, which allows to debug system lock-ups. However, to be honest, it&#8217;s really not that useful for you as a desktop user. On the other hand, it periodically creates interrupts, which wake the CPU up from low-power sleep. Therefore, if power consumption is a concern, you can safely turn <code>watchdog</code> off.</p>
+</div>
+<div class="paragraph">
+<p>There are two main ways to configure <code>watchdog</code>: in a kernel parameter or using <code>sysctl</code>. They should have the same effect, so it&#8217;s up to you which one to choose.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To disable <code>watchdog</code> using a kernel parameter:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Edit the <code>/etc/default/grub</code> file and add the following to the kernel command line:</p>
+<div class="listingblock">
+<div class="content">
+<pre>nmi_watchdog=0</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update <code>grub2</code> configuration as described in <a href="#update-grub">Update grub2 Configuration</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>To disable <code>watchdog</code> using <code>sysctl</code>, edit the <code>/etc/sysctl.conf</code> and add there:</p>
+<div class="listingblock">
+<div class="content">
+<pre>kernel.nmi_watchdog=0</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can read the current state of <code>watchdog</code> from the <code>/proc/sys/kernel/nmi_watchdog</code> file: <code>0</code> for disabled, <code>1</code> for enabled`.</p>
+</div>
+<div class="paragraph">
+<p>Afterwards, update the initial ramdisk; see <a href="#rebuild-initramfs">Rebuilding the Initial Ramdisk</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fstrim">2.1.12. Trimming Your SSD</h4>
+<div class="paragraph">
+<p>If your computer uses a solid-state disk (SSD), you should <a href="https://en.wikipedia.org/wiki/Trim_(computing)">"trim"</a> the file systems on it regularly. Your distributions might already do that for you: Ubuntu runs <code>fstrim</code> weekly.</p>
+</div>
+<div class="paragraph">
+<p>On Fedora and Debian, you need to manually enable a service that trims disks periodically:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you&#8217;re using Debian, copy the service file so that it can be actually used:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo cp /usr/share/doc/util-linux/examples/fstrim.{service,timer} \
+        -t /etc/systemd/system/</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable the weekly timer:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo systemctl enable fstrim.timer</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="console-font">2.1.13. Configuring the Virtual Console</h4>
+<div class="paragraph">
+<p>The Linux virtual console, which displays, for example, the boot process, uses its own font and keyboard layout settings. These can be modified either on the kernel command line or in the <code>/etc/vconsole.conf</code> configuration file.</p>
+</div>
+<div class="paragraph">
+<p>By default, Fedora uses the classic <em>eurlatgr</em> font, while Debian has switched to the great, but much more opinionated, <em>Terminus</em> font. To see the console fonts available on your system, browse the <code>/lib/kbd/consolefonts/</code> directory. To install <em>Terminus</em> on Fedora, use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dnf install terminus-fonts-console</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, edit the <code>/etc/vconsole.conf</code> file and set the <code>FONT</code> variable. For example, for the console to use <em>Terminus</em> size 18 for Central European encodings:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>FONT="ter-218n"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This can also be achieved by adding the <code>vconsole.font=ter-218n</code> parameter to the kernel command line in the <code>/etc/default/grub</code> file.</p>
+</div>
+<div class="paragraph">
+<p>See also the <strong>vconsole.conf</strong>(5) man page for more information on configuring the console, including the keyboard layout.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rebuild-initramfs">2.1.14. Rebuilding the Initial Ramdisk</h4>
+<div class="paragraph">
+<p>After changing <code>sysctl</code> settings, rebuilt the initial ramdisk in order for the updated settings to take effect early in the boot process.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In Fedora:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dracut -f</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In Debian:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo update-initramfs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo dracut-update-initramfs</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_updating_firmware">2.1.15. Updating Firmware</h4>
+<div class="paragraph">
+<p>Some manufacturers (mostly Dell, Lenovo) provide firmware updates via the native Linux <code>fwupd</code> mechanism.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To check for updates:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo fwupdmgr refresh
+sudo fwupdmgr get-updates</pre>
+</div>
+</div>
+</li>
+<li>
+<p>To apply them:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo fwupdmgr update</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tuned-responsiveness">2.1.16. A Tuned Profile to Increase Desktop Responsiveness</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install and enable the <code>tuned</code> service.</p>
+</li>
+<li>
+<p>Create the <code>/etc/tuned/interactive/tuned.conf</code> file with the following content:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[main]
+summary=My own Tuned profile for an interactive desktop system
+include=desktop
+
+[cpu]
+governor=ondemand|powersave
+
+[sysctl]
+# The defaults on Fedora 30; these values are interdependent:
+# kernel.sched_min_granularity_ns=2250000
+# kernel.sched_latency_ns=18000000
+# kernel.sched_wakeup_granularity_ns=3000000
+
+# The defaults divided by 4 to reduce latency:
+kernel.sched_min_granularity_ns=562500
+kernel.sched_latency_ns=4500000
+kernel.sched_wakeup_granularity_ns=750000
+
+vm.swappiness=10
+vm.vfs_cache_pressure=50
+
+[disk]
+# On all disks, use BFQ, which is an excellent scheduler for interactivity
+elevator=bfq
+
+[sysfs]
+# Apply some tunings to sda, which should be the primary and also the fastest disk on your system (at least on desktops and laptops)
+
+# Low latency in mq-deadline in case it's set instead of BFQ:
+# /sys/block/sda/queue/iosched/fifo_batch=8
+# /sys/block/sda/queue/iosched/read_expire=50
+
+# Low latency in BFQ (optional because BFQ already works well on its own):
+# Halve the idle wait time; should improve throughput on SSDs
+/sys/block/sda/queue/iosched/slice_idle=4
+# Halve the time to expire read requests
+/sys/block/sda/queue/iosched/fifo_expire_sync=62
+/sys/block/sda/queue/iosched/timeout_sync=62
+
+# Power-saving features
+[audio]
+timeout=10</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Apply the profile:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo tuned-adm profile interactive</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="audio-quality">2.1.17. Improving Audio Quality</h4>
+<div class="paragraph">
+<p>There&#8217;s been an excellent discussion on Reddit about the audio stack on Linux: <a href="https://www.reddit.com/r/linux/comments/coi4dt/a_complete_guide_of_and_debunking_of_audio_on/">A complete guide of and debunking of audio on Linux, ALSA and Pulse</a>.</p>
+</div>
+<div class="paragraph">
+<p>The easiest and most obvious option to improve sound quality is to set a better resampling algorithm using the <code>resample-method</code> option in the <code>/etc/pulse/daemon.conf</code> file. Consider:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>speex-float-3</code> as recommended by the developers of Speex: <a href="https://www.speex.org/docs/manual/speex-manual/node7.html#SECTION00760000000000000000" class="bare">https://www.speex.org/docs/manual/speex-manual/node7.html#SECTION00760000000000000000</a></p>
+</li>
+<li>
+<p><code>speex-float-5</code> as suggested by freedesktop.org: <a href="https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Audiophile/" class="bare">https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Audiophile/</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="xorg-vsync">2.1.18. Enable VSync in X.org</h4>
+<div class="paragraph">
+<p>VSync is a graphics feature that prevents screen tearing, such as when scrolling web pages. Try enabling VSync and test if it helps under different conditions.</p>
+</div>
+<div class="paragraph">
+<p>To enable VSync in X.org for the Intel driver:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create the <code>/etc/X11/xorg.conf.d/20-intel.conf</code> configuration file containing:</p>
+<div class="listingblock">
+<div class="content">
+<pre>Section "Device"
+    Identifier "Intel Graphics"
+    Driver "intel"
+    Option "TearFree" "true"
+EndSection</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart your session.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="my-dotfiles">2.1.19. My Personal Dotfiles</h4>
+<div class="paragraph">
+<p>Many people keep their config files in a git repository, myself included. If you&#8217;d like to use my <em>dotfiles</em> or just get some inspiration, see my <a href="https://gitlab.com/mrksu/dotfiles">dotfiles</a> repository on GitLab.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="dotfiles-guides">2.1.20. Guides to Set Up Dotfiles</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://dotfiles.github.io/" class="bare">https://dotfiles.github.io/</a></p>
+</li>
+<li>
+<p><a href="https://www.gnu.org/software/stow/" class="bare">https://www.gnu.org/software/stow/</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789" class="bare">https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="passwords">2.1.21. Password Management</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://bitwarden.com/" class="bare">https://bitwarden.com/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fedora-specific">2.2. Fedora-Specific Options</h3>
+<div class="sect3">
+<h4 id="fedora-unnecessary-services">2.2.1. Remove Unnecessary Services</h4>
+<div class="paragraph">
+<p>Until this gets fixed:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/UFGNO5MTPCLEK5B5RCJGGZUFTZ7JTWI5/" class="bare">https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/UFGNO5MTPCLEK5B5RCJGGZUFTZ7JTWI5/</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fedora-auto-update">2.2.2. Enable Automatic Updates in Fedora</h4>
+<div class="paragraph">
+<p>Fedora can automatically install package updates at configurable times using the <code>dnf-automatic</code> package and the <code>dnf-automatic-download.timer</code> or <code>dnf-automatic-install.timer</code> systemd units.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see the <a href="https://www.ctrl.blog/entry/how-to-dnf-automatic">How to get Fedora to take care of its own updates</a> article on the <em>Ctrl blog</em>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="limit-coredump">2.2.3. Limit coredump Disk Usage</h4>
+<div class="paragraph">
+<p><code>coredump</code> is a mechanism that Fedora uses to analyze application crashes and send automated bug reports. The application&#8217;s memory space is saved to a file on your disk. These files can easily be gigabytes in size, and while the default configuration places some limits on their total size, we can be more strict.</p>
+</div>
+<div class="paragraph">
+<p>To limit <code>coredump</code> to use 2 gigabytes of disk space at most, open the <code>/etc/systemd/coredump.conf</code> and add:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>MaxUse=2G</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_number_of_kernels_kept_installed">2.2.4. The Number of Kernels Kept Installed</h4>
+<div class="paragraph">
+<p>Fedora keeps only a certain number of kernel versions installed in parallel. When a new version is being installed, the oldest one is deleted automatically is the limit has been exceeded. The default number is 3.</p>
+</div>
+<div class="paragraph">
+<p>To change the number of installable kernel versions, open the <code>/etc/dnf/dnf.conf</code> and edit the <code>installonly_limit=3</code> line.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_restrict_or_disable_selinux">2.2.5. Restrict or Disable SELinux</h4>
+<div class="paragraph">
+<p>Fedora utilizes SELinux, a kernel mechanism that watches which processes access which files and only allows those access patterns which have been allowed in SELinux rules.</p>
+</div>
+<div class="paragraph">
+<p>This is great for security, at least in theory, but might cause trouble if you&#8217;re doing something for what nobody has written SELinux rules. For example, SELinux might deny some power-tweaking programs from taking effect because it deems them suspicious.</p>
+</div>
+<div class="paragraph">
+<p>If you see SELinux warnings on your desktop, there are three ways to deal with them for good:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>File bugs, create new SELinux rules. <code>aintnobodygottimefothat.gif</code></p>
+</li>
+<li>
+<p>Configure SELinux to still show warnings but allow all access. The "permissive" mode.</p>
+</li>
+<li>
+<p>Disable SELinux altogether.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Configuration can be changed in the <code>/etc/selinux/config</code> file, on the <code>SELINUX=</code> line. The default is <code>SELINUX=enforcing</code>, and you can change it to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SELINUX=permissive</code> for the permissive mode</p>
+</li>
+<li>
+<p><code>SELINUX=disabled</code> to disable SELinux</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="debian-specific">2.3. Debian-Specific Options</h3>
+<div class="sect3">
+<h4 id="sudo-config">2.3.1. Configuring sudo</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Become root the traditional way:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">su</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the <code>sudo</code> package. This is already included in the <a href="packages.html#packages">Useful Packages</a> chapter, but anyway, to make sure:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">apt install sudo</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add your user to the group <code>sudo</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">usermod -a -G sudo <em>your_user_name</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Reboot your system.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="debian-auto-update">2.3.2. Enable Automatic Updates in Debian</h4>
+<div class="paragraph">
+<p>Debian can automatically install package updates at configurable times using the Unattended Upgrades feature.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see the <a href="https://wiki.debian.org/UnattendedUpgrades">UnattendedUpgrades</a> page on the Debian Wiki.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="only-journald">2.3.3. journald as the Only Log</h4>
+<div class="paragraph">
+<p>By default, Debian uses <code>rsyslog</code> as the system log service. However, <code>journald</code> is running anyway all the time and there&#8217;s no reason to have two log service, other than that <code>rsyslog</code> provides plain-text logs. If that doesn&#8217;t sound compelling to you:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Disable <code>rsyslog</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo systemctl disable rsyslog</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Make <code>journald</code> store its log permanently (instead of at runtime only). In <code>/etc/systemd/journald.conf</code> set:</p>
+<div class="listingblock">
+<div class="content">
+<pre>Storage=persistent</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-up-cnf">2.3.4. Setting Up command-not-found</h4>
+<div class="paragraph">
+<p><code>command-not-found</code> is a helpful little program, which offers you to install the correct package when you type the command of a program that hasn&#8217;t been installed yet. Fedora and Ubuntu do this automatically; in Debian, a little effort is needed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install <code>command-not-found</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo apt install command-not-found</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the packages &amp; commands database:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo apt-file update
+sudo update-command-not-found</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_periodic_packages_cleaning">2.3.5. Periodic Packages Cleaning</h4>
+<div class="paragraph">
+<p>By default, the <code>apt</code> package manager keeps all downloaded packages on disk indefinitely. This can result in a lot of wasted disk space.</p>
+</div>
+<div class="paragraph">
+<p>To configure <code>apt</code> to clean outdated downloaded packages periodically every 7 days (and keep only up-to-date packages), create the <code>/etc/apt/apt.conf.d/02periodic</code> file containing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>APT::Periodic::AutocleanInterval "7";</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or to periodically clean all downloaded packages regardless of them being up-to-date or not:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>APT::Periodic::CleanInterval "7";</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="no-flat-volumes">2.3.6. No Flat Audio Volumes</h4>
+<div class="paragraph">
+<p>PulseAudio has developed two ways to synchronize audio volume between applications. Until recently, "flat volumes" have been the default. However, It is inherently problematic; see <a href="https://lists.fedoraproject.org/pipermail/devel/2015-September/214720.html">Disable PulseAudio flat volumes to prevent it from pushing volume level to max</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1265267">Bug 1265267 - RFE: Disable PulseAudio&#8217;s flat volumes</a>.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, it has been decided to change the default setting to disabled flat volumes. Unfortunately, Debian (Stretch?) hasn&#8217;t (yet?) integrated this update. To set it manually, open the <code>/etc/pulse/daemon.conf</code> file and add:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>flat-volumes = no</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_set_up_plymouth">2.3.7. Set Up Plymouth</h4>
+<div class="paragraph">
+<p>Plymouth is the pretty animated picture you see when the system is booting up or shutting down. Debian doesn&#8217;t like pretty stuff by default, and therefore, Plymouth has to be installed manually.</p>
+</div>
+<div class="paragraph">
+<p>The process is <a href="https://wiki.debian.org/plymouth">documented on the Debian Wiki</a>. However, to save you a few clicks and some reading:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install Plymouth and its themes:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo apt install plymouth plymouth-themes</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Edit the <code>/etc/initramfs-tools/modules</code> and add modesetting modules for your graphics card:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For Intel GPUs:</p>
+<div class="listingblock">
+<div class="content">
+<pre># KMS
+intel_agp
+drm
+i915 modeset=1</pre>
+</div>
+</div>
+</li>
+<li>
+<p>For nVidia GPUs using the Nouveau driver:</p>
+<div class="listingblock">
+<div class="content">
+<pre># KMS
+drm
+nouveau modeset=1</pre>
+</div>
+</div>
+</li>
+<li>
+<p>For AMD GPUs (may be slightly outdated):</p>
+<div class="listingblock">
+<div class="content">
+<pre># KMS
+drm
+radeon modeset=1</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Open the <code>/etc/default/grub</code> file.</p>
+</li>
+<li>
+<p>There, uncomment the <code>GRUB_GFXMODE=</code> line and set it to your display resolution. For example, <code>GRUB_GFXMODE=1024x768</code>. (This may not be necessary and might even uglify grub; test it.)</p>
+</li>
+<li>
+<p>Also, edit the kernel line, that is the one starting with <code>GRUB_CMDLINE_LINUX_DEFAULT=</code>. Add <code>splash</code> at the end and delete <code>quiet</code> if you&#8217;d like to be able to see detailed <code>systemd</code> boot output when you switch out of the pretty animated picture.</p>
+</li>
+<li>
+<p>Save the file and update <code>grub2</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo update-grub2</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Get the list of installed Plymouth themes:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo plymouth-set-default-theme -l</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The default theme in Debian Stretch is <code>softwaves</code>. The rest are either the themes of earlier Debian releases or are bundled with Plymouth itself, originally coming from Fedora.</p>
+</div>
+</li>
+<li>
+<p>Set a theme for Plymouth to actually use:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">sudo plymouth-set-default-theme -R <em>your_selected_theme</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Reboot and watch the result. Repeat the last two steps if you want to see more themes in action.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gnome">3. Gnome</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="battery-percent">3.1. Battery Percentage Indicator</h3>
+<div class="paragraph">
+<p>To show battery percentage in the top panel, change the <code>org.gnome.desktop.interface.show-battery-percentage</code> dconf key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf write \
+/org/gnome/desktop/interface/show-battery-percentage \
+true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="night-temp">3.2. Night Light Temperature</h3>
+<div class="paragraph">
+<p>To change the Night Light temperature in Gnome 3.24 (newer versions should include a GUI setting), set the <code>org.gnome.settings-daemon.plugins.color.night-light-temperature</code> key to your desired temperature. For example, for 4,500 degrees Kelvin:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf write \
+/org/gnome/settings-daemon/plugins/color/night-light-temperature \
+4500</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nautilus-dnd">3.3. Nautilus Drag-and-Drop Behavior</h3>
+<div class="paragraph">
+<p>Nautilus ("Files") opens directories when you hover a dragged item over them. Personally, I don&#8217;t like this behavior, because it requires me to be quick and precise, which I&#8217;m not. Therefore, to disable the automatic folder opening:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf write \
+/org/gnome/nautilus/preferences/open-folder-on-dnd-hover \
+false</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dconf-backup">3.4. Backing Up dconf Settings</h3>
+<div class="paragraph">
+<p><code>dconf</code> settings cannot be copied over to another system or to another user like regular, plain-text files. However, you can export ("dump") them to a text file and then import ("load") them from it again:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf dump /<em>path/to/export/</em> &gt; <em>exported-dconf-settings.txt</em>
+dconf load /<em>path/to/import/</em> &lt; <em>exported-dconf-settings.txt</em></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf dump /org/gnome/ &gt; gnome-dconf-settings.txt
+dconf load /org/gnome/ &lt; gnome-dconf-settings.txt</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="compose-key">3.5. Configuring the Compose Key</h3>
+<div class="paragraph">
+<p>The Compose key allows you to combine a couple of characters on your keyboard to type exotic characters and diacritics. Available combinations are listed in the <a href="https://help.ubuntu.com/community/GtkComposeTable">GtkComposeTable</a> article on the Ubuntu Community Help Wiki.</p>
+</div>
+<div class="paragraph">
+<p>You can configure your Compose key using the Tweak Tool in the Typing tab. Set it to a key you only rarely use, for example the Menu key or PrintScreen.</p>
+</div>
+<div class="paragraph">
+<p>To set the Compose key to the Menu, PrintScreen, and Right Win keys (missing keys are ignored), you might also use <code>dconf</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf write \
+/org/gnome/desktop/input-sources/xkb-options \
+"['compose:menu', 'compose:prsc', 'compose:rwin']"</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+This command rewrites all your Typing preferences you set in the Tweak Tool.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Starting with version 3.20, GTK can read traditional XLib Compose configuration files. You can configure your own composition rules this way, storing them in the <code>~/.config/gtk-3.0/Compose</code> or <code>~/.XCompose</code> files. For more information, see <em>Defining custom Compose sequences</em> in the <a href="http://blog.cyberborean.org/2008/01/06/compose-key-magic">Compose key magic</a> article on the Cyberborean Chronicles blog.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="win-switching">3.6. Window Switching Shortcuts</h3>
+<div class="paragraph">
+<p>By default, both the <code>Alt</code>-<code>Tab</code> and the <code>Win</code>-<code>tab</code> key (and their <code>Shift</code> variants) switch <em>applications</em> in Gnome. This is a matter of taste, but sometimes, you want to simply switch <em>windows</em> instead. A common use case is when an application uses more than one window.</p>
+</div>
+<div class="paragraph">
+<p>To keep an application-switching shortcut but add a window-switching one as well, configure <code>Win</code>-<code>Tab</code> to only switch between applications and <code>Alt</code>-<code>Tab</code> to only switch between windows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf write \
+/org/gnome/desktop/wm/keybindings/switch-applications \
+"['&lt;Super&gt;Tab']"
+
+dconf write \
+/org/gnome/desktop/wm/keybindings/switch-applications-backward \
+"['&lt;Shift&gt;&lt;Super&gt;Tab']"
+
+dconf write \
+/org/gnome/desktop/wm/keybindings/switch-windows \
+"['&lt;Alt&gt;Tab']"
+
+dconf write \
+/org/gnome/desktop/wm/keybindings/switch-windows-backward \
+"['&lt;Shift&gt;&lt;Alt&gt;Tab']"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As an added bonus, the resulting behavior is consistent with both Windows (window-switching with <code>Alt</code>-<code>Tab</code>) and Mac (application-switching with <code>Cmd</code>-<code>Tab</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dconf-lockdown">3.7. Lock Down DConf</h3>
+<div class="paragraph">
+<p>Gnome offers ways to <a href="https://help.gnome.org/admin/system-admin-guide/stable/user-settings.html.en#lockdown">lock down certain aspects of the user interface</a>. This is useful when untrusted or unqualified people are expected to use the computer; for example, when setting up an internet kiosk, a public library PC, or when kids are around.</p>
+</div>
+<div class="paragraph">
+<p>To prevent specific DConf keys from being modified (to lock them down), follow the official Gnome documentation in the <a href="https://help.gnome.org/admin/system-admin-guide/stable/dconf-lockdown.html.en">Lock down specific settings</a> article.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="epiphany-adblock">3.8. Epiphany Adblock Lists</h3>
+<div class="paragraph">
+<p>The <em>Epiphany</em> web browser, also called <em>Web</em> or <em>WWW</em>, blocks ads by default. However, the blocking list is rather limited. New lists can be added by changing the <code>/org/gnome/epiphany/adblock-filters</code> DConf key.</p>
+</div>
+<div class="paragraph">
+<p>For example, to block tracking, social-networks elements, anti-adblock pop-ups, and Czech/Slovak ads:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf write \
+/org/gnome/epiphany/adblock-filters \
+"['https://easylist.to/easylist/easylist.txt', \
+'https://easylist.to/easylist/easyprivacy.txt', \
+'https://easylist.to/easylist/fanboy-social.txt', \
+'https://easylist-downloads.adblockplus.org/antiadblockfilters.txt', \
+'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt']"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fractional-scaling">3.9. Fractional Scaling</h3>
+<div class="paragraph">
+<p>Currently (v3.26), Gnome and the GTK+ toolkit allow interface scaling by integers only by default. That is, by the factor of 1.0, 2.0, etc. If you&#8217;re using a screen that has a semi-high pixel density, neither of these settings work very well and your user interface elements look either too small or too big.</p>
+</div>
+<div class="paragraph">
+<p>However, in 3.26, a new, experimental option has been introduced to allow fractional, non-integer scaling: for example, 1.25× or 1.5×. It doesn&#8217;t work that great yet but you can try it out to see what it&#8217;s like. You need to set the <code>/org/gnome/mutter/experimental-features</code> DConf key and do a little config dance:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enable the experimental feature in DConf:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf write \
+/org/gnome/mutter/experimental-features \
+"['scale-monitor-framebuffer']"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log out of Gnome and log back in again.</p>
+</li>
+<li>
+<p>Go to Gnome Settings → Devices → Displays and select a "Scale" value that you&#8217;re comfortable with. You can set a different scaling factor for each of your displays.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you decide to disable the feature and go back to integer scaling, unset the key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="bash">dconf reset \
+/org/gnome/mutter/experimental-features</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+For now, a reasonable alternative to fractional scaling is to scale just the fonts. Use the "Scaling Factor" in the "Fonts" tab in Tweaks. Additionally, you may want to set a similar value for Firefox to scale CSS. See the Applications chapter, Firefox section for more information.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tracker-preferences">3.10. Lowering the Load of File Metadata Mining</h3>
+<div class="paragraph">
+<p>Gnome includes the Tracker service to extract file metadata and provide a search database. This tends to spin the disk a lot (especially with HDDs) and eat a large portion of the CPU sometimes.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re on a slower, HDD-backed system or want to conserve energy, it might be a good idea to limit the reach and intensity of Tracker. There used to be the "Tracker Preferences" application, which has now been discontinued, as it seems. Luckily, DConf settings remain accessible in the following key directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/org/freedesktop/tracker/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Consider exploring the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/org/freedesktop/tracker/extract/
+/org/freedesktop/tracker/miner/files/</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gui-root-edit">3.11. Viewing and Editing Files as Root in Gnome</h3>
+<div class="sect3">
+<h4 id="_in_the_file_manager">3.11.1. In the File Manager</h4>
+<div class="paragraph">
+<p>In the <strong>Files</strong> application, you can open any directory with root permissions. This has been available since Gnome 3.24. To do that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In  <strong>Files</strong>, activate the directory path field, for example by pressing Ctrl+L.</p>
+</li>
+<li>
+<p>Type the following into the field:</p>
+<div class="listingblock">
+<div class="content">
+<pre>admin:///<em>directory-path</em>/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <em>directory-path</em> with the path to the directory that you want to access. Note that there are three slashes at the beginning, the third of which stands for the root directory in the absolute path; the slash after the path is also required. For example, to access the <code>/etc/default/</code> directory, type <code>admin:///etc/default/</code>.</p>
+</div>
+</li>
+<li>
+<p>Enter your password in the prompt that shows up.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Applications launched from the <strong>Files</strong> window can also inherit the same root privileges.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_in_editors">3.11.2. In Editors</h4>
+<div class="paragraph">
+<p>Graphical text editors that use the <code>gvfs</code> Gnome infrastructure, such as Gedit, Geany, or Gnome Builder, can natively edit with root permissions.</p>
+</div>
+<div class="paragraph">
+<p>To use this feature:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the editor, open the file chooser dialog, for example by pressing Ctrl+O.</p>
+</li>
+<li>
+<p>In the dialog, activate the directory path field, for example by pressing Ctrl+L.</p>
+</li>
+<li>
+<p>Use the method described in the previous section to open the directory that contains the file you want to edit as root.</p>
+</li>
+<li>
+<p>Select the file to edit in the file chooser.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autoremove-flatpak-runtimes">3.12. Automatically Uninstalling Unused Flatpak Runtimes</h3>
+<div class="paragraph">
+<p>As Flatpak applications update, they switch to newer versions of their runtimes. Flatpak still keeps the old runtimes installed even after no application depends on it anymore. The unused runtimes might then occupy a significant amount of disk space.</p>
+</div>
+<div class="paragraph">
+<p>You can configure a systemd timer unit to automatically remove unused runtimes once a week.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Save the following configuration as the <code>/etc/systemd/system/flatpak-uninstall-unused.service</code> file:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[Unit]
+Description=Uninstall unused Flatpak runtimes
+Documentation=man:flatpak
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak uninstall --unused --noninteractive</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Save the following configuration as the <code>/etc/systemd/system/flatpak-uninstall-unused.timer</code> file:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[Unit]
+Description=Uninstall unused Flatpak runtimes once a week
+Documentation=man:flatpak
+
+[Timer]
+OnCalendar=weekly
+AccuracySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Reload systemd units:</p>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl daemon-reload</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable the timer:</p>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl enable --now flatpak-uninstall-unused.timer</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enabling_wayland_and_file_access_in_firefox_from_flatpak">3.13. Enabling Wayland and File Access in Firefox from Flatpak</h3>
+<div class="paragraph">
+<p>The Firefox Flatpak package on FLathub is missing some permissions, and as a result, it runs under XWayland and can access files only in the <code>Downloads</code> directory.</p>
+</div>
+<div class="paragraph">
+<p>To fix this, you can override the package permissions.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enable Firefox to run on Wayland:</p>
+<div class="listingblock">
+<div class="content">
+<pre># flatpak override --env=GDK_BACKEND=wayland --socket=wayland org.mozilla.firefox</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable Firefox to read and write files in all the standard user directories:</p>
+<div class="listingblock">
+<div class="content">
+<pre># flatpak override --filesystem=xdg-documents \
+                   --filesystem=xdg-music \
+		   --filesystem=xdg-pictures \
+		   --filesystem=xdg-videos \
+		   org.mozilla.firefox</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gs-extensions">3.14. Some Gnome Shell Extensions</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a href="https://extensions.gnome.org/extension/307/dash-to-dock/">Dash to Dock</a> </dt>
+<dd>
+<p>Makes the left-hand-side applications panel accessible even when the Activities overview isn&#8217;t active.</p>
+</dd>
+<dt class="hdlist1"><a href="https://extensions.gnome.org/extension/1160/dash-to-panel/">Dash to Panel</a> </dt>
+<dd>
+<p>Similar to Dash to Dock, but creates a Windows-like panel instead.</p>
+</dd>
+<dt class="hdlist1">Gpaste </dt>
+<dd>
+<p>Manages the clipboard (selectable history of copy-and-paste). Install from distribution packages: <code>gnome-shell-extension-gpaste</code> in Fedora and <code>gnome-shell-extensions-gpaste</code> in Debian.</p>
+</dd>
+<dt class="hdlist1"><a href="https://extensions.gnome.org/extension/723/pixel-saver/">Pixel Saver</a> </dt>
+<dd>
+<p>Hides the titlebar of maximized windows that don&#8217;t use a headerbar.</p>
+</dd>
+<dt class="hdlist1"><a href="https://extensions.gnome.org/extension/495/topicons/">TopIcons</a> or <a href="https://extensions.gnome.org/extension/1031/topicons/">TopIcons Plus</a> </dt>
+<dd>
+<p>Displays tray icons in the top panel.</p>
+</dd>
+<dt class="hdlist1"><a href="https://extensions.gnome.org/extension/1253/extended-gestures/">Extended Gestures</a> </dt>
+<dd>
+<p>Adds more touchpad gestures into Gnome Shell</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="applications">4. Applications Tuning</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="firefox">4.1. Firefox</h3>
+<div class="sect3">
+<h4 id="firefox-accel">4.1.1. Enable Acceleration</h4>
+<div class="paragraph">
+<p>Hardware acceleration in Firefox is still marked as experimental on Linux because some graphics drivers are buggy. However, you can try if it works OK on your configuration. Potentially, the benefits are smoother browsing and lower CPU usage for video playback.</p>
+</div>
+<div class="paragraph">
+<p>To enable acceleration, set the following keys on the <code>about:config</code> page to <code>true</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>layers.acceleration.force-enabled</code></p>
+</li>
+<li>
+<p><code>media.hardware-video-decoding.force-enabled</code></p>
+</li>
+<li>
+<p><code>gfx.canvas.azure.accelerated</code> – Create this one if it doesn&#8217;t exist.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To verify, open the <code>about:support</code> page and take a look at the <em>Graphics</em> section.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="web-scaling">4.1.2. Web Pages and Interface Scaling</h4>
+<div class="paragraph">
+<p>Depending on the pixel density (DPI) of your display, your eyesight, and the distance between you and the display, text on the web might be too small. There are multiple ways to deal with it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>some people just zoom any web page as soon as they visit it;</p>
+</li>
+<li>
+<p>other people increase the minimal font size in settings;</p>
+</li>
+<li>
+<p>the <em>smartest</em> people adjust the CSS pixels scaling ratio.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The benefit of the last approach is that the scaling is:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>automatic: no need to zoom by hand;</p>
+</li>
+<li>
+<p>transparent and consistent: all pages and their elements and even the Firefox interface itself are scaled by the same factor.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To utilize this great setting, go to the <code>about:config</code> page and set the following key to a comfortable value, e.g. <code>1.5</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>layout.css.devPixelsPerPx</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="middle-mouse-paste">4.1.3. No Middle Mouse Button Paste</h4>
+<div class="paragraph">
+<p>By default, Firefox recognizes the middle mouse button (mouse-wheel click) the traditional UNIX way, that is it pastes clipboard content or, worse yet, loads URL from clipboard. This is surprising to all people except the two bearded sysadmins still alive today who frequent Root.cz.</p>
+</div>
+<div class="paragraph">
+<p>To turn off middle mouse clipboard pasting, go to <code>about:config</code> in Firefox and set the following keys to <code>false</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>middlemouse.paste</code></p>
+</li>
+<li>
+<p><code>middlemouse.contentLoadURL</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="alt-menu">4.1.4. No Alt Main Menu</h4>
+<div class="paragraph">
+<p>When you press the <code>Alt</code> key in Firefox, the main menu bar jumps at you from the top of the window. This may be convenient to you if you&#8217;re used to the bar, but it hapens way too often unintentionally when pressing keyboard shortcuts.</p>
+</div>
+<div class="paragraph">
+<p>To disable the <code>Alt</code> key menu activation, open <code>about:config</code> in Firefox and change the following key to <code>0</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ui.key.menuAccessKey</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>18</code> represents <code>Alt</code> here; <code>17</code> stands for <code>Ctrl</code> if you&#8217;re interested.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="session-interval">4.1.5. Session Back-up interval</h4>
+<div class="paragraph">
+<p>There is a time interval setting in Firefox, which controls how often the content of the current session (tabs, etc.) is saved to disk to be able to recover in case of a crash. The default value is 15 seconds. This can lead to excessive disk writes, but that&#8217;s only relevant on Windows and only harmful on SSDs, so there&#8217;s probably no reason to worry about this.</p>
+</div>
+<div class="paragraph">
+<p>Nevertheless, if you&#8217;re a heavy tabs user, you might want to consider lowering the load on your system a bit. To change the interval to 5 minutes, go to <code>about:config</code> and set the following key to <code>300000</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>browser.sessionstore.interval</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This issue was brought up in the <a href="https://forums.servethehome.com/index.php?threads/firefox-is-chewing-through-your-nand.11346/">STH forums</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="firefox-pdf">4.1.6. Using the Native PDF Application</h4>
+<div class="paragraph">
+<p>The built-in PDF viewer that Firefox uses is nice, but it lacks some features to display all PDFs correctly and tends to be rather heavy-weight due to being written in JavaScript.</p>
+</div>
+<div class="paragraph">
+<p>On a low-memory system, you may consider configuring Firefox to always open your native PDF viewer instead. To do that, open Preferences, find the Applications section, search for <code>pdf</code>, and for the item that appears in the results box, change the "Action" to "Use Document Viewer".</p>
+</div>
+<div class="paragraph">
+<p>See also the Mozilla documentation article: <a href="https://support.mozilla.org/en-US/kb/disable-built-pdf-viewer-and-use-another-viewer">How to disable the built-in PDF viewer and use another viewer</a></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gimp">4.2. Gimp</h3>
+<div class="sect3">
+<h4 id="gimp-font-alias">4.2.1. Font Aliasing</h4>
+<div class="paragraph">
+<p>The way Gimp renders text and anti-aliases fonts is configurable. This is useful because Gimp tends to apply RGB anti-alias and <a href="https://plus.google.com/+WorldofGnomeOrg/posts/QjR629U6HQd">produce weird colorful lines</a> around letters.</p>
+</div>
+<div class="paragraph">
+<p>To set a font configuration that is sensible for image editors, create the <code>/etc/gimp/2.0/fonts.conf</code> file and put there:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code data-lang="xml">&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE fontconfig SYSTEM "fonts.dtd"&gt;
+&lt;fontconfig&gt;
+  &lt;match target="font"&gt;
+    &lt;edit name="antialias" mode="assign"&gt;
+      &lt;bool&gt;true&lt;/bool&gt;
+    &lt;/edit&gt;
+  &lt;/match&gt;
+  &lt;match target="font"&gt;
+    &lt;edit name="hinting" mode="assign"&gt;
+      &lt;bool&gt;true&lt;/bool&gt;
+    &lt;/edit&gt;
+  &lt;/match&gt;
+  &lt;match target="font"&gt;
+    &lt;edit name="hintstyle" mode="assign"&gt;
+      &lt;const&gt;hintslight&lt;/const&gt;
+    &lt;/edit&gt;
+  &lt;/match&gt;
+  &lt;match target="font"&gt;
+    &lt;edit name="rgba" mode="assign"&gt;
+      &lt;const&gt;none&lt;/const&gt;
+    &lt;/edit&gt;
+  &lt;/match&gt;
+&lt;/fontconfig&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="chromium">4.3. Chromium and Google Chrome</h3>
+<div class="sect3">
+<h4 id="chromium-scaling">4.3.1. UI Scaling</h4>
+<div class="paragraph">
+<p>To scale Chromium UI on high-DPI displays:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install the <code>menulibre</code> application.</p>
+</li>
+<li>
+<p>In <code>menulibre</code>, navigate to Internet &#8594; Chromium Web Browser.</p>
+</li>
+<li>
+<p>Edit the <strong>Command</strong> field to include the <code>--high-dpi-support=1</code> and <code>--force-device-scale-factor=<em>my-scale-factor</em></code> scaling options:</p>
+<div class="listingblock">
+<div class="content">
+<pre>/usr/bin/chromium-browser --high-dpi-support=1 --force-device-scale-factor=<em>my-scale-factor</em> %U</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <em>my-scaling-factor</em> with a floating-point number specifying how much to scale the UI. For example, use <code>1.25</code> to scale the UI to 125%.</p>
+</div>
+</li>
+<li>
+<p>Similarly, edit the commands in all entries under the <strong>Actions</strong> tab below.</p>
+</li>
+<li>
+<p>Press <strong>Ctrl-S</strong> to save the launcher.</p>
+</li>
+<li>
+<p>Restart all your Chromium windows for the setting to take effect.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="free-fonts">5. Some Free Fonts</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_sans_serif">5.1. Sans-serif</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 30%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Font Name</th>
+<th class="tableblock halign-left valign-top">In Fedora repos?</th>
+<th class="tableblock halign-left valign-top">In Debian repos?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alegreya Sans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ht-alegreya-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Arimo (Croscore Arial)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-croscore-arimo-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-croscore</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cabin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-cabin</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Carlito (Croscore Calibri)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-crosextra-carlito-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-crosextra-carlito</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Droid Sans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-droid-sans-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fira Sans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mozilla-fira-sans-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lato</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lato-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-lato</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libre Franklin</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://fonts.google.com/specimen/Libre+Franklin/" class="bare">https://fonts.google.com/specimen/Libre+Franklin/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linux Biolinum</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux-libertine-biolinum-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-linuxlibertine</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Merriweather Sans</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://fonts.google.com/specimen/Merriweather+Sans/" class="bare">https://fonts.google.com/specimen/Merriweather+Sans/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Noto Sans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-noto-sans-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-noto-hinted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Open Sans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">open-sans-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-open-sans</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overpass</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">overpass-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT Sans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paratype-pt-sans-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Raleway</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">impallari-raleway-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Roboto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-roboto-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-roboto-hinted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source Sans Pro</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adobe-source-sans-pro-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Work Sans</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://fonts.google.com/specimen/Work+Sans/" class="bare">https://fonts.google.com/specimen/Work+Sans/</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_serif">5.2. Serif</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 30%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Font Name</th>
+<th class="tableblock halign-left valign-top">In Fedora repos?</th>
+<th class="tableblock halign-left valign-top">In Debian repos?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alegreya</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ht-alegreya-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Caladea (Croscore Cambria)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-crosextra-caladea-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-crosextra-caladea</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tinos (Croscore Times New Roman)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-croscore-tinos-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-croscore</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Droid Serif</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-droid-serif-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fanwood</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://www.theleagueofmoveabletype.com/fanwood" class="bare">https://www.theleagueofmoveabletype.com/fanwood</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gentium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sil-gentium-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-sil-gentium</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Heuristica</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apanov-heuristica-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Isabella</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">thibault-isabella-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-isabella</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Libre Baskerville</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://fonts.google.com/specimen/Libre+Baskerville" class="bare">https://fonts.google.com/specimen/Libre+Baskerville</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linux Libertine</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">linux-libertine-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-linuxlibertine</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Merriweather</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://fonts.google.com/specimen/Merriweather" class="bare">https://fonts.google.com/specimen/Merriweather</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Noticia Text</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://fonts.google.com/specimen/Noticia+Text" class="bare">https://fonts.google.com/specimen/Noticia+Text</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Noto Serif</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-noto-serif-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-noto-hinted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Old Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">oldstandard-sfd-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-oldstandard</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT Serif</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paratype-pt-serif-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Roboto Slab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-roboto-slab-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorts Mill Goudy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cf-sorts-mill-goudy-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source Serif Pro</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adobe-source-serif-pro-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_fixed_width">5.3. Fixed-width</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 30%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Font Name</th>
+<th class="tableblock halign-left valign-top">In Fedora repos?</th>
+<th class="tableblock halign-left valign-top">In Debian repos?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Anonymous Pro</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">msimonson-anonymouspro-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ttf-anonymous-pro</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cousine (Croscore Courier New)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-croscore-cousine-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-croscore</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Droid Mono</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-droid-sans-mono-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fira Mono</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mozilla-fira-mono-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-firacode</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copr: heliocastro/hack-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-hack-otf</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inconsolata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">levien-inconsolata-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-inconsolata</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inconsolata LGC</p></td>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><a href="https://fontlibrary.org/en/font/inconsolata-lgc" class="bare">https://fontlibrary.org/en/font/inconsolata-lgc</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Noto Mono</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-noto-mono-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fonts-noto-mono</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overpass Mono</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">overpass-mono-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PT Mono</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paratype-pt-mono</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Roboto Mono</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google-roboto-mono-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source Code Pro</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adobe-source-code-pro-fonts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -503,5 +2727,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 Last updated 2020-07-14 12:20:27 +0200
 </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>
 </body>
 </html>
