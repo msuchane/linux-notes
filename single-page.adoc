@@ -1,22 +1,12 @@
 = Linux Notes [[linux-notes-single-page]]
-:author: Marek Suchánek
-:email: marek.suchanek@protonmail.com
-//:source-highlighter: highlightjs
-:source-highlighter: prettify
-:toc:
-// :toclevels: 3
+include::chapters/attributes.adoc[]
 
-:leveloffset: +1
+include::chapters/packages.adoc[leveloffset=+1]
 
-include::chapters/packages.adoc[]
+include::chapters/system-tuning.adoc[leveloffset=+1]
 
-include::chapters/system-tuning.adoc[]
+include::chapters/gnome.adoc[leveloffset=+1]
 
-include::chapters/gnome.adoc[]
+include::chapters/applications.adoc[leveloffset=+1]
 
-include::chapters/applications.adoc[]
-
-include::chapters/fonts.adoc[]
-
-:leveloffset: -1
-
+include::chapters/fonts.adoc[leveloffset=+1]
