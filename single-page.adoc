@@ -1,4 +1,4 @@
-= Linux Notes [[linux-notes-single-page]]
+= Linux notes [[linux-notes-single-page]]
 include::chapters/attributes.adoc[]
 
 include::chapters/packages.adoc[leveloffset=+1]

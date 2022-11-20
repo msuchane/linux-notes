@@ -1,125 +1,105 @@
-= Useful Packages [[packages]]
+= Useful packages [[packages]]
 include::attributes.adoc[]
 
 == In Fedora [[fedora]]
 
-To have access to all packages listed here, enable the https://rpmfusion.org/[RPM Fusion] _Free_ and _Nonfree_ repositories. Follow their instructions on the https://rpmfusion.org/Configuration[Configuration] page.
+=== The RPM Fusion repository
 
-Further references:
+To have access to all packages listed on this page, enable the https://rpmfusion.org/[RPM Fusion] _Free_ and _Nonfree_ repositories:
 
-- https://admin.fedoraproject.org/mirrormanager/[Fedora mirror list]
+. Install the repository configuration:
++
+[source,bash]
+----
+$ sudo dnf install \
+       https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+       https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+----
+
+. Install Appstream metadata packages:
++
+[source,bash]
+----
+$ sudo dnf groupupdate core
+----
 
 === Multimedia [[fedora-multimedia]]
 
+. Install multimedia packages from RPM Fusion:
++
 [source,bash]
 ----
-sudo dnf config-manager --set-enabled fedora-cisco-openh264
+$ sudo dnf groupupdate multimedia \
+       --setop="install_weak_deps=False" \
+       --exclude=PackageKit-gstreamer-plugin
 
-sudo dnf install \
-\*-backgrounds-extras-gnome audacity-freeworld beets \
-celluloid compat-ffmpeg28 cuetools easytag exfalso ffmpeg-libs flac gimp \
-gnome-music gnome-photos gnome-sound-recorder gstreamer1-libav \
-gstreamer1-plugin-openh264 \
-gstreamer1-plugins-bad-free gstreamer1-plugins-bad-free-fluidsynth \
-gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly inkscape \
-kdenlive krita lame libva libva-intel-driver libva-utils \
-libva-vdpau-driver libvdpau lollypop mac mcomix mediainfo mozilla-openh264 \
-mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
-shntool sox vdpauinfo vlc vorbis-tools youtube-dl 
-
-sudo dnf groupupdate Multimedia
+$ sudo dnf groupupdate sound-and-video
 ----
 
-=== Office, Reading and Writing [[fedora-read-write]]
-
+. Install other multimedia codecs:
++
 [source,bash]
 ----
-sudo dnf install \
-bijiben fbreader gnome-books gnome-calendar gnome-dictionary gedit-plugins \
-gnome-shell-extension-gpaste gnome-todo nano neovim pandoc \
-simple-scan scribus vim 
+$ sudo dnf install \
+       ffmpeg-libs \
+       gstreamer1-libav \
+       gstreamer1-plugin-openh264 \
+       gstreamer1-plugins-bad-free \
+       gstreamer1-plugins-bad-free-fluidsynth \
+       gstreamer1-plugins-bad-freeworld \
+       gstreamer1-plugins-ugly \
+       pulseaudio-module-bluetooth-freeworld
 ----
 
-=== Other Applications [[fedora-other-apps]]
+=== Archiving and file systems [[fedora-archiving-fs]]
 
 [source,bash]
 ----
-sudo dnf install \
-brasero dconf-editor epiphany firewall-config gnome-builder \
-gnome-logs gnome-maps \
-gnome-nettool gnome-power-manager gnome-tweak-tool chromium \
-chromium-libs-media-freeworld chromium-vaapi tilix transmission-gtk 
+$ sudo dnf install \
+       atool borgbackup exfat-utils f2fs-tools \
+       hfsutils lzip lziprecover lzop \
+       p7zip p7zip-plugins testdisk udftools unrar
 ----
 
-NOTE: The `chromium-libs-media-freeworld` codec package tends to be outdated often (Fedora 29, Fedora 30). As a result, it prevents `chromium` from updating, which is a bad situation in a web browser that needs security updates. As an alternative, you can install just `chromium-vaapi`, which also provides codecs but is updated much more reliably.
-
-=== Archiving and File Systems [[fedora-archiving-fs]]
+=== Various low-level tools [[fedora-various-ll]]
 
 [source,bash]
 ----
-sudo dnf install \
-atool bleachbit borgbackup exfat-utils f2fs-tools fuse-exfat \
-hfsutils jfsutils lzip lziprecover lzop \
-p7zip p7zip-plugins progress testdisk udftools unrar xfsdump 
-----
-
-=== Various Low-level Stuff [[fedora-various-ll]]
-
-[source,bash]
-----
-sudo dnf install \
-beignet clinfo earlyoom fish freetype-freeworld htop iftop iotop \
-util-linux-user mc \
-powertop tlp tuned zsh
-----
-
-=== Czech Localization [[fedora-czech-l10n]]
-
-[source,bash]
-----
-sudo dnf install \
-langpacks-cs libreoffice-langpack-cs 
+$ sudo dnf install \
+       fish htop iftop iotop \
+       util-linux-user mc \
+       powertop tuned
 ----
 
 === Fonts [[fedora-fonts]]
 
+. Install additional fonts:
++
 [source,bash]
 ----
-sudo dnf install \
-ht-alegreya-\* \*croscore\* \*crosextra\* google-droid-\* mozilla-fira\* \
-sil-gentium-fonts sil-gentium-alt-fonts apanov-heuristica-fonts \
-levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
-linux-libertine\* msimonson-anonymouspro-fonts \
-google-noto-sans-fonts google-noto-mono-fonts \
-google-noto-serif-fonts google-noto-emoji-fonts oldstandard-sfd-fonts \
-open-sans-fonts overpass-fonts overpass-mono-fonts \
-paratype-pt\* google-roboto\* cf-sorts-mill-goudy-fonts \
-adobe-source\*fonts gdouros-symbola-fonts impallari-raleway-fonts
+$ sudo dnf install \
+       ht-alegreya-\* mozilla-fira\* \
+       sil-gentium-fonts sil-gentium-alt-fonts \
+       apanov-heuristica-fonts \
+       levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
+       linux-libertine\* msimonson-anonymouspro-fonts \
+       google-noto-{sans,mono,serif}-fonts \
+       google-{arimo,cousine,tinos,carlito}-fonts \
+       ht-caladea-fonts \
+       oldstandard-sfd-fonts \
+       open-sans-fonts overpass-fonts overpass-mono-fonts \
+       paratype-pt\* google-roboto\* \
+       adobe-source-{code,sans,serif}-pro-fonts \
+       gdouros-symbola-fonts impallari-raleway-fonts
 ----
 
-Also remove the `aajohan-comfortaa-fonts` package. The Comfortaa font tends to insert itself at inappropriate places, especially in Firefox, and it isn't very readable.
-
-=== Games and Game-related [[fedora-games]]
-
+. Remove the Comfortaa font. It tends to insert itself at inappropriate places, especially in Firefox, and it isn't very readable.
++
 [source,bash]
 ----
-sudo dnf install \
-@gnome-games 0ad astromenace blobwars bsd-games crawl crawl-tiles \
-endless-sky fillets-ng freecol freecol-manual freeciv frozen-bubble \
-gnome-2048 gnome-hearts hedgewars libtxc_dxtn neverball-neverball \
-openlierox wesnoth
+$ sudo dnf remove aajohan-comfortaa-fonts
 ----
 
-=== From Copr [[fedora-copr]]
-
-- Hack fonts: https://copr.fedorainfracloud.org/coprs/heliocastro/hack-fonts/[heliocastro/hack-fonts]
-- https://about.riot.im/[Riot], a front-end client implementing the decentralized, secure, messaging and data-transport protocol, https://matrix.org/[Matrix]: https://copr.fedorainfracloud.org/coprs/taw/Riot/[taw/Riot]
-
-=== From openSUSE Build Service [[obs]]
-
-- "`Vibrancy`" icon theme: https://software.opensuse.org/download.html?project=home%3APival81&package=vibrancy-colors-icon-theme[home:Pival81 / vibrancy-colors-icon-theme]
-- "`Moka`" and "`Faba`" icon theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Amoka&package=moka-icon-theme[home:snwh:moka / moka-icon-theme]
-- "`Paper`" icons and GTK theme: https://software.opensuse.org/download.html?project=home%3Asnwh%3Apaper&package=paper-gtk-theme[home:snwh:paper / paper-gtk-theme]
 
 
 == In Debian [[debian]]
@@ -171,7 +151,7 @@ Further references:
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 audacity beets cuetools easytag exfalso flac gimp gnome-backgrounds \
 gnome-mpv gnome-music gnome-photos gnome-sound-recorder \
 gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
@@ -186,7 +166,7 @@ shntool sox vdpauinfo vlc vorbis-tools vulkan-utils youtube-dl \
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 bijiben fbreader gedit-plugins gnome-calendar gnome-dictionary \
 gnome-todo gnome-shell-extensions-gpaste libreoffice-style-sifr \
 nano neovim pandoc scribus simple-scan vim-nox
@@ -196,7 +176,7 @@ nano neovim pandoc scribus simple-scan vim-nox
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 brasero chromium dconf-editor epiphany-browser gnome-builder \
 gnome-logs gnome-maps gnome-nettool gnome-packagekit \
 gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
@@ -206,7 +186,7 @@ gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 atool bleachbit borgbackup exfat-fuse exfat-utils f2fs-tools \
 hfsplus hfsutils lzip lziprecover lzop \
 p7zip-full progress testdisk udftools unrar xfsdump \
@@ -217,7 +197,7 @@ zfs-dkms zfs-initramfs zfsutils-linux
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 amd64-microcode beignet-opencl-icd clinfo earlyoom firmware-amd-graphics \
 firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
 firmware-iwlwifi firmware-linux firmware-linux-free \
@@ -230,7 +210,7 @@ sudo tlp zsh
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
 libreoffice-l10n-cs 
 ----
@@ -239,7 +219,7 @@ libreoffice-l10n-cs
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 fonts-cabin fonts-cabinsketch fonts-cantarell \
 fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
 fonts-fanwood fonts-firacode fonts-inconsolata fonts-isabella \
@@ -255,7 +235,7 @@ ttf-anonymous-pro ttf-essays1743
 
 [source,bash]
 ----
-apt install \
+$ apt install \
 0ad astromenace blobwars bsdgames crawl crawl-tiles endless-sky fillets-ng \
 freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
 libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
@@ -265,6 +245,4 @@ sauerbraten wesnoth
 == Flatpak [[flatpak]]
 
 - https://flathub.org/apps.html[Flathub]
-- http://flatpak.org/apps.html[Flatpak Applications]
-- https://wiki.gnome.org/Apps/Fractal/Documentation[Fractal], a Matrix messaging client for Gnome
-
+- https://flatpak.org/apps.html[Flatpak Applications]
