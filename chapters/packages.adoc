@@ -36,6 +36,15 @@ $ sudo dnf groupupdate multimedia \
 $ sudo dnf groupupdate sound-and-video
 ----
 
+. Install packages that enable patented GPU video decoding:
++
+[source,bash]
+----
+$ sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+
+$ sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+----
+
 . Install other multimedia codecs:
 +
 [source,bash]
