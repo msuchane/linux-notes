@@ -1,50 +1,25 @@
-= System Tuning [[system-tuning]]
+= System tuning [[system-tuning]]
 include::attributes.adoc[]
 
-== Common Options [[common-options]]
-
-=== XFS [[xfs]]
-
-XFS is the default file system in Red Hat Enterprise Linux. It requires no tuning per se, but there are useful tools for it and things to consider when using XFS.
-
-XFS is great for:
-
-- large files
-- large partitions
-- parallel access to many files
-
-Also, its kernel code is said to be very clean and maintainable, compared to ext4.
-
-The CFQ disk scheduler, which is currently the default, enforces single-threaded access to the disk and, consequently, prevents XFS from utilizing its parallelism fully. To enjoy your parallelism, switch to a different scheduler: for example, deadline, or Kyber when using blk-mq. (For blk-mq, see <<blk-mq>>.) However, you should only do this on an SSD or another fast disk. HDDs perform best when access is single-threaded.
-
-Some XFS-related tools:
-
-- To get information about an XFS partition: `xfs_info`
-- To back up a file system: `xfsdump`
-- To recover from backup: `xsfrestore`
-- To repair an XFS file system: `xfs_repair`
-- To calculate the fragmentation of a file system: `xfs_db -c frag -r <partition>`
-- To defragment a file system: `xfs_fsr <partition>`
-
-Red Hat documentation: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch-xfs.html[XFS in the Storage Administration Guide]
+== Common options [[common-options]]
 
 === zswap [[zswap]]
 
-`zswap` is a kernel feature, which compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
+`zswap` is a kernel feature that compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
 
-It can be enabled using this kernel parameter in `/etc/default/grub`:
-
+. Enable it using this kernel parameter in `/etc/default/grub`:
++
 ----
 zswap.enabled=1
 ----
 
-After that, update `grub2` configuration as described in <<update-grub>> and reboot.
+. Update `grub2` configuration as described in <<update-grub>> and reboot.
 
 The current state of `zswap` can be read from the `/sys/module/zswap/parameters/enabled` file: 0 for off, 1 for on.
 
 Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
 
-=== journald Disk Usage [[journald-disk-usage]]
+=== journald disk usage [[journald-disk-usage]]
 
 The current disk usage of `journalctl` can be displayed using the following command:
 
@@ -60,56 +35,32 @@ SystemMaxUse=256M
 RuntimeMaxUse=128M
 ----
 
-=== System Logging in a Console [[console-log]]
+=== System logging in a console [[console-log]]
 
-You can configure your system log service to print log entries in a system console: for example, TTY10. In case of `journald`, this boils down to adding the following lines to the `/etc/systemd/journald.conf` configuration file:
+You can configure your system log service to print log entries in a system console: for example, TTY10.
 
+. Add the following lines to the `/etc/systemd/journald.conf` configuration file:
++
 [subs=+quotes]
 ----
 ForwardToConsole=yes
 TTYPath=/dev/tty__N__
 ----
-
++
 Replace `__N__` with the number of the console of your choosing. Note that Fedora assigns graphical user interfaces to `tty1` and subsequent consoles, while more traditional distributions like Debian start from `tty7`.
 
-Afterwards, restart the `journald` service:
-
+. Restart the `journald` service:
++
 [source,bash]
 ----
-sudo systemctl restart systemd-journald
+$ sudo systemctl restart systemd-journald
 ----
 
-=== Block Device Multi Queue [[blk-mq]]
+=== Disk scheduler [[blk-mq]]
 
-The multiqueue block layer can be enabled by setting the `scsi_mod.use_blk_mq=1` kernel parameter in `/etc/default/grub`.
+See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Setting the disk scheduler] in the RHEL 9 documentation.
 
-The current value is available in the `/sys/module/scsi_mod/parameters/use_blk_mq` file.
-
-The blk-mq has its own set of disk schedulers, which are multiqueue-capable. They can no longer be set using the `elevator` kernel parameter. They are configured by setting udev rules instead.
-
-To configure blk-mq disk schedulers, create a `/etc/udev/rules.d/60-scheduler.rules` file containing something like this:
-
-----
-## Set the BFQ scheduler for all disks:
-# ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
-
-## Set the BFQ scheduler for all rotational disks:
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
-
-## Set the Kyber scheduler for all non-rotational disks:
-ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="kyber"
-----
-
-If your kernel has been compiled with BFQ and Kyber set as modules, you also need to create the `/etc/modules-load.d/schedulers.conf` file. In it, put the module names to be loaded:
-
-----
-bfq
-kyber-iosched
-----
-
-NOTE: The way the kernel detects rotational vs. non-rotational devices isn't very reliable. It falls back on rotational. All my flash drives have been detected as rotational for some reason. Therefore, configure the schedulers more explicitly if you want consistent behavior.
-
-=== Memory Tuning for Interactive Use [[memory-tuning]]
+=== Memory tuning for interactive use [[memory-tuning]]
 
 https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[Certain people] argue that the way Linux handles interactive desktop usage leaves much to be desired. They also suggest ways to improve that.
 
@@ -138,7 +89,7 @@ However, note that there is little "scientific" proof that modifying these actua
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
-=== Early OOM Killer [[early-oom]]
+=== Early OOM killer [[early-oom]]
 
 The Linux "out-of-memory killer" (OOM Killer) is supposed to terminate the process that uses the most memory when the system is running out of RAM. However, it hardly ever actually executes: it is overly optimistic that the system can eventually handle the problem on its own. This leads to situations when the memory is hopelessly full while the system stays unresponsive for hours until the user presses the power button.
 
@@ -151,34 +102,31 @@ For details on installation and usage, see the GitHub page: https://github.com/r
 The `earlyoom` service is packaged both for Fedora and Debian.
 
 
-.oomd
-
-There's also an alternative service written by Facebook: link:https://github.com/facebookincubator/oomd[]. According to the readme, it's more flexible, allowing arbitrary code to be executed in low-memory situations.
-
-=== Update grub2 Configuration [[update-grub]]
+=== Update GRUB configuration [[update-grub]]
 
 After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
 
-- On Debian, all you have to do is type:
+- On Debian:
 +
 [source,bash]
 ----
-sudo update-grub2
+# sudo update-grub2
 ----
-+
-- On Fedora, follow these steps:
-. Locate the compiled configuration file:
+
+- On Fedora:
+
+.. Locate the compiled configuration file:
 +
 [source,bash]
 ----
-sudo find /boot -name grub.cfg
+$ sudo find /boot -name grub.cfg
 ----
-+
-. Copy the file name the previous command gave you and use it here:
+
+.. Copy the file name the previous command gave you and use it here:
 +
 [source,bash,subs=+quotes]
 ....
-sudo grub2-mkconfig -o /boot/__path/to/__grub.cfg
+$ sudo grub2-mkconfig -o /boot/__path/to/__grub.cfg
 ....
 
 === Setting Up the "Magic SysRq Keys" [[magic-sysrq]]
@@ -413,9 +361,6 @@ Many people keep their config files in a git repository, myself included. If you
 * link:https://www.gnu.org/software/stow/[]
 * link:https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789[]
 
-=== Password Management [[passwords]]
-
-* link:https://bitwarden.com/[]
 
 
 == Fedora-Specific Options [[fedora-specific]]
