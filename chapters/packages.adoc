@@ -211,7 +211,7 @@ amd64-microcode beignet-opencl-icd clinfo earlyoom firmware-amd-graphics \
 firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
 firmware-iwlwifi firmware-linux firmware-linux-free \
 firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
-fish htop intel-microcode iftop iotop iucode-tool mc powertop \
+fish htop intel-microcode iftop iotop iucode-tool mc nala powertop \
 sudo tlp zsh
 ----
 

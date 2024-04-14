@@ -437,6 +437,19 @@ usermod -a -G sudo __your_user_name__
 
 . Reboot your system.
 
+=== Package Managers
+
+Debian comes with several front ends to package management:
+
+`apt`::
+The default, pre-installed tool.
+
+`aptitude`::
+An advanced interface including terminal graphics.
+
+`nala`::
+An alternative to `apt` with a more readable interface and innovative features.
+
 === Enable Automatic Updates in Debian [[debian-auto-update]]
 
 Debian can automatically install package updates at configurable times using the Unattended Upgrades feature.
