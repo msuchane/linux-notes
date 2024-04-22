@@ -3,6 +3,19 @@ include::attributes.adoc[]
 
 == Firefox [[firefox]]
 
+=== Wayland in Firefox on Debian
+
+On Debian 12 Bookworm, Wayland is the default GNOME session, but Firefox still runs in XWayland. This decreases graphics sharpness when you enable display scaling, for example.
+
+To enable Wayland in Firefox, set the following shell variable:
+
+[source,bash]
+----
+MOZ_ENABLE_WAYLAND=1
+----
+
+See also the detailed instructions for link:https://wiki.debian.org/Firefox#Hardware_Video_Acceleration[Hardware Video Acceleration].
+
 === Enable Acceleration [[firefox-accel]]
 
 Hardware acceleration in Firefox is still marked as experimental on Linux because some graphics drivers are buggy. However, you can try if it works OK on your configuration. Potentially, the benefits are smoother browsing and lower CPU usage for video playback.
