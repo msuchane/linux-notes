@@ -6,7 +6,7 @@ pages:
   script:
   - antora --fetch --redirect-facility=gitlab --to-dir=public antora-playbook.yml
   # By default, the public content is nested into an extra directory:
-  - ln -s public/linux-notes/index.html public/index.html
+  # - ln -s public/linux-notes/index.html public/index.html
   artifacts:
     paths:
     - public

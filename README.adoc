@@ -11,4 +11,5 @@ Originally, they made little sense to anyone but me. Currently, I'm trying to re
 
 The rendered notes, published using GitLab Pages:
 
-- link:https://msuchane.gitlab.io/linux-notes/[]
+- link:https://msuchane.gitlab.io/linux-notes/linux-notes/[]
+
