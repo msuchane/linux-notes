@@ -50,7 +50,7 @@ To have access to all packages listed on this page, enable the https://rpmfusion
 +
 [source,bash]
 ----
-$ sudo dnf install \
+sudo dnf install \
        https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
        https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ----
@@ -59,7 +59,7 @@ $ sudo dnf install \
 +
 [source,bash]
 ----
-$ sudo dnf groupupdate core
+sudo dnf groupupdate core
 ----
 
 === Multimedia [[fedora-multimedia]]
@@ -68,27 +68,27 @@ $ sudo dnf groupupdate core
 +
 [source,bash]
 ----
-$ sudo dnf groupupdate multimedia \
+sudo dnf groupupdate multimedia \
        --setop="install_weak_deps=False" \
        --exclude=PackageKit-gstreamer-plugin
 
-$ sudo dnf groupupdate sound-and-video
+sudo dnf groupupdate sound-and-video
 ----
 
 . Install packages that enable patented GPU video decoding:
 +
 [source,bash]
 ----
-$ sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 
-$ sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 ----
 
 . Install other multimedia codecs:
 +
 [source,bash]
 ----
-$ sudo dnf install \
+sudo dnf install \
        ffmpeg-libs \
        gstreamer1-libav \
        gstreamer1-plugin-openh264 \
@@ -103,17 +103,17 @@ $ sudo dnf install \
 
 [source,bash]
 ----
-$ sudo dnf install \
+sudo dnf install \
        atool borgbackup exfat-utils f2fs-tools \
        hfsutils lzip lziprecover lzop \
        p7zip p7zip-plugins testdisk udftools unrar
 ----
 
-=== Various low-level tools [[fedora-various-ll]]
+=== Low-level tools [[fedora-various-ll]]
 
 [source,bash]
 ----
-$ sudo dnf install \
+sudo dnf install \
        fish htop iftop iotop \
        util-linux-user mc \
        powertop tuned
@@ -125,7 +125,7 @@ $ sudo dnf install \
 +
 [source,bash]
 ----
-$ sudo dnf install \
+sudo dnf install \
        ht-alegreya-\* mozilla-fira\* \
        sil-gentium-fonts sil-gentium-alt-fonts \
        apanov-heuristica-fonts \
@@ -145,7 +145,7 @@ $ sudo dnf install \
 +
 [source,bash]
 ----
-$ sudo dnf remove aajohan-comfortaa-fonts
+sudo dnf remove aajohan-comfortaa-fonts
 ----
 
 

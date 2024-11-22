@@ -53,11 +53,11 @@ Replace `__N__` with the number of the console of your choosing. Note that Fedor
 $ sudo systemctl restart systemd-journald
 ----
 
-== Disk scheduler [[blk-mq]]
+== Select a disk scheduler [[blk-mq]]
 
 See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Setting the disk scheduler] in the RHEL 9 documentation.
 
-== Memory tuning for interactive use [[memory-tuning]]
+== Tune memory for interactive use [[memory-tuning]]
 
 https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[Certain people] argue that the way Linux handles interactive desktop usage leaves much to be desired. They also suggest ways to improve that.
 
@@ -126,7 +126,7 @@ $ sudo find /boot -name grub.cfg
 $ sudo grub2-mkconfig -o /boot/__path/to/__grub.cfg
 ....
 
-== Setting Up the "Magic SysRq Keys" [[magic-sysrq]]
+== Set up the Magic SysRq Keys [[magic-sysrq]]
 
 "Magic SysRq Keys" are keyboard shortcuts that are registered at the kernel level and allow you to control the basic functions of system even if it has otherwise completely frozen.
 
@@ -142,7 +142,7 @@ kernel.sysrq = 1
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
-== Synchronized Time Zones when Dual-booting with Windows [[dual-boot-time-zones]]
+== Synchronize time zones when dual-booting with Windows [[dual-boot-time-zones]]
 
 Linux sets the hardware clock to the current time in UTC, while Windows sets it to the local time. This conflict results the clock being off a few hours when switching operating systems.
 
@@ -174,7 +174,7 @@ You can read the current state of `watchdog` from the `/proc/sys/kernel/nmi_watc
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
-== Trimming Your SSD [[fstrim]]
+== Trim your SSD [[fstrim]]
 
 If your computer uses a solid-state disk (SSD), you should https://en.wikipedia.org/wiki/Trim_(computing)["trim"] the file systems on it regularly. Your distributions might already do that for you: Ubuntu runs `fstrim` weekly.
 
@@ -195,7 +195,7 @@ sudo cp /usr/share/doc/util-linux/examples/fstrim.{service,timer} \
 sudo systemctl enable fstrim.timer
 ----
 
-== Configuring the Virtual Console [[console-font]]
+== Configure the virtual console [[console-font]]
 
 The Linux virtual console, which displays, for example, the boot process, uses its own font and keyboard layout settings. These can be modified either on the kernel command line or in the `/etc/vconsole.conf` configuration file.
 
@@ -218,7 +218,7 @@ This can also be achieved by adding the `vconsole.font=ter-218n` parameter to th
 
 See also the *vconsole.conf*(5) man page for more information on configuring the console, including the keyboard layout.
 
-== Rebuilding the Initial Ramdisk [[rebuild-initramfs]]
+== Rebuild the initial ramdisk [[rebuild-initramfs]]
 
 After changing `sysctl` settings, rebuilt the initial ramdisk in order for the updated settings to take effect early in the boot process.
 
@@ -243,7 +243,7 @@ Or:
 sudo dracut-update-initramfs
 ----
 
-== Updating Firmware
+== Update the firmware
 
 Some manufacturers (mostly Dell, Lenovo) provide firmware updates via the native Linux `fwupd` mechanism.
 
@@ -260,7 +260,7 @@ sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ----
 
-== A Tuned Profile to Increase Desktop Responsiveness [[tuned-responsiveness]]
+== Apply a Tuned profile for desktop responsiveness [[tuned-responsiveness]]
 
 . Install and enable the `tuned` service.
 
@@ -337,11 +337,11 @@ EndSection
 . Restart your session.
 
 
-== My Personal Dotfiles [[my-dotfiles]]
+== My personal dotfiles [[my-dotfiles]]
 
 Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my https://gitlab.com/mrksu/dotfiles[dotfiles] repository on GitLab.
 
-=== Guides to Set Up Dotfiles [[dotfiles-guides]]
+=== Guides to set up dotfiles [[dotfiles-guides]]
 
 * link:https://dotfiles.github.io/[]
 * link:https://www.gnu.org/software/stow/[]

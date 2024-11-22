@@ -211,7 +211,7 @@ deb http://deb.debian.org/debian-security stretch/updates main contrib non-free
 deb http://deb.debian.org/debian stretch-backports main contrib non-free
 ----
 
-Further references:
+==== See also
 
 - https://wiki.debian.org/SourcesList[A sources.list article on the Debian Wiki]
 - https://www.debian.org/mirror/list[Debian mirror list]
@@ -222,7 +222,7 @@ Further references:
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 audacity beets cuetools easytag exfalso flac gimp gnome-backgrounds \
 gnome-mpv gnome-music gnome-photos gnome-sound-recorder \
 gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
@@ -233,42 +233,42 @@ mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
 shntool sox vdpauinfo vlc vorbis-tools vulkan-utils youtube-dl \
 ----
 
-=== Office, Reading and Writing [[debian-read-write]]
+=== Office, reading, and writing [[debian-read-write]]
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 bijiben fbreader gedit-plugins gnome-calendar gnome-dictionary \
 gnome-todo gnome-shell-extensions-gpaste libreoffice-style-sifr \
 nano neovim pandoc scribus simple-scan vim-nox
 ----
 
-=== Other Applications [[debian-other-apps]]
+=== Other applications [[debian-other-apps]]
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 brasero chromium dconf-editor epiphany-browser gnome-builder \
 gnome-logs gnome-maps gnome-nettool gnome-packagekit \
 gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
 ----
 
-=== Archiving and File Systems [[debian-archiving-fs]]
+=== Archiving and file systems [[debian-archiving-fs]]
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 atool bleachbit borgbackup exfat-fuse exfat-utils f2fs-tools \
 hfsplus hfsutils lzip lziprecover lzop \
 p7zip-full progress testdisk udftools unrar xfsdump \
 zfs-dkms zfs-initramfs zfsutils-linux 
 ----
 
-=== Various Low-level Stuff [[debian-various-ll]]
+=== Low-level tools [[debian-various-ll]]
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 amd64-microcode beignet-opencl-icd clinfo earlyoom firmware-amd-graphics \
 firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
 firmware-iwlwifi firmware-linux firmware-linux-free \
@@ -277,11 +277,11 @@ fish htop intel-microcode iftop iotop iucode-tool mc nala powertop \
 sudo tlp zsh
 ----
 
-=== Czech Localization [[debian-czech-l10n]]
+=== Czech localization [[debian-czech-l10n]]
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
 libreoffice-l10n-cs 
 ----
@@ -290,7 +290,7 @@ libreoffice-l10n-cs
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 fonts-cabin fonts-cabinsketch fonts-cantarell \
 fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
 fonts-fanwood fonts-firacode fonts-inconsolata fonts-isabella \
@@ -302,11 +302,11 @@ fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
 ttf-anonymous-pro ttf-essays1743
 ----
 
-=== Games and Game-related [[debian-games]]
+=== Games and related [[debian-games]]
 
 [source,bash]
 ----
-$ apt install \
+sudo apt install \
 0ad astromenace blobwars bsdgames crawl crawl-tiles endless-sky fillets-ng \
 freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
 libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
