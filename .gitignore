@@ -1,3 +1,5 @@
 *.html
 !public/index.html
+/build/
+/node_modules/
 
