@@ -1,31 +1,11 @@
-= Gnome [[gnome]]
+= Configuring GNOME [[gnome]]
+
 include::attributes.adoc[]
+:experimental:
 
-== Battery Percentage Indicator [[battery-percent]]
+== Configure the Nautilus drag-and-drop behavior [[nautilus-dnd]]
 
-To show battery percentage in the top panel, change the `org.gnome.desktop.interface.show-battery-percentage` dconf key:
-
-[source,bash,subs=+quotes]
-----
-dconf write \
-/org/gnome/desktop/interface/show-battery-percentage \
-true
-----
-
-== Night Light Temperature [[night-temp]]
-
-To change the Night Light temperature in Gnome 3.24 (newer versions should include a GUI setting), set the `org.gnome.settings-daemon.plugins.color.night-light-temperature` key to your desired temperature. For example, for 4,500 degrees Kelvin:
-
-[source,bash,subs=+quotes]
-----
-dconf write \
-/org/gnome/settings-daemon/plugins/color/night-light-temperature \
-4500
-----
-
-== Nautilus Drag-and-Drop Behavior [[nautilus-dnd]]
-
-Nautilus ("Files") opens directories when you hover a dragged item over them. Personally, I don't like this behavior, because it requires me to be quick and precise, which I'm not. Therefore, to disable the automatic folder opening:
+Nautilus (_Files_) opens directories when you hover a dragged item over them. Personally, I don't like this behavior, because it requires me to be quick and precise, which I'm not. Therefore, to disable the automatic folder opening:
 
 [source,bash]
 ----
@@ -34,9 +14,9 @@ dconf write \
 false
 ----
 
-== Backing Up dconf Settings [[dconf-backup]]
+== Back up dconf settings [[dconf-backup]]
 
-`dconf` settings cannot be copied over to another system or to another user like regular, plain-text files. However, you can export ("dump") them to a text file and then import ("load") them from it again:
+`dconf` settings cannot be copied over to another system or to another user like regular, plain-text files. However, you can export (_dump_) them to a text file and then import (_load_) them from it again:
 
 [source,bash,subs=+quotes]
 ----
@@ -52,7 +32,7 @@ dconf dump /org/gnome/ > gnome-dconf-settings.txt
 dconf load /org/gnome/ < gnome-dconf-settings.txt
 ----
 
-== Configuring the Compose Key [[compose-key]]
+== Enable the Compose key [[compose-key]]
 
 The Compose key allows you to combine a couple of characters on your keyboard to type exotic characters and diacritics. Available combinations are listed in the https://help.ubuntu.com/community/GtkComposeTable[GtkComposeTable] article on the Ubuntu Community Help Wiki.
 
@@ -71,11 +51,11 @@ NOTE: This command rewrites all your Typing preferences you set in the Tweak Too
 
 Starting with version 3.20, GTK can read traditional XLib Compose configuration files. You can configure your own composition rules this way, storing them in the `~/.config/gtk-3.0/Compose` or `~/.XCompose` files. For more information, see _Defining custom Compose sequences_ in the http://blog.cyberborean.org/2008/01/06/compose-key-magic[Compose key magic] article on the Cyberborean Chronicles blog.
 
-== Window Switching Shortcuts [[win-switching]]
+== Configure the window switching shortcuts [[win-switching]]
 
-By default, both the `Alt`-`Tab` and the `Win`-`tab` key (and their `Shift` variants) switch _applications_ in Gnome. This is a matter of taste, but sometimes, you want to simply switch _windows_ instead. A common use case is when an application uses more than one window.
+By default, both the kbd:[Alt + Tab] and the kbd:[Win + Tab] key (and their `Shift` variants) switch _applications_ in Gnome. This is a matter of taste, but sometimes, you want to simply switch _windows_ instead. A common use case is when an application uses more than one window.
 
-To keep an application-switching shortcut but add a window-switching one as well, configure `Win`-`Tab` to only switch between applications and `Alt`-`Tab` to only switch between windows:
+To keep an application-switching shortcut but add a window-switching one as well, configure kbd:[Win + Tab] to only switch between applications and kbd:[Alt + Tab] to only switch between windows:
 
 [source,bash]
 ----
@@ -96,15 +76,15 @@ dconf write \
 "['<Shift><Alt>Tab']"
 ----
 
-As an added bonus, the resulting behavior is consistent with both Windows (window-switching with `Alt`-`Tab`) and Mac (application-switching with `Cmd`-`Tab`).
+As an added bonus, the resulting behavior is consistent with both Windows (window-switching with kbd:[Alt + Tab]) and Mac (application-switching with kbd:[Cmd + Tab]).
 
-== Lock Down DConf [[dconf-lockdown]]
+== Lock down dconf [[dconf-lockdown]]
 
 Gnome offers ways to https://help.gnome.org/admin/system-admin-guide/stable/user-settings.html.en#lockdown[lock down certain aspects of the user interface]. This is useful when untrusted or unqualified people are expected to use the computer; for example, when setting up an internet kiosk, a public library PC, or when kids are around.
 
 To prevent specific DConf keys from being modified (to lock them down), follow the official Gnome documentation in the https://help.gnome.org/admin/system-admin-guide/stable/dconf-lockdown.html.en[Lock down specific settings] article.
 
-== Epiphany Adblock Lists [[epiphany-adblock]]
+== Block ads in Epiphany [[epiphany-adblock]]
 
 The _Epiphany_ web browser, also called _Web_ or _WWW_, blocks ads by default. However, the blocking list is rather limited. New lists can be added by changing the `/org/gnome/epiphany/adblock-filters` DConf key.
 
@@ -121,38 +101,9 @@ dconf write \
 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt']"
 ----
 
-== Fractional Scaling [[fractional-scaling]]
+== Limit the load of file metadata mining [[tracker-preferences]]
 
-Currently (v3.26), Gnome and the GTK+ toolkit allow interface scaling by integers only by default. That is, by the factor of 1.0, 2.0, etc. If you're using a screen that has a semi-high pixel density, neither of these settings work very well and your user interface elements look either too small or too big.
-
-However, in 3.26, a new, experimental option has been introduced to allow fractional, non-integer scaling: for example, 1.25× or 1.5×. It doesn't work that great yet but you can try it out to see what it's like. You need to set the `/org/gnome/mutter/experimental-features` DConf key and do a little config dance:
-
-. Enable the experimental feature in DConf:
-+
-[source,bash]
-----
-dconf write \
-/org/gnome/mutter/experimental-features \
-"['scale-monitor-framebuffer']"
-----
-
-. Log out of Gnome and log back in again.
-
-. Go to Gnome Settings → Devices → Displays and select a "Scale" value that you're comfortable with. You can set a different scaling factor for each of your displays.
-
-If you decide to disable the feature and go back to integer scaling, unset the key:
-
-[source,bash]
-----
-dconf reset \
-/org/gnome/mutter/experimental-features
-----
-
-NOTE: For now, a reasonable alternative to fractional scaling is to scale just the fonts. Use the "Scaling Factor" in the "Fonts" tab in Tweaks. Additionally, you may want to set a similar value for Firefox to scale CSS. See the Applications chapter, Firefox section for more information.
-
-== Lowering the Load of File Metadata Mining [[tracker-preferences]]
-
-Gnome includes the Tracker service to extract file metadata and provide a search database. This tends to spin the disk a lot (especially with HDDs) and eat a large portion of the CPU sometimes.
+GNOME includes the Tracker service to extract file metadata and provide a search database. This tends to spin the disk a lot (especially with HDDs) and eat a large portion of the CPU sometimes.
 
 If you're on a slower, HDD-backed system or want to conserve energy, it might be a good idea to limit the reach and intensity of Tracker. There used to be the "Tracker Preferences" application, which has now been discontinued, as it seems. Luckily, DConf settings remain accessible in the following key directory:
 
@@ -167,9 +118,9 @@ Consider exploring the following:
 /org/freedesktop/tracker/miner/files/
 ----
 
-== Viewing and Editing Files as Root in Gnome [[gui-root-edit]]
+== View and edit files as root in GNOME [[gui-root-edit]]
 
-=== In the File Manager
+=== In Files
 
 In the *Files* application, you can open any directory with root permissions. This has been available since Gnome 3.24. To do that:
 
@@ -186,18 +137,18 @@ Replace _directory-path_ with the path to the directory that you want to access.
 
 Applications launched from the *Files* window can also inherit the same root privileges.
 
-=== In Editors
+=== In text editors and other applications
 
 Graphical text editors that use the `gvfs` Gnome infrastructure, such as Gedit, Geany, or Gnome Builder, can natively edit with root permissions.
 
 To use this feature:
 
-. In the editor, open the file chooser dialog, for example by pressing Ctrl+O.
-. In the dialog, activate the directory path field, for example by pressing Ctrl+L.
+. In the editor, open the file chooser dialog, for example by pressing kbd:[Ctrl+O].
+. In the dialog, activate the directory path field, for example by pressing kbd:[Ctrl+L].
 . Use the method described in the previous section to open the directory that contains the file you want to edit as root.
 . Select the file to edit in the file chooser.
 
-== Automatically Uninstalling Unused Flatpak Runtimes [[autoremove-flatpak-runtimes]]
+== Automatically uninstall unused Flatpak runtimes [[autoremove-flatpak-runtimes]]
 
 As Flatpak applications update, they switch to newer versions of their runtimes. Flatpak still keeps the old runtimes installed even after no application depends on it anymore. The unused runtimes might then occupy a significant amount of disk space.
 
@@ -243,9 +194,9 @@ WantedBy=timers.target
 # systemctl enable --now flatpak-uninstall-unused.timer
 ----
 
-== Enabling Wayland and File Access in Firefox from Flatpak
+== Enable Wayland and file access in the Flatpak Firefox
 
-The Firefox Flatpak package on FLathub is missing some permissions, and as a result, it runs under XWayland and can access files only in the `Downloads` directory.
+The Firefox Flatpak package on Flathub is missing some permissions, and as a result, it runs under XWayland and can access files only in the `Downloads` directory.
 
 To fix this, you can override the package permissions.
 
@@ -265,7 +216,7 @@ To fix this, you can override the package permissions.
 		   org.mozilla.firefox
 ----
 
-== Some Gnome Shell Extensions [[gs-extensions]]
+== Selected GNOME Shell extensions [[gs-extensions]]
 
 https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
 
