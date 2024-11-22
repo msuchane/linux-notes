@@ -1,0 +1,155 @@
+= Configuring Fedora
+
+== Enable automatic updates [[fedora-auto-update]]
+
+Fedora can automatically install package updates at configurable times using the `dnf-automatic` package and the `dnf-automatic-download.timer` or `dnf-automatic-install.timer` systemd units.
+
+For more information, see the https://www.ctrl.blog/entry/how-to-dnf-automatic[How to get Fedora to take care of its own updates] article on the _Ctrl blog_.
+
+== Limit coredump disk usage [[limit-coredump]]
+
+`coredump` is a mechanism that Fedora uses to analyze application crashes and send automated bug reports. The application's memory space is saved to a file on your disk. These files can easily be gigabytes in size, and while the default configuration places some limits on their total size, we can be more strict.
+
+To limit `coredump` to use 2 gigabytes of disk space at most, open the `/etc/systemd/coredump.conf` and add:
+
+----
+MaxUse=2G
+----
+
+== Limit the number of installed kernels
+
+Fedora keeps only a certain number of kernel versions installed in parallel. When a new version is being installed, the oldest one is deleted automatically is the limit has been exceeded. The default number is 3.
+
+To change the number of installable kernel versions, open the `/etc/dnf/dnf.conf` and edit the `installonly_limit=3` line.
+
+== Restrict or disable SELinux
+
+Fedora utilizes SELinux, a kernel mechanism that watches which processes access which files and only allows those access patterns which have been allowed in SELinux rules.
+
+This is great for security, at least in theory, but might cause trouble if you're doing something for what nobody has written SELinux rules. For example, SELinux might deny some power-tweaking programs from taking effect because it deems them suspicious.
+
+If you see SELinux warnings on your desktop, there are three ways to deal with them for good:
+
+- File bugs, create new SELinux rules. `aintnobodygottimefothat.gif`
+- Configure SELinux to still show warnings but allow all access. The "permissive" mode.
+- Disable SELinux altogether.
+
+Configuration can be changed in the `/etc/selinux/config` file, on the `SELINUX=` line. The default is `SELINUX=enforcing`, and you can change it to:
+
+- `SELINUX=permissive` for the permissive mode
+- `SELINUX=disabled` to disable SELinux
+
+
+== Install additional packages [[packages-fedora]]
+
+=== Enable the RPM Fusion repository
+
+To have access to all packages listed on this page, enable the https://rpmfusion.org/[RPM Fusion] _Free_ and _Nonfree_ repositories:
+
+. Install the repository configuration:
++
+[source,bash]
+----
+$ sudo dnf install \
+       https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+       https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+----
+
+. Install Appstream metadata packages:
++
+[source,bash]
+----
+$ sudo dnf groupupdate core
+----
+
+=== Multimedia [[fedora-multimedia]]
+
+. Install multimedia packages from RPM Fusion:
++
+[source,bash]
+----
+$ sudo dnf groupupdate multimedia \
+       --setop="install_weak_deps=False" \
+       --exclude=PackageKit-gstreamer-plugin
+
+$ sudo dnf groupupdate sound-and-video
+----
+
+. Install packages that enable patented GPU video decoding:
++
+[source,bash]
+----
+$ sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+
+$ sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+----
+
+. Install other multimedia codecs:
++
+[source,bash]
+----
+$ sudo dnf install \
+       ffmpeg-libs \
+       gstreamer1-libav \
+       gstreamer1-plugin-openh264 \
+       gstreamer1-plugins-bad-free \
+       gstreamer1-plugins-bad-free-fluidsynth \
+       gstreamer1-plugins-bad-freeworld \
+       gstreamer1-plugins-ugly \
+       pulseaudio-module-bluetooth-freeworld
+----
+
+=== Archiving and file systems [[fedora-archiving-fs]]
+
+[source,bash]
+----
+$ sudo dnf install \
+       atool borgbackup exfat-utils f2fs-tools \
+       hfsutils lzip lziprecover lzop \
+       p7zip p7zip-plugins testdisk udftools unrar
+----
+
+=== Various low-level tools [[fedora-various-ll]]
+
+[source,bash]
+----
+$ sudo dnf install \
+       fish htop iftop iotop \
+       util-linux-user mc \
+       powertop tuned
+----
+
+=== Fonts [[fedora-fonts]]
+
+. Install additional fonts:
++
+[source,bash]
+----
+$ sudo dnf install \
+       ht-alegreya-\* mozilla-fira\* \
+       sil-gentium-fonts sil-gentium-alt-fonts \
+       apanov-heuristica-fonts \
+       levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
+       linux-libertine\* msimonson-anonymouspro-fonts \
+       google-noto-{sans,mono,serif}-fonts \
+       google-{arimo,cousine,tinos,carlito}-fonts \
+       ht-caladea-fonts \
+       oldstandard-sfd-fonts \
+       open-sans-fonts overpass-fonts overpass-mono-fonts \
+       paratype-pt\* google-roboto\* \
+       adobe-source-{code,sans,serif}-pro-fonts \
+       gdouros-symbola-fonts impallari-raleway-fonts
+----
+
+. Remove the Comfortaa font. It tends to insert itself at inappropriate places, especially in Firefox, and it isn't very readable.
++
+[source,bash]
+----
+$ sudo dnf remove aajohan-comfortaa-fonts
+----
+
+
+=== See also
+
+- https://flathub.org/apps.html[Flathub]
+- https://flatpak.org/apps.html[Flatpak Applications]

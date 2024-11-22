@@ -1,11 +1,11 @@
-* xref:packages.adoc[]
+* xref:configuring-debian.adoc[]
 
-* xref:system-tuning.adoc[]
+* xref:configuring-fedora.adoc[]
+
+* xref:configuring-common-linux-options.adoc[]
 
 * xref:gnome.adoc[]
 
 * xref:applications.adoc[]
 
 * xref:fonts.adoc[]
-
-

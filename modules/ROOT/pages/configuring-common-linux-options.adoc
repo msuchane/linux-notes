@@ -1,9 +1,6 @@
-= System tuning [[system-tuning]]
-include::attributes.adoc[]
+= Configuring common Linux options
 
-== Common options [[common-options]]
-
-=== zswap [[zswap]]
+== zswap [[zswap]]
 
 `zswap` is a kernel feature that compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
 
@@ -19,7 +16,7 @@ The current state of `zswap` can be read from the `/sys/module/zswap/parameters/
 
 Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
 
-=== journald disk usage [[journald-disk-usage]]
+== journald disk usage [[journald-disk-usage]]
 
 The current disk usage of `journalctl` can be displayed using the following command:
 
@@ -35,7 +32,7 @@ SystemMaxUse=256M
 RuntimeMaxUse=128M
 ----
 
-=== System logging in a console [[console-log]]
+== System logging in a console [[console-log]]
 
 You can configure your system log service to print log entries in a system console: for example, TTY10.
 
@@ -56,11 +53,11 @@ Replace `__N__` with the number of the console of your choosing. Note that Fedor
 $ sudo systemctl restart systemd-journald
 ----
 
-=== Disk scheduler [[blk-mq]]
+== Disk scheduler [[blk-mq]]
 
 See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Setting the disk scheduler] in the RHEL 9 documentation.
 
-=== Memory tuning for interactive use [[memory-tuning]]
+== Memory tuning for interactive use [[memory-tuning]]
 
 https://rudd-o.com/linux-and-free-software/tales-from-responsivenessland-why-linux-feels-slow-and-how-to-fix-that[Certain people] argue that the way Linux handles interactive desktop usage leaves much to be desired. They also suggest ways to improve that.
 
@@ -89,7 +86,7 @@ However, note that there is little "scientific" proof that modifying these actua
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
-=== Early OOM killer [[early-oom]]
+== Early OOM killer [[early-oom]]
 
 The Linux "out-of-memory killer" (OOM Killer) is supposed to terminate the process that uses the most memory when the system is running out of RAM. However, it hardly ever actually executes: it is overly optimistic that the system can eventually handle the problem on its own. This leads to situations when the memory is hopelessly full while the system stays unresponsive for hours until the user presses the power button.
 
@@ -102,7 +99,7 @@ For details on installation and usage, see the GitHub page: https://github.com/r
 The `earlyoom` service is packaged both for Fedora and Debian.
 
 
-=== Update GRUB configuration [[update-grub]]
+== Update GRUB configuration [[update-grub]]
 
 After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
 
@@ -129,7 +126,7 @@ $ sudo find /boot -name grub.cfg
 $ sudo grub2-mkconfig -o /boot/__path/to/__grub.cfg
 ....
 
-=== Setting Up the "Magic SysRq Keys" [[magic-sysrq]]
+== Setting Up the "Magic SysRq Keys" [[magic-sysrq]]
 
 "Magic SysRq Keys" are keyboard shortcuts that are registered at the kernel level and allow you to control the basic functions of system even if it has otherwise completely frozen.
 
@@ -145,7 +142,7 @@ kernel.sysrq = 1
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
-=== Synchronized Time Zones when Dual-booting with Windows [[dual-boot-time-zones]]
+== Synchronized Time Zones when Dual-booting with Windows [[dual-boot-time-zones]]
 
 Linux sets the hardware clock to the current time in UTC, while Windows sets it to the local time. This conflict results the clock being off a few hours when switching operating systems.
 
@@ -153,7 +150,7 @@ One solution is to persuade Linux to use local time instead. Surprisingly, this 
 
 The other way is to configure Windows to use UTC. This is relatively easy. The Arch Linux Wiki describes the process in the https://wiki.archlinux.org/index.php/Time#UTC_in_Windows[UTC in Windows] section of the https://wiki.archlinux.org/index.php/Time[Time] article.
 
-=== Disable watchdog
+== Disable watchdog
 
 `watchdog` is a kernel service, which allows to debug system lock-ups. However, to be honest, it's really not that useful for you as a desktop user. On the other hand, it periodically creates interrupts, which wake the CPU up from low-power sleep. Therefore, if power consumption is a concern, you can safely turn `watchdog` off.
 
@@ -177,7 +174,7 @@ You can read the current state of `watchdog` from the `/proc/sys/kernel/nmi_watc
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
-=== Trimming Your SSD [[fstrim]]
+== Trimming Your SSD [[fstrim]]
 
 If your computer uses a solid-state disk (SSD), you should https://en.wikipedia.org/wiki/Trim_(computing)["trim"] the file systems on it regularly. Your distributions might already do that for you: Ubuntu runs `fstrim` weekly.
 
@@ -198,7 +195,7 @@ sudo cp /usr/share/doc/util-linux/examples/fstrim.{service,timer} \
 sudo systemctl enable fstrim.timer
 ----
 
-=== Configuring the Virtual Console [[console-font]]
+== Configuring the Virtual Console [[console-font]]
 
 The Linux virtual console, which displays, for example, the boot process, uses its own font and keyboard layout settings. These can be modified either on the kernel command line or in the `/etc/vconsole.conf` configuration file.
 
@@ -221,7 +218,7 @@ This can also be achieved by adding the `vconsole.font=ter-218n` parameter to th
 
 See also the *vconsole.conf*(5) man page for more information on configuring the console, including the keyboard layout.
 
-=== Rebuilding the Initial Ramdisk [[rebuild-initramfs]]
+== Rebuilding the Initial Ramdisk [[rebuild-initramfs]]
 
 After changing `sysctl` settings, rebuilt the initial ramdisk in order for the updated settings to take effect early in the boot process.
 
@@ -246,7 +243,7 @@ Or:
 sudo dracut-update-initramfs
 ----
 
-=== Updating Firmware
+== Updating Firmware
 
 Some manufacturers (mostly Dell, Lenovo) provide firmware updates via the native Linux `fwupd` mechanism.
 
@@ -263,7 +260,7 @@ sudo fwupdmgr get-updates
 sudo fwupdmgr update
 ----
 
-=== A Tuned Profile to Increase Desktop Responsiveness [[tuned-responsiveness]]
+== A Tuned Profile to Increase Desktop Responsiveness [[tuned-responsiveness]]
 
 . Install and enable the `tuned` service.
 
@@ -321,18 +318,7 @@ sudo tuned-adm profile interactive
 ----
 
 
-=== Improving Audio Quality [[audio-quality]]
-
-There's been an excellent discussion on Reddit about the audio stack on Linux: link:https://www.reddit.com/r/linux/comments/coi4dt/a_complete_guide_of_and_debunking_of_audio_on/[A complete guide of and debunking of audio on Linux, ALSA and Pulse].
-
-The easiest and most obvious option to improve sound quality is to set a better resampling algorithm using the `resample-method` option in the `/etc/pulse/daemon.conf` file. Consider:
-
-* `speex-float-3` as recommended by the developers of Speex: link:https://www.speex.org/docs/manual/speex-manual/node7.html#SECTION00760000000000000000[]
-* `speex-float-5` as suggested by freedesktop.org: link:https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation/User/Audiophile/[]
-
-
-
-=== Enable VSync in X.org [[xorg-vsync]]
+== Enable VSync in X.org [[xorg-vsync]]
 
 VSync is a graphics feature that prevents screen tearing, such as when scrolling web pages. Try enabling VSync and test if it helps under different conditions.
 
@@ -351,7 +337,7 @@ EndSection
 . Restart your session.
 
 
-=== My Personal Dotfiles [[my-dotfiles]]
+== My Personal Dotfiles [[my-dotfiles]]
 
 Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my https://gitlab.com/mrksu/dotfiles[dotfiles] repository on GitLab.
 
@@ -360,228 +346,3 @@ Many people keep their config files in a git repository, myself included. If you
 * link:https://dotfiles.github.io/[]
 * link:https://www.gnu.org/software/stow/[]
 * link:https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789[]
-
-
-
-== Fedora-Specific Options [[fedora-specific]]
-
-=== Remove Unnecessary Services [[fedora-unnecessary-services]]
-
-Until this gets fixed:
-
-link:https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/UFGNO5MTPCLEK5B5RCJGGZUFTZ7JTWI5/[]
-
-=== Enable Automatic Updates in Fedora [[fedora-auto-update]]
-
-Fedora can automatically install package updates at configurable times using the `dnf-automatic` package and the `dnf-automatic-download.timer` or `dnf-automatic-install.timer` systemd units.
-
-For more information, see the https://www.ctrl.blog/entry/how-to-dnf-automatic[How to get Fedora to take care of its own updates] article on the _Ctrl blog_.
-
-=== Limit coredump Disk Usage [[limit-coredump]]
-
-`coredump` is a mechanism that Fedora uses to analyze application crashes and send automated bug reports. The application's memory space is saved to a file on your disk. These files can easily be gigabytes in size, and while the default configuration places some limits on their total size, we can be more strict.
-
-To limit `coredump` to use 2 gigabytes of disk space at most, open the `/etc/systemd/coredump.conf` and add:
-
-----
-MaxUse=2G
-----
-
-=== The Number of Kernels Kept Installed
-
-Fedora keeps only a certain number of kernel versions installed in parallel. When a new version is being installed, the oldest one is deleted automatically is the limit has been exceeded. The default number is 3.
-
-To change the number of installable kernel versions, open the `/etc/dnf/dnf.conf` and edit the `installonly_limit=3` line.
-
-=== Restrict or Disable SELinux
-
-Fedora utilizes SELinux, a kernel mechanism that watches which processes access which files and only allows those access patterns which have been allowed in SELinux rules.
-
-This is great for security, at least in theory, but might cause trouble if you're doing something for what nobody has written SELinux rules. For example, SELinux might deny some power-tweaking programs from taking effect because it deems them suspicious.
-
-If you see SELinux warnings on your desktop, there are three ways to deal with them for good:
-
-- File bugs, create new SELinux rules. `aintnobodygottimefothat.gif`
-- Configure SELinux to still show warnings but allow all access. The "permissive" mode.
-- Disable SELinux altogether.
-
-Configuration can be changed in the `/etc/selinux/config` file, on the `SELINUX=` line. The default is `SELINUX=enforcing`, and you can change it to:
-
-- `SELINUX=permissive` for the permissive mode
-- `SELINUX=disabled` to disable SELinux
-
-== Debian-Specific Options [[debian-specific]]
-
-=== Configuring sudo [[sudo-config]]
-
-. Become root the traditional way:
-+
-[source,bash]
-----
-su
-----
-
-. Install the `sudo` package. This is already included in the <<packages#packages,Useful Packages>> chapter, but anyway, to make sure:
-+
-[source,bash]
-----
-apt install sudo
-----
-
-. Add your user to the group `sudo`:
-+
-[source,bash,subs=+quotes]
-....
-usermod -a -G sudo __your_user_name__
-....
-
-. Reboot your system.
-
-=== Package Managers
-
-Debian comes with several front ends to package management:
-
-`apt`::
-The default, pre-installed tool.
-
-`aptitude`::
-An advanced interface including terminal graphics.
-
-`nala`::
-An alternative to `apt` with a more readable interface and innovative features.
-
-=== Enable Automatic Updates in Debian [[debian-auto-update]]
-
-Debian can automatically install package updates at configurable times using the Unattended Upgrades feature.
-
-For more information, see the https://wiki.debian.org/UnattendedUpgrades[UnattendedUpgrades] page on the Debian Wiki.
-
-=== journald as the Only Log [[only-journald]]
-
-By default, Debian uses `rsyslog` as the system log service. However, `journald` is running anyway all the time and there's no reason to have two log service, other than that `rsyslog` provides plain-text logs. If that doesn't sound compelling to you:
-
-- Disable `rsyslog`:
-+
-[source,bash]
-----
-sudo systemctl disable rsyslog
-----
-+
-- Make `journald` store its log permanently (instead of at runtime only). In `/etc/systemd/journald.conf` set:
-+
-----
-Storage=persistent
-----
-
-=== Setting Up command-not-found [[set-up-cnf]]
-
-`command-not-found` is a helpful little program, which offers you to install the correct package when you type the command of a program that hasn't been installed yet. Fedora and Ubuntu do this automatically; in Debian, a little effort is needed.
-
-. Install `command-not-found`:
-+
-[source,bash]
-----
-sudo apt install command-not-found
-----
-+
-. Update the packages & commands database:
-+
-[source,bash]
-----
-sudo apt-file update
-sudo update-command-not-found
-----
-
-=== Periodic Packages Cleaning
-
-By default, the `apt` package manager keeps all downloaded packages on disk indefinitely. This can result in a lot of wasted disk space.
-
-To configure `apt` to clean outdated downloaded packages periodically every 7 days (and keep only up-to-date packages), create the `/etc/apt/apt.conf.d/02periodic` file containing:
-
-----
-APT::Periodic::AutocleanInterval "7";
-----
-
-Or to periodically clean all downloaded packages regardless of them being up-to-date or not:
-
-----
-APT::Periodic::CleanInterval "7";
-----
-
-=== No Flat Audio Volumes [[no-flat-volumes]]
-
-PulseAudio has developed two ways to synchronize audio volume between applications. Until recently, "flat volumes" have been the default. However, It is inherently problematic; see https://lists.fedoraproject.org/pipermail/devel/2015-September/214720.html[Disable PulseAudio flat volumes to prevent it from pushing volume level to max] and https://bugzilla.redhat.com/show_bug.cgi?id=1265267[Bug 1265267 - RFE: Disable PulseAudio's flat volumes].
-
-Therefore, it has been decided to change the default setting to disabled flat volumes. Unfortunately, Debian (Stretch?) hasn't (yet?) integrated this update. To set it manually, open the `/etc/pulse/daemon.conf` file and add:
-
-----
-flat-volumes = no
-----
-
-=== Set Up Plymouth
-
-Plymouth is the pretty animated picture you see when the system is booting up or shutting down. Debian doesn't like pretty stuff by default, and therefore, Plymouth has to be installed manually.
-
-The process is https://wiki.debian.org/plymouth[documented on the Debian Wiki]. However, to save you a few clicks and some reading:
-
-. Install Plymouth and its themes:
-+
-[source,bash]
-----
-sudo apt install plymouth plymouth-themes
-----
-+
-. Edit the `/etc/initramfs-tools/modules` and add modesetting modules for your graphics card:
-- For Intel GPUs:
-+
-----
-# KMS
-intel_agp
-drm
-i915 modeset=1
-----
-+
-- For nVidia GPUs using the Nouveau driver:
-+
-----
-# KMS
-drm
-nouveau modeset=1
-----
-+
-- For AMD GPUs (may be slightly outdated):
-+
-----
-# KMS
-drm
-radeon modeset=1
-----
-+
-. Open the `/etc/default/grub` file.
-. There, uncomment the `GRUB_GFXMODE=` line and set it to your display resolution. For example, `GRUB_GFXMODE=1024x768`. (This may not be necessary and might even uglify grub; test it.)
-. Also, edit the kernel line, that is the one starting with `GRUB_CMDLINE_LINUX_DEFAULT=`. Add `splash` at the end and delete `quiet` if you'd like to be able to see detailed `systemd` boot output when you switch out of the pretty animated picture.
-. Save the file and update `grub2`:
-+
-[source,bash]
-----
-sudo update-grub2
-----
-+
-. Get the list of installed Plymouth themes:
-+
-[source,bash]
-----
-sudo plymouth-set-default-theme -l
-----
-+
-The default theme in Debian Stretch is `softwaves`. The rest are either the themes of earlier Debian releases or are bundled with Plymouth itself, originally coming from Fedora.
-+
-. Set a theme for Plymouth to actually use:
-+
-[source,bash,subs=+quotes]
-....
-sudo plymouth-set-default-theme -R __your_selected_theme__
-....
-+
-. Reboot and watch the result. Repeat the last two steps if you want to see more themes in action.
-

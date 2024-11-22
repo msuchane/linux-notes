@@ -1,3 +1,5 @@
+// This file is no longer used by Antora. I'm keeping it as an archive in case it turns out to be useful later.
+
 :author: Marek Suchánek
 :email: marek.suchanek@protonmail.com
 :source-highlighter: highlightjs
