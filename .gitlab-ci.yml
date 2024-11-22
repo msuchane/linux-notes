@@ -7,5 +7,7 @@ pages:
   - antora --fetch --redirect-facility=gitlab --to-dir=public antora-playbook.yml
   artifacts:
     paths:
-    - public
+    - public/linux-notes
+  only:
+  - main
 
