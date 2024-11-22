@@ -1,54 +1,31 @@
-= Applications Tuning [[applications]]
+= Configuring applications [[applications]]
+
 include::attributes.adoc[]
+:experimental:
 
 == Firefox [[firefox]]
-
-=== Wayland in Firefox on Debian
-
-On Debian 12 Bookworm, Wayland is the default GNOME session, but Firefox still runs in XWayland. This decreases graphics sharpness when you enable display scaling, for example.
-
-To enable Wayland in Firefox, set the following shell variable:
-
-[source,bash]
-----
-MOZ_ENABLE_WAYLAND=1
-----
-
-See also the detailed instructions for link:https://wiki.debian.org/Firefox#Hardware_Video_Acceleration[Hardware Video Acceleration].
-
-=== Enable Acceleration [[firefox-accel]]
-
-Hardware acceleration in Firefox is still marked as experimental on Linux because some graphics drivers are buggy. However, you can try if it works OK on your configuration. Potentially, the benefits are smoother browsing and lower CPU usage for video playback.
-
-To enable acceleration, set the following keys on the `about:config` page to `true`:
-
-* `layers.acceleration.force-enabled`
-* `media.hardware-video-decoding.force-enabled`
-* `gfx.canvas.azure.accelerated` – Create this one if it doesn't exist.
-
-To verify, open the `about:support` page and take a look at the _Graphics_ section.
 
 === Web Pages and Interface Scaling [[web-scaling]]
 
 Depending on the pixel density (DPI) of your display, your eyesight, and the distance between you and the display, text on the web might be too small. There are multiple ways to deal with it:
 
-* some people just zoom any web page as soon as they visit it;
+* Zoom in on the web page
 
-* other people increase the minimal font size in settings;
+* Increase the minimal font size in Firefox settings
 
-* the _smartest_ people adjust the CSS pixels scaling ratio.
+* Adjust the CSS pixels scaling ratio
++
+The benefit of this approach is that the scaling is:
 
-The benefit of the last approach is that the scaling is:
+automatic:: no need to zoom by hand;
 
-* automatic: no need to zoom by hand;
+transparent and consistent:: all pages and their elements and even the Firefox interface itself are scaled by the same factor.
 
-* transparent and consistent: all pages and their elements and even the Firefox interface itself are scaled by the same factor.
-
-To utilize this great setting, go to the `about:config` page and set the following key to a comfortable value, e.g. `1.5`:
+To enable CCS pixels scaling, go to the `about:config` page and set the following key to a comfortable value, e.g. `1.5`:
 
 * `layout.css.devPixelsPerPx`
 
-=== No Middle Mouse Button Paste [[middle-mouse-paste]]
+=== Disable pasting with the middle mouse button [[middle-mouse-paste]]
 
 By default, Firefox recognizes the middle mouse button (mouse-wheel click) the traditional UNIX way, that is it pastes clipboard content or, worse yet, loads URL from clipboard. This is surprising to all people except the two bearded sysadmins still alive today who frequent Root.cz.
 
@@ -57,7 +34,7 @@ To turn off middle mouse clipboard pasting, go to `about:config` in Firefox and 
 - `middlemouse.paste`
 - `middlemouse.contentLoadURL`
 
-=== No Alt Main Menu [[alt-menu]]
+=== Disable the Alt main menu [[alt-menu]]
 
 When you press the `Alt` key in Firefox, the main menu bar jumps at you from the top of the window. This may be convenient to you if you're used to the bar, but it hapens way too often unintentionally when pressing keyboard shortcuts.
 
@@ -67,7 +44,7 @@ To disable the `Alt` key menu activation, open `about:config` in Firefox and cha
 
 `18` represents `Alt` here; `17` stands for `Ctrl` if you're interested.
 
-=== Session Back-up interval [[session-interval]]
+=== Configure the session backup interval [[session-interval]]
 
 There is a time interval setting in Firefox, which controls how often the content of the current session (tabs, etc.) is saved to disk to be able to recover in case of a crash. The default value is 15 seconds. This can lead to excessive disk writes, but that's only relevant on Windows and only harmful on SSDs, so there's probably no reason to worry about this.
 
@@ -77,7 +54,7 @@ Nevertheless, if you're a heavy tabs user, you might want to consider lowering t
 
 This issue was brought up in the https://forums.servethehome.com/index.php?threads/firefox-is-chewing-through-your-nand.11346/[STH forums].
 
-=== Using the Native PDF Application [[firefox-pdf]]
+=== Prefer the native PDF reader [[firefox-pdf]]
 
 The built-in PDF viewer that Firefox uses is nice, but it lacks some features to display all PDFs correctly and tends to be rather heavy-weight due to being written in JavaScript.
 
@@ -87,7 +64,7 @@ See also the Mozilla documentation article: https://support.mozilla.org/en-US/kb
 
 == Gimp [[gimp]]
 
-=== Font Aliasing [[gimp-font-alias]]
+=== Improve font aliasing [[gimp-font-alias]]
 
 The way Gimp renders text and anti-aliases fonts is configurable. This is useful because Gimp tends to apply RGB anti-alias and https://plus.google.com/+WorldofGnomeOrg/posts/QjR629U6HQd[produce weird colorful lines] around letters.
 
@@ -123,13 +100,13 @@ To set a font configuration that is sensible for image editors, create the `/etc
 
 == Chromium and Google Chrome [[chromium]]
 
-=== UI Scaling [[chromium-scaling]]
+=== UI scaling [[chromium-scaling]]
 
 To scale Chromium UI on high-DPI displays:
 
 . Install the `menulibre` application.
 
-. In `menulibre`, navigate to Internet -> Chromium Web Browser.
+. In `menulibre`, navigate to menu:Internet[Chromium Web Browser].
 
 . Edit the *Command* field to include the `--high-dpi-support=1` and `--force-device-scale-factor=__my-scale-factor__` scaling options:
 +
@@ -142,7 +119,7 @@ Replace _my-scaling-factor_ with a floating-point number specifying how much to 
 
 . Similarly, edit the commands in all entries under the *Actions* tab below.
 
-. Press *Ctrl-S* to save the launcher.
+. Press kbd:[Ctrl + S] to save the launcher.
 
 . Restart all your Chromium windows for the setting to take effect.
 
