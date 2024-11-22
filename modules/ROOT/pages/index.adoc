@@ -1,2 +1,6 @@
 = Linux notes
 
+These are some of my personal notes that help me when installing Linux.
+
+See the navigation bar on the left.
+
