@@ -1,6 +1,8 @@
 = Configuring common Linux options
 
-== zswap [[zswap]]
+:experimental:
+
+== Compress memory using zswap [[zswap]]
 
 `zswap` is a kernel feature that compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
 
@@ -16,23 +18,7 @@ The current state of `zswap` can be read from the `/sys/module/zswap/parameters/
 
 Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
 
-== journald disk usage [[journald-disk-usage]]
-
-The current disk usage of `journalctl` can be displayed using the following command:
-
-[source,bash]
-----
-sudo journalctl --disk-usage
-----
-
-`journald` configuration is located in the `/etc/systemd/journald.conf` file. It's probably a good idea to explicitly limit how much data `journald` can store. In the configuration file, set something like:
-
-----
-SystemMaxUse=256M
-RuntimeMaxUse=128M
-----
-
-== System logging in a console [[console-log]]
+== Enable system logging in a console [[console-log]]
 
 You can configure your system log service to print log entries in a system console: for example, TTY10.
 
@@ -50,12 +36,24 @@ Replace `__N__` with the number of the console of your choosing. Note that Fedor
 +
 [source,bash]
 ----
-$ sudo systemctl restart systemd-journald
+sudo systemctl restart systemd-journald
 ----
 
 == Select a disk scheduler [[blk-mq]]
 
 See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Setting the disk scheduler] in the RHEL 9 documentation.
+
+== Enable an early OOM killer [[early-oom]]
+
+The Linux "out-of-memory killer" (OOM Killer) is supposed to terminate the process that uses the most memory when the system is running out of RAM. However, it hardly ever actually executes: it is overly optimistic that the system can eventually handle the problem on its own. This leads to situations when the memory is hopelessly full while the system stays unresponsive for hours until the user presses the power button.
+
+Therefore, an alternative, user-space implementation has been created, `earlyoom`, which is much more strict and predictable.
+
+The `earlyoom` service runs in the background and checks for memory conditions. By default, it kills a process when both the RAM and the swap partition are at least 90% full. These values are configurable.
+
+For details on installation and usage, see the GitHub page: https://github.com/rfjakob/earlyoom[rfjakob/earlyoom]. The context was also discussed on Reddit: https://www.reddit.com/r/linux/comments/7e0pgm/earlyoom_early_oom_daemon/[earlyoom - Early OOM daemon].
+
+The `earlyoom` service is packaged both for Fedora and Debian.
 
 == Tune memory for interactive use [[memory-tuning]]
 
@@ -86,69 +84,27 @@ However, note that there is little "scientific" proof that modifying these actua
 
 Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
 
-== Early OOM killer [[early-oom]]
-
-The Linux "out-of-memory killer" (OOM Killer) is supposed to terminate the process that uses the most memory when the system is running out of RAM. However, it hardly ever actually executes: it is overly optimistic that the system can eventually handle the problem on its own. This leads to situations when the memory is hopelessly full while the system stays unresponsive for hours until the user presses the power button.
-
-Therefore, an alternative, user-space implementation has been created, `earlyoom`, which is much more strict and predictable.
-
-The `earlyoom` service runs in the background and checks for memory conditions. By default, it kills a process when both the RAM and the swap partition are at least 90% full. These values are configurable.
-
-For details on installation and usage, see the GitHub page: https://github.com/rfjakob/earlyoom[rfjakob/earlyoom]. The context was also discussed on Reddit: https://www.reddit.com/r/linux/comments/7e0pgm/earlyoom_early_oom_daemon/[earlyoom - Early OOM daemon].
-
-The `earlyoom` service is packaged both for Fedora and Debian.
-
-
-== Update GRUB configuration [[update-grub]]
-
-After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
-
-- On Debian:
-+
-[source,bash]
-----
-# sudo update-grub2
-----
-
-- On Fedora:
-
-.. Locate the compiled configuration file:
-+
-[source,bash]
-----
-$ sudo find /boot -name grub.cfg
-----
-
-.. Copy the file name the previous command gave you and use it here:
-+
-[source,bash,subs=+quotes]
-....
-$ sudo grub2-mkconfig -o /boot/__path/to/__grub.cfg
-....
-
 == Set up the Magic SysRq Keys [[magic-sysrq]]
 
 "Magic SysRq Keys" are keyboard shortcuts that are registered at the kernel level and allow you to control the basic functions of system even if it has otherwise completely frozen.
 
-A common use case is to shut down the frozen system safely by typing `Alt`-`SysRq`-`s` to write (sync) all disk buffers, followed by `Alt`-`SysRq`-`u` to remount all disks read-only, and `Alt`-`SysRq`-`b` to reboot the system immediately.
+A common use case is to shut down the frozen system safely:
+
+. kbd:[Alt+SysRq+s] to write (sync) all disk buffers.
+. kbd:[Alt+SysRq+u] to remount all disks read-only.
+. kbd:[Alt+SysRq+b] to reboot the system immediately.
 
 Many more shortcuts are listed in the https://en.wikipedia.org/wiki/Magic_SysRq_key#Commands[Magic SysRq key] article on Wikipedia.
 
-To set up Magic SysRq, open the `/etc/sysctl.conf` file as root and add:
+To set up Magic SysRq:
 
+. Open the `/etc/sysctl.conf` file as root and add:
++
 ----
 kernel.sysrq = 1
 ----
 
-Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
-
-== Synchronize time zones when dual-booting with Windows [[dual-boot-time-zones]]
-
-Linux sets the hardware clock to the current time in UTC, while Windows sets it to the local time. This conflict results the clock being off a few hours when switching operating systems.
-
-One solution is to persuade Linux to use local time instead. Surprisingly, this is extremely hard, as core system services expect UTC.
-
-The other way is to configure Windows to use UTC. This is relatively easy. The Arch Linux Wiki describes the process in the https://wiki.archlinux.org/index.php/Time#UTC_in_Windows[UTC in Windows] section of the https://wiki.archlinux.org/index.php/Time[Time] article.
+. Update the initial ramdisk. See <<rebuild-initramfs>>.
 
 == Disable watchdog
 
@@ -157,13 +113,15 @@ The other way is to configure Windows to use UTC. This is relatively easy. The A
 There are two main ways to configure `watchdog`: in a kernel parameter or using `sysctl`. They should have the same effect, so it's up to you which one to choose.
 
 - To disable `watchdog` using a kernel parameter:
-. Edit the `/etc/default/grub` file and add the following to the kernel command line:
+
+.. Edit the `/etc/default/grub` file and add the following to the kernel command line:
 +
 ----
 nmi_watchdog=0
 ----
-+
-. Update `grub2` configuration as described in <<update-grub>>.
+
+.. Update `grub2` configuration as described in <<update-grub>>.
+
 - To disable `watchdog` using `sysctl`, edit the `/etc/sysctl.conf` and add there:
 +
 ----
@@ -172,7 +130,7 @@ kernel.nmi_watchdog=0
 
 You can read the current state of `watchdog` from the `/proc/sys/kernel/nmi_watchdog` file: `0` for disabled, `1` for enabled`.
 
-Afterwards, update the initial ramdisk; see <<rebuild-initramfs>>.
+Finally, update the initial ramdisk. See <<rebuild-initramfs>>.
 
 == Trim your SSD [[fstrim]]
 
@@ -219,6 +177,57 @@ Or:
 ----
 sudo dracut-update-initramfs
 ----
+
+== Update GRUB configuration [[update-grub]]
+
+After editing the `/etc/default/grub` file, the configuration has to be compiled for `grub2` to be able to use it:
+
+- On Debian:
++
+[source,bash]
+----
+sudo update-grub2
+----
+
+- On Fedora:
+
+.. Locate the compiled configuration file:
++
+[source,bash]
+----
+sudo find /boot -name grub.cfg
+----
+
+.. Copy the file name the previous command gave you and use it here:
++
+[source,bash,subs=+quotes]
+....
+sudo grub2-mkconfig -o /boot/__path/to/__grub.cfg
+....
+
+== journald disk usage [[journald-disk-usage]]
+
+The current disk usage of `journalctl` can be displayed using the following command:
+
+[source,bash]
+----
+sudo journalctl --disk-usage
+----
+
+`journald` configuration is located in the `/etc/systemd/journald.conf` file. It's probably a good idea to explicitly limit how much data `journald` can store. In the configuration file, set something like:
+
+----
+SystemMaxUse=256M
+RuntimeMaxUse=128M
+----
+
+== Synchronize time zones when dual-booting with Windows [[dual-boot-time-zones]]
+
+Linux sets the hardware clock to the current time in UTC, while Windows sets it to the local time. This conflict results the clock being off a few hours when switching operating systems.
+
+One solution is to persuade Linux to use local time instead. Surprisingly, this is extremely hard, as core system services expect UTC.
+
+The other way is to configure Windows to use UTC. This is relatively easy. The Arch Linux Wiki describes the process in the https://wiki.archlinux.org/index.php/Time#UTC_in_Windows[UTC in Windows] section of the https://wiki.archlinux.org/index.php/Time[Time] article.
 
 == Update the firmware
 
