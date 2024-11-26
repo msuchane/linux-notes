@@ -5,7 +5,7 @@ include::attributes.adoc[]
 
 == Firefox [[firefox]]
 
-=== Web Pages and Interface Scaling [[web-scaling]]
+=== Scale web pages and the interface [[web-scaling]]
 
 Depending on the pixel density (DPI) of your display, your eyesight, and the distance between you and the display, text on the web might be too small. There are multiple ways to deal with it:
 
