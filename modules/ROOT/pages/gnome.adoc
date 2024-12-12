@@ -3,6 +3,17 @@
 include::attributes.adoc[]
 :experimental:
 
+== Increase sound volume above 100% [[sound-over-amplification]]
+
+In earlier versions of GNOME, you could enable volume over-amplification in GNOME Tweaks. The setting is missing now in Tweaks and in Settings.
+
+You can enable over-amplification using `gsettings`:
+
+[source,bash]
+----
+gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
+----
+
 == Configure the Nautilus drag-and-drop behavior [[nautilus-dnd]]
 
 Nautilus (_Files_) opens directories when you hover a dragged item over them. Personally, I don't like this behavior, because it requires me to be quick and precise, which I'm not. Therefore, to disable the automatic folder opening:
