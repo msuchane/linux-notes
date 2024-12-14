@@ -182,6 +182,28 @@ To enable Wayland in Firefox, set the following shell variable:
 MOZ_ENABLE_WAYLAND=1
 ----
 
+== Enable 32-bit applications
+
+By default, the 64-bit, `amd64` Debian installation doesn't enable installing 32-bit programs and the libraries that they depend on. This prevents installing applications like Steam.
+
+. Enable the 32-bit compatibility repository:
++
+[source,bash]
+----
+sudo dpkg --add-architecture i386
+----
+
+. Refresh the repository metadata:
++
+[source,bash]
+----
+sudo apt update
+----
+
+. You can now install 32-bit programs.
+
+For details, see link:https://wiki.debian.org/Multiarch/HOWTO[Multiarch].
+
 
 == Install additional packages [[debian-packages]]
 
