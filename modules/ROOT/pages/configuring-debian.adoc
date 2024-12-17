@@ -171,7 +171,7 @@ sudo plymouth-set-default-theme -R __your_selected_theme__
 . Reboot and watch the result. Repeat the last two steps if you want to see more themes in action.
 
 
-=== Enable Wayland in Firefox
+== Enable Wayland in Firefox
 
 On Debian 12 Bookworm, Wayland is the default GNOME session, but Firefox still runs in XWayland. This decreases graphics sharpness when you enable display scaling, for example.
 
