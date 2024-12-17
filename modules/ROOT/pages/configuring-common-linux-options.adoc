@@ -80,7 +80,30 @@ sudo systemctl restart systemd-journald
 
 == Select a disk scheduler [[blk-mq]]
 
-See link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Setting the disk scheduler] in the RHEL 9 documentation.
+The BFQ disk scheduler provides better interactive performance even on SSD and NVMe disks. You can enable BFQ on all storage devices:
+
+. Load the BFQ module.
++
+Create the `/etc/modules-load.d/bfq.conf` file and enter `bfq`.
+
+. Set the BFQ scheduler for all devices.
++
+Create the `/etc/udev/rules.d/60-scheduler.rules` file with the following configuration:
++
+----
+ACTION=="add|change", SUBSYSTEM=="block", ATTR{queue/scheduler}!="bfq", ATTR{queue/scheduler}="bfq"
+----
+
+. Reboot the system.
+
+. Check that the BFQ scheduler is active on all devices:
++
+[source,bash]
+----
+grep . /sys/block/*/queue/scheduler
+----
+
+For other configuration options, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Setting the disk scheduler] in the RHEL 9 documentation.
 
 == Enable an early OOM killer [[early-oom]]
 
