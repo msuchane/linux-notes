@@ -54,19 +54,26 @@ For details, see link:https://wiki.debian.org/Multiarch/HOWTO[Multiarch].
 
 == Install additional packages [[debian-packages]]
 
+=== Destop backgounds [[debian-wallpapers]]
+
+[source,bash]
+----
+sudo apt install gnome-backgrounds kde-wallpapers kdeartwork-wallpapers
+----
+
 === Multimedia [[debian-multimedia]]
 
 [source,bash]
 ----
 sudo apt install \
-audacity beets cuetools easytag exfalso flac gimp gnome-backgrounds \
-gnome-mpv gnome-music gnome-photos gnome-sound-recorder \
-gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
-gstreamer1.0-plugins-ugly inkscape kde-wallpapers kdeartwork-wallpapers \
-kdenlive krita lame libva-drm1 libva-egl1 libva-intel-vaapi-driver \
-libva1 libvdpau-va-gl1 libvdpau1 libvulkan1 mcomix mediainfo \
-mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
-shntool sox vdpauinfo vlc vorbis-tools vulkan-utils youtube-dl \
+  audacity beets cuetools easytag exfalso flac gimp \
+  gnome-sound-recorder \
+  gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
+  gstreamer1.0-plugins-ugly inkscape \
+  kdenlive krita lame libva-drm1 libva-egl1 libva-intel-vaapi-driver \
+  libva1 libvdpau-va-gl1 libvdpau1 mediainfo \
+  mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
+  shntool sox vdpauinfo vlc vorbis-tools yt-dlp
 ----
 
 === Office, reading, and writing [[debian-read-write]]
@@ -74,9 +81,9 @@ shntool sox vdpauinfo vlc vorbis-tools vulkan-utils youtube-dl \
 [source,bash]
 ----
 sudo apt install \
-bijiben fbreader gedit-plugins gnome-calendar gnome-dictionary \
-gnome-todo gnome-shell-extensions-gpaste libreoffice-style-sifr \
-nano neovim pandoc scribus simple-scan vim-nox
+  bijiben endeavour fbreader gnome-calendar gnome-dictionary \
+  gnome-shell-extensions-gpaste micro \
+  nano neovim pandoc scribus simple-scan
 ----
 
 === Other applications [[debian-other-apps]]
@@ -84,9 +91,9 @@ nano neovim pandoc scribus simple-scan vim-nox
 [source,bash]
 ----
 sudo apt install \
-brasero chromium dconf-editor epiphany-browser gnome-builder \
-gnome-logs gnome-maps gnome-nettool gnome-packagekit \
-gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
+  chromium dconf-editor epiphany-browser gnome-builder \
+  gnome-logs gnome-maps gnome-nettool \
+  gnome-power-manager gnome-tweaks transmission-gtk
 ----
 
 === Archiving and file systems [[debian-archiving-fs]]
@@ -94,10 +101,10 @@ gnome-power-manager gnome-tweak-tool tracker-gui transmission-gtk
 [source,bash]
 ----
 sudo apt install \
-atool bleachbit borgbackup exfat-fuse exfat-utils f2fs-tools \
-hfsplus hfsutils lzip lziprecover lzop \
-p7zip-full progress testdisk udftools unrar xfsdump \
-zfs-dkms zfs-initramfs zfsutils-linux 
+  atool bleachbit borgbackup f2fs-tools \
+  lzip lziprecover lzop \
+  p7zip-full progress rar testdisk udftools unrar \
+  zfs-dkms zfs-initramfs zfsutils-linux zstd
 ----
 
 === Low-level tools [[debian-various-ll]]
@@ -105,12 +112,12 @@ zfs-dkms zfs-initramfs zfsutils-linux
 [source,bash]
 ----
 sudo apt install \
-amd64-microcode beignet-opencl-icd clinfo earlyoom firmware-amd-graphics \
-firmware-atheros firmware-brcm80211 firmware-ipw2x00 \
-firmware-iwlwifi firmware-linux firmware-linux-free \
-firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
-fish htop intel-microcode iftop iotop iucode-tool mc nala powertop \
-sudo tlp zsh
+  amd64-microcode clinfo earlyoom \
+  firmware-amd-graphics firmware-atheros firmware-brcm80211 \
+  firmware-ipw2x00 firmware-iwlwifi firmware-linux firmware-linux-free \
+  firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
+  fish htop intel-microcode iftop iotop iucode-tool mc nala powertop \
+  sudo tlp zsh
 ----
 
 === Czech localization [[debian-czech-l10n]]
@@ -118,8 +125,8 @@ sudo tlp zsh
 [source,bash]
 ----
 sudo apt install \
-chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
-libreoffice-l10n-cs 
+  chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
+  libreoffice-l10n-cs 
 ----
 
 === Fonts [[debian-fonts]]
@@ -127,15 +134,15 @@ libreoffice-l10n-cs
 [source,bash]
 ----
 sudo apt install \
-fonts-cabin fonts-cabinsketch fonts-cantarell \
-fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
-fonts-fanwood fonts-firacode fonts-inconsolata fonts-isabella \
-fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
-fonts-liberation2 fonts-linuxlibertine fonts-hack-otf \
-fonts-noto-hinted fonts-noto-mono \
-fonts-oldstandard fonts-opendyslexic fonts-open-sans fonts-quattrocento \
-fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
-ttf-anonymous-pro ttf-essays1743
+  fonts-cabin fonts-cabinsketch fonts-cantarell \
+  fonts-croscore fonts-crosextra-caladea fonts-crosextra-carlito \
+  fonts-fanwood fonts-firacode fonts-inconsolata fonts-isabella \
+  fonts-larabie-deco fonts-larabie-uncommon fonts-lato \
+  fonts-liberation2 fonts-linuxlibertine fonts-hack-otf \
+  fonts-noto-hinted fonts-noto-mono \
+  fonts-oldstandard fonts-opendyslexic fonts-open-sans fonts-quattrocento \
+  fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
+  ttf-anonymous-pro ttf-essays1743
 ----
 
 === Games and related [[debian-games]]
@@ -143,8 +150,8 @@ ttf-anonymous-pro ttf-essays1743
 [source,bash]
 ----
 sudo apt install \
-0ad astromenace blobwars bsdgames crawl crawl-tiles endless-sky fillets-ng \
-freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
-libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
-sauerbraten wesnoth
+  0ad astromenace blobwars bsdgames bsdgames-nonfree crawl crawl-tiles endless-sky \
+  fillets-ng freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
+  libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
+  sauerbraten wesnoth
 ----
