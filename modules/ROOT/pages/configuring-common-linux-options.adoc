@@ -43,19 +43,33 @@ permit persist :sudo
 
 `zswap` is a kernel feature that compresses data in RAM that would otherwise need to be written to the swap partition. In effect, it increases the amount of data that can be stored in RAM, lowers swap partition usage, and increases overall system performance, especially when using a slow disk and little RAM.
 
-. Enable it using this kernel parameter in `/etc/default/grub`:
+. Enable it in `/etc/default/grub`:
 +
 ----
-zswap.enabled=1
+zswap.enabled=1 zswap.shrinker_enabled=1
 ----
 
-. Update `grub2` configuration as described in <<update-grub>>.
+. On systems with very low memory, add the following options to increase memory compression:
++
+----
+zswap.compressor=zstd zswap.max_pool_percent=40
+----
++
+In `/etc/modules-load.d/zstd.conf`, ensure that the kernel loads the Zstd compression module:
++
+----
+zstd
+----
+
+. Update `grub2` configuration as described in <<update-grub>>
 
 . Reboot.
 
-. You can find the current state of `zswap` in the `/sys/module/zswap/parameters/enabled` file: `N` for off, `Y` for on.
-+
-Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
+. Verify that `zswap` is active:
+
+** Read the current state of `zswap` from the `/sys/module/zswap/parameters/enabled` file: N for off, Y for on.
+
+** Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
 
 == Enable system logging in a console [[console-log]]
 
