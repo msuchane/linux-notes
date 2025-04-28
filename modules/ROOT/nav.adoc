@@ -1,5 +1,7 @@
 * xref:configuring-debian.adoc[]
 
+* xref:configuring-ubuntu.adoc[]
+
 * xref:configuring-fedora.adoc[]
 
 * xref:configuring-common-linux-options.adoc[]

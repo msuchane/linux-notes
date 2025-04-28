@@ -1,0 +1,17 @@
+= Configuring Ubuntu
+
+include::attributes.adoc[]
+
+== Hide the snap folder
+
+The `snap` folder in your home directory is visible by default. It stores data for your snap applications. Most users don't need to access it manually.
+
+To hide the folder:
+
+* Create the `.hidden` file in your home directory listing the `snap` folder:
++
+----
+echo snap >> ~/.hidden
+----
+
+include::debian-ubuntu-common.adoc[]
