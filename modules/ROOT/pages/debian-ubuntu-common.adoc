@@ -1,5 +1,36 @@
 // This is a snippet with content shared between Debian and Ubuntu.
 
+== Enable the firewall
+
+. Install the Uncomplicated Firewall (UFW) service:
++
+[source,bash]
+----
+sudo apt install ufw
+----
+
+. Check the firewall status:
++
+[source,bash]
+----
+sudo ufw status
+----
+
+. Allow SSH access if you want to use SSH:
++
+[source,bash]
+----
+sudo ufw allow ssh
+----
++
+NOTE: Consider allowing SSH on a different port or allowing other connections, too. For more information, see link:https://www.cyberciti.biz/faq/set-up-a-firewall-with-ufw-on-debian-12-linux/[].
+. Enable UFW:
++
+[source,bash]
+----
+sudo ufw enable
+----
+
 == Package managers
 
 Debian comes with several front ends to package management:
