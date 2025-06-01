@@ -14,4 +14,53 @@ To hide the folder:
 echo snap >> ~/.hidden
 ----
 
+== Add more swap space
+
+In the default installation, Ubuntu only creates a 4GB swap file. Unless your disk is very small, you probably want to add more swap space to extend the system memory.
+
+. Create a blank 8 GB file:
++
+[source,bash]
+----
+sudo dd if=/dev/zero of=/swapfile-8gb bs=1024 count=8388608
+----
++
+The 8388608 value represents 8GB. Alternatively, 1 GB is 1048576, which you can multiply by your preferred number of GB.
+
+. Convert the file to swap:
++
+[source,bash]
+----
+sudo mkswap /swapfile-8gb
+----
+
+. Limit the file permissions:
++
+[source,bash]
+----
+sudo chmod 600 /swapfile-8gb
+----
+
+. Activate the swap file:
++
+[source,bash]
+----
+sudo swapon /swapfile-8gb
+----
+
+. Permanently mount the swap file. Add the following line in the `/etc/fstab` file:
++
+----
+/swapfile-8gb	none	swap	sw	0	0
+----
+
+. Refresh systemd units:
++
+[source,bash]
+----
+sudo systemctl daemon-reload
+----
+
+For more details, see link:https://www.howtogeek.com/455981/how-to-create-a-swap-file-on-linux/[].
+
 include::debian-ubuntu-common.adoc[]
