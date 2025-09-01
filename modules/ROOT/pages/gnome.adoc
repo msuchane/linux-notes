@@ -3,6 +3,21 @@
 include::attributes.adoc[]
 :experimental:
 
+== Install GNOME Shell extensions
+
+The official method to install Shell extensions is through the link:https://extensions.gnome.org/[extensions.gnome.org] web interface. However, it depends on browser integration that might be tricky to set up correctly.
+
+Instead, you can use the Extension Manager application, which enables you to manage and install Shell extensions on your system.
+
+* Install on Debian and Ubuntu:
++
+[source,bash]
+----
+sudo apt install gnome-shell-extension-manager
+----
+
+* Install from Flatpak: link:https://flathub.org/apps/details/com.mattjakeman.ExtensionManager[com.mattjakeman.ExtensionManager]
+
 == Increase sound volume above 100% [[sound-over-amplification]]
 
 In earlier versions of GNOME, you could enable volume over-amplification in GNOME Tweaks. The setting is missing now in Tweaks and in Settings.
@@ -13,6 +28,12 @@ You can enable over-amplification using `gsettings`:
 ----
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
 ----
+
+== Enable clipboard history
+
+By default, you can only copy and paste one item at a time. With the Clipboard History extension to GNOME Shell, you can switch to previously copied items.
+
+Enable the extension: link:https://extensions.gnome.org/extension/4839/clipboard-history/[Clipboard History by SUPERCILEX].
 
 == Configure the Nautilus drag-and-drop behavior [[nautilus-dnd]]
 
