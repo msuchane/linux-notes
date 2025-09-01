@@ -63,4 +63,33 @@ sudo systemctl daemon-reload
 
 For more details, see link:https://www.howtogeek.com/455981/how-to-create-a-swap-file-on-linux/[].
 
+== Enable Flatpak
+
+By deault, Ubuntu doesn't support Flatpak and it doesn't come with an app store where you could manage Flatpak applications. Install both:
+
+. Install Flatpak:
++
+[source,bash]
+----
+sudo apt install flatpak
+----
+
+. Add the Flathub repository:
++
+[source,bash]
+---
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+----
+
+. Reboot the system.
+
+. Install the Bazaar app store:
++
+[soure,bash]
+----
+flatpak install flathub io.github.kolunmi.Bazaar
+----
+
+. If Flatpak doesn't update applications automatically, consider adding a timer as in xref:autoremove-flatpak-runtimes[].
+
 include::debian-ubuntu-common.adoc[]
