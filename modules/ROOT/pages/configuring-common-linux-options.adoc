@@ -63,7 +63,7 @@ sudo systemctl restart systemd-journald
 
 By default, Linux selects between the `none` and `mq-deadline` disk schedulers. The BFQ disk scheduler provides better interactive performance even on SSD and NVMe disks. You can enable BFQ on all storage devices:
 
-. To load the BFQ module, create the `/etc/modules-load.d/bfq.conf` file:
+. To load the BFQ module, create the `/etc/modules-load.d/bfq.conf` file with the following content:
 +
 ----
 bfq
