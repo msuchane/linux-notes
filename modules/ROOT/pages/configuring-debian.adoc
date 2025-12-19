@@ -27,11 +27,13 @@ usermod -a -G sudo __your_user_name__
 
 . Reboot your system.
 
+
 == Enable automatic updates in Debian [[debian-auto-update]]
 
 Debian can automatically install package updates at configurable times using the Unattended Upgrades feature.
 
 For more information, see the https://wiki.debian.org/UnattendedUpgrades[UnattendedUpgrades] page on the Debian Wiki.
+
 
 == Use journald as the only logging service [[only-journald]]
 
@@ -49,6 +51,7 @@ sudo systemctl disable rsyslog
 ----
 Storage=persistent
 ----
+
 
 == Enable command-not-found [[set-up-cnf]]
 
@@ -68,6 +71,7 @@ sudo apt install command-not-found
 sudo apt-file update
 sudo update-command-not-found
 ----
+
 
 == Enable the Plymouth boot screen
 
@@ -151,5 +155,6 @@ To enable Wayland in Firefox, set the following shell variable:
 ----
 MOZ_ENABLE_WAYLAND=1
 ----
+
 
 include::debian-ubuntu-common.adoc[]

@@ -24,12 +24,14 @@ sudo ufw allow ssh
 ----
 +
 NOTE: Consider allowing SSH on a different port or allowing other connections, too. For more information, see link:https://www.cyberciti.biz/faq/set-up-a-firewall-with-ufw-on-debian-12-linux/[].
+
 . Enable UFW:
 +
 [source,bash]
 ----
 sudo ufw enable
 ----
+
 
 == Package managers
 
@@ -43,6 +45,7 @@ An advanced interface including terminal graphics.
 
 `nala`::
 An alternative to `apt` with a more readable interface and innovative features.
+
 
 == Periodically clean packages
 
@@ -59,6 +62,7 @@ Or to periodically clean all downloaded packages regardless of them being up-to-
 ----
 APT::Periodic::CleanInterval "7";
 ----
+
 
 == Enable 32-bit applications
 
@@ -157,7 +161,7 @@ sudo apt install \
 ----
 sudo apt install \
   chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
-  libreoffice-l10n-cs 
+  libreoffice-l10n-cs
 ----
 
 === Fonts [[debian-fonts]]
