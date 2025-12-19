@@ -77,7 +77,7 @@ sudo apt install flatpak
 . Add the Flathub repository:
 +
 [source,bash]
----
+----
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ----
 
