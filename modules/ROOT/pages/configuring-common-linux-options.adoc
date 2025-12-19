@@ -13,12 +13,14 @@ zswap.enabled=1 zswap.shrinker_enabled=1
 ----
 
 . On systems with very low memory, add the following options to increase memory compression:
+
+** In `/etc/default/grub`:
 +
 ----
 zswap.compressor=zstd zswap.max_pool_percent=40
 ----
-+
-In `/etc/modules-load.d/zstd.conf`, ensure that the kernel loads the Zstd compression module:
+
+** In `/etc/modules-load.d/zstd.conf`, ensure that the kernel loads the Zstd compression module:
 +
 ----
 zstd
@@ -33,6 +35,7 @@ zstd
 ** Read the current state of `zswap` from the `/sys/module/zswap/parameters/enabled` file: N for off, Y for on.
 
 ** Run-time `zswap` statistics are recorded in the `/sys/kernel/debug/zswap` file.
+
 
 == Enable system logging in a console [[console-log]]
 
@@ -55,25 +58,56 @@ Replace `__N__` with the number of the console of your choosing. Note that Fedor
 sudo systemctl restart systemd-journald
 ----
 
+
 == Select a disk scheduler [[blk-mq]]
 
-The BFQ disk scheduler provides better interactive performance even on SSD and NVMe disks. You can enable BFQ on all storage devices:
+By default, Linux selects between the `none` and `mq-deadline` disk schedulers. The BFQ disk scheduler provides better interactive performance even on SSD and NVMe disks. You can enable BFQ on all storage devices:
 
-. Load the BFQ module.
+. To load the BFQ module, create the `/etc/modules-load.d/bfq.conf` file:
 +
-Create the `/etc/modules-load.d/bfq.conf` file and enter `bfq`.
+----
+bfq
+----
 
-. Set the BFQ scheduler for all devices.
+. Load the `bfq` module at runtime:
 +
-Create the `/etc/udev/rules.d/60-scheduler.rules` file with the following configuration:
+[source,bash]
+----
+sudo modprobe bfq
+----
+
+. Create the `/etc/udev/rules.d/60-scheduler.rules` file.
++
+In it, set BFQ for your preferred set of devices:
+
+** Set BFQ for all rotational devices:
++
+----
+ACTION=="add|change", SUBSYSTEM=="block", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+----
+
+** Set BFQ for all storage devices, including SATA and NVMe:
++
+----
+ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="sd[a-z]", ATTR{queue/scheduler}="bfq"
+ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="nvme*", ATTR{queue/scheduler}="bfq"
+----
+
+** Set BFQ for all devices, including virtual devices (not recommended):
 +
 ----
 ACTION=="add|change", SUBSYSTEM=="block", ATTR{queue/scheduler}!="bfq", ATTR{queue/scheduler}="bfq"
 ----
 
-. Reboot the system.
+. Apply the new configuration:
++
+[source,bash]
+----
+sudo udevadm control --reload-rules
+sudo udevadm trigger --type=devices --action=change
+----
 
-. Check that the BFQ scheduler is active on all devices:
+. Check that the BFQ scheduler is active:
 +
 [source,bash]
 ----
@@ -81,6 +115,7 @@ grep . /sys/block/*/queue/scheduler
 ----
 
 For other configuration options, see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Setting the disk scheduler] in the RHEL 9 documentation.
+
 
 == Enable an early OOM killer [[early-oom]]
 
