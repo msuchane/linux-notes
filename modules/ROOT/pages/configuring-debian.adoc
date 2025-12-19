@@ -45,7 +45,7 @@ The `earlyoom` service runs in the background and checks for memory conditions. 
 
 For details on installation and usage, see the GitHub page: https://github.com/rfjakob/earlyoom[rfjakob/earlyoom]. The context was also discussed on Reddit: https://www.reddit.com/r/linux/comments/7e0pgm/earlyoom_early_oom_daemon/[earlyoom - Early OOM daemon].
 
-NOTE: Ubuntu and Fedora enable the `systemd-oomd` service by default, which meets teh same goal.
+NOTE: Ubuntu and Fedora enable the `systemd-oomd` service by default, which meets the same goal.
 
 
 == Use journald as the only logging service [[only-journald]]
