@@ -18,22 +18,37 @@ sudo apt install gnome-shell-extension-manager
 
 * Install from Flatpak: link:https://flathub.org/apps/details/com.mattjakeman.ExtensionManager[com.mattjakeman.ExtensionManager]
 
+=== Selected GNOME Shell extensions [[gs-extensions]]
+
+link:https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock]::
+Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
+
+link:https://extensions.gnome.org/extension/1160/dash-to-panel/[Dash to Panel]::
+Similar to Dash to Dock, but creates a Windows-like panel instead.
+
+link:https://extensions.gnome.org/extension/615/appindicator-support/[AppIndicator and KStatusNotifierItem Support]
+:: Displays tray icons in the top panel.
+
+=== Enable clipboard history
+
+By default, you can only copy and paste one item at a time. With several extensions to GNOME Shell, you can switch to previously copied items.
+
+* link:https://extensions.gnome.org/extension/4839/clipboard-history/[Clipboard History by SUPERCILEX]
+
+* link:https://extensions.gnome.org/extension/8834/copyous/[Copyous by boerdereinar]
+
+
 == Increase sound volume above 100% [[sound-over-amplification]]
 
-In earlier versions of GNOME, you could enable volume over-amplification in GNOME Tweaks. The setting is missing now in Tweaks and in Settings.
+In earlier versions of GNOME, you could enable volume over-amplification in GNOME Tweaks. The configuration is now in menu:Settings[Sound].
 
-You can enable over-amplification using `gsettings`:
+Alternatively, you can enable over-amplification using `gsettings`:
 
 [source,bash]
 ----
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
 ----
 
-== Enable clipboard history
-
-By default, you can only copy and paste one item at a time. With the Clipboard History extension to GNOME Shell, you can switch to previously copied items.
-
-Enable the extension: link:https://extensions.gnome.org/extension/4839/clipboard-history/[Clipboard History by SUPERCILEX].
 
 == Configure the Nautilus drag-and-drop behavior [[nautilus-dnd]]
 
@@ -46,31 +61,14 @@ dconf write \
 false
 ----
 
-== Back up dconf settings [[dconf-backup]]
-
-`dconf` settings cannot be copied over to another system or to another user like regular, plain-text files. However, you can export (_dump_) them to a text file and then import (_load_) them from it again:
-
-[source,bash,subs=+quotes]
-----
-dconf dump /__path/to/export/__ > __exported-dconf-settings.txt__
-dconf load /__path/to/import/__ < __exported-dconf-settings.txt__
-----
-
-For example:
-
-[source,bash]
-----
-dconf dump /org/gnome/ > gnome-dconf-settings.txt
-dconf load /org/gnome/ < gnome-dconf-settings.txt
-----
 
 == Enable the Compose key [[compose-key]]
 
 The Compose key allows you to combine a couple of characters on your keyboard to type exotic characters and diacritics. Available combinations are listed in the https://help.ubuntu.com/community/GtkComposeTable[GtkComposeTable] article on the Ubuntu Community Help Wiki.
 
-You can configure your Compose key using the Tweak Tool in the Typing tab. Set it to a key you only rarely use, for example the Menu key or PrintScreen.
+You can configure your Compose key in menu:Settings[Keyboard]. Set it to a key you only rarely use, for example the kbd:[Menu] key or kbd:[PrintScreen].
 
-To set the Compose key to the Menu, PrintScreen, and Right Win keys (missing keys are ignored), you might also use `dconf`:
+To set the Compose key to the kbd:[Menu], kbd:[PrintScreen], and kbd:[Right Win] keys (missing keys are ignored), you can also use `dconf`:
 
 [source,bash]
 ----
@@ -79,42 +77,30 @@ dconf write \
 "['compose:menu', 'compose:prsc', 'compose:rwin']"
 ----
 
-NOTE: This command rewrites all your Typing preferences you set in the Tweak Tool.
+NOTE: This command rewrites your keyboard preferences from Settings.
 
 Starting with version 3.20, GTK can read traditional XLib Compose configuration files. You can configure your own composition rules this way, storing them in the `~/.config/gtk-3.0/Compose` or `~/.XCompose` files. For more information, see _Defining custom Compose sequences_ in the http://blog.cyberborean.org/2008/01/06/compose-key-magic[Compose key magic] article on the Cyberborean Chronicles blog.
 
+
 == Configure the window switching shortcuts [[win-switching]]
 
-By default, both the kbd:[Alt + Tab] and the kbd:[Win + Tab] key (and their `Shift` variants) switch _applications_ in Gnome. This is a matter of taste, but sometimes, you want to simply switch _windows_ instead. A common use case is when an application uses more than one window.
+By default, both the kbd:[Alt + Tab] and the kbd:[Win + Tab] key (and their kbd:[Shift] variants) switch _applications_ in Gnome. Sometimes, you want to switch between _windows_ instead.
 
-To keep an application-switching shortcut but add a window-switching one as well, configure kbd:[Win + Tab] to only switch between applications and kbd:[Alt + Tab] to only switch between windows:
+You can configure kbd:[Win + Tab] to only switch between applications and kbd:[Alt + Tab] to only switch between windows:
 
 [source,bash]
 ----
-dconf write \
-/org/gnome/desktop/wm/keybindings/switch-applications \
-"['<Super>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
 
-dconf write \
-/org/gnome/desktop/wm/keybindings/switch-applications-backward \
-"['<Shift><Super>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
 
-dconf write \
-/org/gnome/desktop/wm/keybindings/switch-windows \
-"['<Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 
-dconf write \
-/org/gnome/desktop/wm/keybindings/switch-windows-backward \
-"['<Shift><Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
 ----
 
-As an added bonus, the resulting behavior is consistent with both Windows (window-switching with kbd:[Alt + Tab]) and Mac (application-switching with kbd:[Cmd + Tab]).
+The resulting behavior is consistent with both Windows (window-switching with kbd:[Alt + Tab]) and Mac (application-switching with kbd:[Cmd + Tab]).
 
-== Lock down dconf [[dconf-lockdown]]
-
-Gnome offers ways to https://help.gnome.org/admin/system-admin-guide/stable/user-settings.html.en#lockdown[lock down certain aspects of the user interface]. This is useful when untrusted or unqualified people are expected to use the computer; for example, when setting up an internet kiosk, a public library PC, or when kids are around.
-
-To prevent specific DConf keys from being modified (to lock them down), follow the official Gnome documentation in the https://help.gnome.org/admin/system-admin-guide/stable/dconf-lockdown.html.en[Lock down specific settings] article.
 
 == Block ads in Epiphany [[epiphany-adblock]]
 
@@ -124,8 +110,8 @@ For example, to block tracking, social-networks elements, anti-adblock pop-ups, 
 
 [source,bash]
 ----
-dconf write \
-/org/gnome/epiphany/adblock-filters \
+gsettings set \
+org.gnome.epiphany adblock-filters \
 "['https://easylist.to/easylist/easylist.txt', \
 'https://easylist.to/easylist/easyprivacy.txt', \
 'https://easylist.to/easylist/fanboy-social.txt', \
@@ -133,22 +119,17 @@ dconf write \
 'https://raw.githubusercontent.com/tomasko126/easylistczechandslovak/master/filters.txt']"
 ----
 
+
 == Limit the load of file metadata mining [[tracker-preferences]]
 
-GNOME includes the Tracker service to extract file metadata and provide a search database. This tends to spin the disk a lot (especially with HDDs) and eat a large portion of the CPU sometimes.
+GNOME includes the Tracker service to extract file metadata and provide a search database. This might slow down the system if you have a slow hard disk.
 
-If you're on a slower, HDD-backed system or want to conserve energy, it might be a good idea to limit the reach and intensity of Tracker. There used to be the "Tracker Preferences" application, which has now been discontinued, as it seems. Luckily, DConf settings remain accessible in the following key directory:
+Consider browsing the following paths in the DConf Editor:
 
-----
-/org/freedesktop/tracker/
-----
+* `/org/freedesktop/tracker/`
+* `/org/freedesktop/tracker/extract/`
+* `/org/freedesktop/tracker/miner/files/`
 
-Consider exploring the following:
-
-----
-/org/freedesktop/tracker/extract/
-/org/freedesktop/tracker/miner/files/
-----
 
 == View and edit files as root in GNOME [[gui-root-edit]]
 
@@ -156,7 +137,8 @@ Consider exploring the following:
 
 In the *Files* application, you can open any directory with root permissions. This has been available since Gnome 3.24. To do that:
 
-. In  *Files*, activate the directory path field, for example by pressing Ctrl+L.
+. In  *Files*, activate the directory path field, for example by pressing kbd:[Ctrl+L].
+
 . Type the following into the field:
 +
 [subs=+quotes]
@@ -165,13 +147,14 @@ admin:///_directory-path_/
 ----
 +
 Replace _directory-path_ with the path to the directory that you want to access. Note that there are three slashes at the beginning, the third of which stands for the root directory in the absolute path; the slash after the path is also required. For example, to access the `/etc/default/` directory, type `admin:///etc/default/`.
+
 . Enter your password in the prompt that shows up.
 
 Applications launched from the *Files* window can also inherit the same root privileges.
 
 === In text editors and other applications
 
-Graphical text editors that use the `gvfs` Gnome infrastructure, such as Gedit, Geany, or Gnome Builder, can natively edit with root permissions.
+Graphical text editors that use the `gvfs` GNOME infrastructure, such as Gedit, Geany, or Gnome Builder, can natively edit with root permissions.
 
 To use this feature:
 
@@ -179,86 +162,3 @@ To use this feature:
 . In the dialog, activate the directory path field, for example by pressing kbd:[Ctrl+L].
 . Use the method described in the previous section to open the directory that contains the file you want to edit as root.
 . Select the file to edit in the file chooser.
-
-== Automatically uninstall unused Flatpak runtimes [[autoremove-flatpak-runtimes]]
-
-As Flatpak applications update, they switch to newer versions of their runtimes. Flatpak still keeps the old runtimes installed even after no application depends on it anymore. The unused runtimes might then occupy a significant amount of disk space.
-
-You can configure a systemd timer unit to automatically remove unused runtimes once a week.
-
-. Save the following configuration as the `/etc/systemd/system/flatpak-uninstall-unused.service` file:
-+
-----
-[Unit]
-Description=Uninstall unused Flatpak runtimes
-Documentation=man:flatpak
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/flatpak uninstall --unused --noninteractive
-----
-
-. Save the following configuration as the `/etc/systemd/system/flatpak-uninstall-unused.timer` file:
-+
-----
-[Unit]
-Description=Uninstall unused Flatpak runtimes once a week
-Documentation=man:flatpak
-
-[Timer]
-OnCalendar=weekly
-AccuracySec=1h
-Persistent=true
-
-[Install]
-WantedBy=timers.target
-----
-
-. Reload systemd units:
-+
-----
-# systemctl daemon-reload
-----
-
-. Enable the timer:
-+
-----
-# systemctl enable --now flatpak-uninstall-unused.timer
-----
-
-== Enable Wayland and file access in the Flatpak Firefox
-
-The Firefox Flatpak package on Flathub is missing some permissions, and as a result, it runs under XWayland and can access files only in the `Downloads` directory.
-
-To fix this, you can override the package permissions.
-
-. Enable Firefox to run on Wayland:
-+
-----
-# flatpak override --env=GDK_BACKEND=wayland --socket=wayland org.mozilla.firefox
-----
-
-. Enable Firefox to read and write files in all the standard user directories:
-+
-----
-# flatpak override --filesystem=xdg-documents \
-                   --filesystem=xdg-music \
-		   --filesystem=xdg-pictures \
-		   --filesystem=xdg-videos \
-		   org.mozilla.firefox
-----
-
-== Selected GNOME Shell extensions [[gs-extensions]]
-
-https://extensions.gnome.org/extension/307/dash-to-dock/[Dash to Dock] :: Makes the left-hand-side applications panel accessible even when the Activities overview isn't active.
-
-https://extensions.gnome.org/extension/1160/dash-to-panel/[Dash to Panel] :: Similar to Dash to Dock, but creates a Windows-like panel instead.
-
-Gpaste :: Manages the clipboard (selectable history of copy-and-paste). Install from distribution packages: `gnome-shell-extension-gpaste` in Fedora and `gnome-shell-extensions-gpaste` in Debian.
-
-https://extensions.gnome.org/extension/723/pixel-saver/[Pixel Saver] :: Hides the titlebar of maximized windows that don't use a headerbar.
-
-https://extensions.gnome.org/extension/495/topicons/[TopIcons] or https://extensions.gnome.org/extension/1031/topicons/[TopIcons Plus] :: Displays tray icons in the top panel.
-
-https://extensions.gnome.org/extension/1253/extended-gestures/[Extended Gestures] :: Adds more touchpad gestures into Gnome Shell
-

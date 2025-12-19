@@ -338,12 +338,12 @@ governor=ondemand|powersave
 
 [sysctl]
 # The defaults on Fedora 30; these values are interdependent:
-# kernel.sched_min_granularity_ns=2250000   
+# kernel.sched_min_granularity_ns=2250000
 # kernel.sched_latency_ns=18000000
-# kernel.sched_wakeup_granularity_ns=3000000  
+# kernel.sched_wakeup_granularity_ns=3000000
 
 # The defaults divided by 4 to reduce latency:
-kernel.sched_min_granularity_ns=562500   
+kernel.sched_min_granularity_ns=562500
 kernel.sched_latency_ns=4500000
 kernel.sched_wakeup_granularity_ns=750000
 
@@ -380,23 +380,51 @@ sudo tuned-adm profile interactive
 ----
 
 
-== Enable VSync in X.org [[xorg-vsync]]
+== Automatically uninstall unused Flatpak runtimes [[autoremove-flatpak-runtimes]]
 
-VSync is a graphics feature that prevents screen tearing, such as when scrolling web pages. Try enabling VSync and test if it helps under different conditions.
+As Flatpak applications update, they switch to newer versions of their runtimes. Flatpak still keeps the old runtimes installed even after no application depends on it anymore. The unused runtimes might then occupy a significant amount of disk space.
 
-To enable VSync in X.org for the Intel driver:
+You can configure a systemd timer unit to automatically remove unused runtimes once a week.
 
-. Create the `/etc/X11/xorg.conf.d/20-intel.conf` configuration file containing:
+. Save the following configuration as the `/etc/systemd/system/flatpak-uninstall-unused.service` file:
 +
 ----
-Section "Device"
-    Identifier "Intel Graphics"
-    Driver "intel"
-    Option "TearFree" "true"
-EndSection
+[Unit]
+Description=Uninstall unused Flatpak runtimes
+Documentation=man:flatpak
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak uninstall --unused --noninteractive
 ----
 
-. Restart your session.
+. Save the following configuration as the `/etc/systemd/system/flatpak-uninstall-unused.timer` file:
++
+----
+[Unit]
+Description=Uninstall unused Flatpak runtimes once a week
+Documentation=man:flatpak
+
+[Timer]
+OnCalendar=weekly
+AccuracySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+----
+
+. Reload systemd units:
++
+----
+# systemctl daemon-reload
+----
+
+. Enable the timer:
++
+----
+# systemctl enable --now flatpak-uninstall-unused.timer
+----
 
 
 == My personal dotfiles [[my-dotfiles]]
