@@ -142,35 +142,6 @@ sudo dnf install \
        powertop tuned
 ----
 
-=== Fonts [[fedora-fonts]]
-
-. Install additional fonts:
-+
-[source,bash]
-----
-sudo dnf install \
-       ht-alegreya-\* mozilla-fira\* \
-       sil-gentium-fonts sil-gentium-alt-fonts \
-       apanov-heuristica-fonts \
-       levien-inconsolata-fonts thibault-isabella-fonts lato-fonts \
-       linux-libertine\* msimonson-anonymouspro-fonts \
-       google-noto-{sans,mono,serif}-fonts \
-       google-{arimo,cousine,tinos,carlito}-fonts \
-       ht-caladea-fonts \
-       oldstandard-sfd-fonts \
-       open-sans-fonts overpass-fonts overpass-mono-fonts \
-       paratype-pt\* google-roboto\* \
-       adobe-source-{code,sans,serif}-pro-fonts \
-       gdouros-symbola-fonts impallari-raleway-fonts
-----
-
-. Remove the Comfortaa font. It tends to insert itself at inappropriate places, especially in Firefox, and it isn't very readable.
-+
-[source,bash]
-----
-sudo dnf remove aajohan-comfortaa-fonts
-----
-
 
 === See also
 
