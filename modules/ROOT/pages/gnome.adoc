@@ -102,6 +102,17 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift
 The resulting behavior is consistent with both Windows (window-switching with kbd:[Alt + Tab]) and Mac (application-switching with kbd:[Cmd + Tab]).
 
 
+== Disable middle-click paste
+
+By default, clicking the middle mouse button pastes text from the _primary clipboard_. This is usually confusing to people who haven't been using Linux since 2000. Disable this behavior.
+
+. Install GNOME Tweaks, available from the `gnome-tweaks` package on Fedora, Debian, and Ubuntu.
+
+. Go to *Mouse & Touchpad*.
+
+. Disable *Middle Click Paste*.
+
+
 == Block ads in Epiphany [[epiphany-adblock]]
 
 The _Epiphany_ web browser, also called _Web_ or _WWW_, blocks ads by default. However, the blocking list is rather limited. New lists can be added by changing the `/org/gnome/epiphany/adblock-filters` DConf key.
