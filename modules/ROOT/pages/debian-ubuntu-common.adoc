@@ -85,26 +85,3 @@ sudo apt update
 . You can now install 32-bit programs.
 
 For details, see link:https://wiki.debian.org/Multiarch/HOWTO[Multiarch].
-
-
-== Install additional packages [[debian-packages]]
-
-=== Office, reading, and writing [[debian-read-write]]
-
-[source,bash]
-----
-sudo apt install \
-  bijiben endeavour fbreader gnome-calendar gnome-dictionary \
-  gnome-shell-extensions-gpaste micro \
-  nano neovim pandoc scribus simple-scan
-----
-
-=== Other applications [[debian-other-apps]]
-
-[source,bash]
-----
-sudo apt install \
-  chromium dconf-editor epiphany-browser gnome-builder \
-  gnome-logs gnome-maps gnome-nettool \
-  gnome-power-manager gnome-tweaks transmission-gtk
-----

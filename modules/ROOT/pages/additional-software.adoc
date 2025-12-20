@@ -2,7 +2,7 @@
 
 include::attributes.adoc[]
 
-== Web
+== Web and other internet tools
 
 [options="header"]
 |===
@@ -47,11 +47,22 @@ include::attributes.adoc[]
 |===
 
 
-== Writing
+== Reading, writing, and office
 
 [options="header"]
 |===
 | Application | Fedora | Debian, Ubuntu | Flatpak | Snap
+| Apostrophe (MD) | - | apostrophe | org.gnome.gitlab.somas.Apostrophe | -
+| Endeavour | - | endeavour | org.gnome.Todo | -
+| FBReader | fbreader | fbreader | - | fbreader
+| Focus Writer (ODT) | focuswriter | focuswriter | org.gottcode.FocusWriter | -
+| Foliate | foliate | foliate | com.github.johnfactotum.Foliate | foliate
+| Ghost Writer (KDE + MD) | ghostwriter | ghostwriter | org.kde.ghostwriter | ghostwriter
+| Iotas (MD) | - | iotas | org.gnome.World.Iotas | -
+| Readest | - | - | com.bilingify.readest | -
+| Scribus | scribus | scribus | net.scribus.Scribus | -
+| Typst or its editors | - | - | net.trowell.typesetter app.katvan.Katvan | typst
+| Zim (desktop wiki) | Zim | zim | org.zim_wiki.Zim | -
 |===
 
 
@@ -63,6 +74,7 @@ include::attributes.adoc[]
 | GNOME backgrounds | gnome-backgrounds gnome-backgrounds-extras | gnome-backgrounds
 | KDE backgrounds | kde-wallpapers | kde-wallpapers kdeartwork-wallpapers
 |===
+
 
 == Archiving
 
