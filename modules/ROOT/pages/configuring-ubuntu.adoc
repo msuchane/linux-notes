@@ -19,7 +19,7 @@ echo snap >> ~/.hidden
 
 In the default installation, Ubuntu only creates a 4GB swap file. Unless your disk is very small, you probably want to add more swap space to extend the system memory.
 
-NOTE: If your disk is slow, especially if you have a magnetic hard disk, this process might lock up your system for several minutes. Consider xref:blk-mq[setting the BFQ scheduler] before you start to prevent the issue.
+NOTE: If your disk is slow, especially if you have a magnetic hard disk, this process might lock up your system for several minutes. Consider xref:configuring-common-linux-options.adoc#blk-mq[setting the BFQ scheduler] before you start to prevent the issue.
 
 . Create a blank 8 GB file:
 +
