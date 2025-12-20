@@ -1,0 +1,54 @@
+= Additional software [[additional-software]]
+
+include::attributes.adoc[]
+
+== Destop backgounds
+
+[options="header"]
+|===
+| Background pack                     | In Fedora             | In Debian and Ubuntu
+| GNOME backgrounds | ? | gnome-backgrounds
+| KDE backgrounds | ? | kde-wallpapers kdeartwork-wallpapers
+|===
+
+== Archiving
+
+[options="header"]
+|===
+| Application                     | In Fedora             | In Debian and Ubuntu
+| Archive tool | atool | atool
+| Borg Backup | borgbackup | borgbackup
+| Compression tools | ? | lzip lziprecover lzop p7zip-full rar unrar zstd
+| TestDisk | ? | testdisk
+|===
+
+
+== System tuning
+
+[options="header"]
+|===
+| Application                     | In Fedora             | In Debian and Ubuntu
+| Monitoring tools, CLI | ? | htop iftop iotop powertop
+| Monitoring tools, GUI | ? | gnome-logs gnome-nettool gnome-power-manager
+| Tuning tools | ? | tuned tlp
+|===
+
+
+== Games
+
+[options="header"]
+|===
+| Application                     | In Fedora             | In Debian and Ubuntu
+| AstroMenace | astromenace | astromenace
+| Battle for Wesnoth | ? | wesnoth
+| Blob Wars: Metal Blob Solid | blobwars | blobwars
+| BSD Games | ? | bsdgames bsdgames-nonfree
+| Dungeon Crawl | ? | crawl crawl-tiles
+| Fish Fillets | ? | fillets-ng
+| Frozen Bubble | ? | frozen-bubble
+| GNOME Games | ? | gnome-2048 gnome-games
+| Hedgewars | ? | hedgewars
+| LieroLibre | ? | lierolibre
+| Neverball | ? | neverball
+| Sauerbraten | ? | sauerbraten
+|===

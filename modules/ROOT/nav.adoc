@@ -10,4 +10,6 @@
 
 * xref:applications.adoc[]
 
+* xref:additional-software.adoc[]
+
 * xref:fonts.adoc[]

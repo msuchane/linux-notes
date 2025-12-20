@@ -89,13 +89,6 @@ For details, see link:https://wiki.debian.org/Multiarch/HOWTO[Multiarch].
 
 == Install additional packages [[debian-packages]]
 
-=== Destop backgounds [[debian-wallpapers]]
-
-[source,bash]
-----
-sudo apt install gnome-backgrounds kde-wallpapers kdeartwork-wallpapers
-----
-
 === Multimedia [[debian-multimedia]]
 
 [source,bash]
@@ -131,39 +124,6 @@ sudo apt install \
   gnome-power-manager gnome-tweaks transmission-gtk
 ----
 
-=== Archiving and file systems [[debian-archiving-fs]]
-
-[source,bash]
-----
-sudo apt install \
-  atool bleachbit borgbackup f2fs-tools \
-  lzip lziprecover lzop \
-  p7zip-full progress rar testdisk udftools unrar \
-  zfs-dkms zfs-initramfs zfsutils-linux zstd
-----
-
-=== Low-level tools [[debian-various-ll]]
-
-[source,bash]
-----
-sudo apt install \
-  amd64-microcode clinfo earlyoom \
-  firmware-amd-graphics firmware-atheros firmware-brcm80211 \
-  firmware-ipw2x00 firmware-iwlwifi firmware-linux firmware-linux-free \
-  firmware-linux-nonfree firmware-misc-nonfree firmware-realtek \
-  fish htop intel-microcode iftop iotop iucode-tool mc nala powertop \
-  sudo tlp zsh
-----
-
-=== Czech localization [[debian-czech-l10n]]
-
-[source,bash]
-----
-sudo apt install \
-  chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
-  libreoffice-l10n-cs
-----
-
 === Fonts [[debian-fonts]]
 
 [source,bash]
@@ -178,15 +138,4 @@ sudo apt install \
   fonts-oldstandard fonts-opendyslexic fonts-open-sans fonts-quattrocento \
   fonts-roboto-hinted fonts-sil-gentiumplus fonts-symbola \
   ttf-anonymous-pro ttf-essays1743
-----
-
-=== Games and related [[debian-games]]
-
-[source,bash]
-----
-sudo apt install \
-  0ad astromenace blobwars bsdgames bsdgames-nonfree crawl crawl-tiles endless-sky \
-  fillets-ng freecol freeciv frozen-bubble gnome-2048 gnome-games hedgewars \
-  libtxc-dxtn-s2tc libtxc-dxtn-s2tc-bin lierolibre neverball \
-  sauerbraten wesnoth
 ----

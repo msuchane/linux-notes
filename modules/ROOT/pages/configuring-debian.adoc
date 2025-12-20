@@ -170,4 +170,16 @@ MOZ_ENABLE_WAYLAND=1
 ----
 
 
+== Install Czech localization [[debian-czech-l10n]]
+
+Debian uses different language packaging than Ubuntu, and languages have to be installed more manually.
+
+[source,bash]
+----
+sudo apt install \
+  chromium-l10n firefox-esr-l10n-cs hyphen-cs libreoffice-help-cs \
+  libreoffice-l10n-cs
+----
+
+
 include::debian-ubuntu-common.adoc[]
