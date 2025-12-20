@@ -26,8 +26,8 @@ Makes the left-hand-side applications panel accessible even when the Activities 
 link:https://extensions.gnome.org/extension/1160/dash-to-panel/[Dash to Panel]::
 Similar to Dash to Dock, but creates a Windows-like panel instead.
 
-link:https://extensions.gnome.org/extension/615/appindicator-support/[AppIndicator and KStatusNotifierItem Support]
-:: Displays tray icons in the top panel.
+link:https://extensions.gnome.org/extension/615/appindicator-support/[AppIndicator and KStatusNotifierItem Support]::
+Displays tray icons in the top panel.
 
 === Enable clipboard history
 

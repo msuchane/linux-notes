@@ -19,6 +19,8 @@ echo snap >> ~/.hidden
 
 In the default installation, Ubuntu only creates a 4GB swap file. Unless your disk is very small, you probably want to add more swap space to extend the system memory.
 
+NOTE: If your disk is slow, especially if you have a magnetic hard disk, this process might lock up your system for several minutes. Consider xref:blk-mq[setting the BFQ scheduler] before you start to prevent the issue.
+
 . Create a blank 8 GB file:
 +
 [source,bash]
@@ -92,7 +94,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flathub io.github.kolunmi.Bazaar
 ----
 
-. If Flatpak doesn't update applications automatically, consider adding a timer as in xref:autoremove-flatpak-runtimes[].
+. If Flatpak doesn't update applications automatically, consider adding a timer as in xref:configuring-common-linux-options.adoc#autoremove-flatpak-runtimes[].
 
 
 include::debian-ubuntu-common.adoc[]
