@@ -194,4 +194,11 @@ sudo apt install \
 ----
 
 
+== Enable Flatpak
+
+By deault, Debian doesn't enable Flatpak, but its GNOME desktop does come with an app store where you can manage Flatpak applications. Install what's missing. See link:https://flathub.org/en/setup/Debian[Debian Flathub Setup].
+
+If Flatpak doesn't update applications automatically, consider adding a timer as in xref:configuring-common-linux-options.adoc#autoremove-flatpak-runtimes[].
+
+
 include::debian-ubuntu-common.adoc[]

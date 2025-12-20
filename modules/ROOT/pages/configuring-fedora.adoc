@@ -121,7 +121,6 @@ sudo dnf install \
        pulseaudio-module-bluetooth-freeworld
 ----
 
-=== See also
+== Enable Flathub
 
-- https://flathub.org/apps.html[Flathub]
-- https://flatpak.org/apps.html[Flatpak Applications]
+Fedora comes with Flatpak support by default but it's missing full access to the Flathub repository. Enable it by following link:https://flathub.org/en/setup/Fedora[Fedora Flathub Setup].
