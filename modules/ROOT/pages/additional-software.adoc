@@ -2,24 +2,61 @@
 
 include::attributes.adoc[]
 
+== Web
+
+[options="header"]
+|===
+| Application | Fedora | Debian, Ubuntu | Flatpak | Snap
+| Chromium | chromium | chromium | org.chromium.Chromium | chromium
+| Epiphany (GNOME Web) | epiphany | epiphany-browser | org.gnome.Epiphany | epiphany
+| Signal | - | link:https://signal.org/download/[Get Signal] | org.signal.Signal | signal-desktop
+| Telegram | - | - | org.telegram.desktop | telegram-desktop
+| Tor Browser | torbrowser-launcher | torbrowser-launcher | org.torproject.torbrowser-launcher |
+| Transmission | transmission-gtk | transmission-gtk | com.transmissionbt.Transmission | transmission
+| Varia | - | - | io.github.giantpinkrobots.varia | varia
+|===
+
+
+== Writing
+
+[options="header"]
+|===
+| Application | Fedora | Debian, Ubuntu | Flatpak | Snap
+|===
+
+
 == Destop backgounds
 
 [options="header"]
 |===
-| Background pack                     | In Fedora             | In Debian and Ubuntu
-| GNOME backgrounds | ? | gnome-backgrounds
-| KDE backgrounds | ? | kde-wallpapers kdeartwork-wallpapers
+| Background pack                     | Fedora             | Debian, Ubuntu
+| GNOME backgrounds | gnome-backgrounds gnome-backgrounds-extras | gnome-backgrounds
+| KDE backgrounds | kde-wallpapers | kde-wallpapers kdeartwork-wallpapers
 |===
 
 == Archiving
 
 [options="header"]
 |===
-| Application                     | In Fedora             | In Debian and Ubuntu
+| Application                     | Fedora             | Debian, Ubuntu
 | Archive tool | atool | atool
 | Borg Backup | borgbackup | borgbackup
-| Compression tools | ? | lzip lziprecover lzop p7zip-full rar unrar zstd
-| TestDisk | ? | testdisk
+| Compression tools | lzip lziprecover lzop p7zip p7zip-plugins unrar | lzip lziprecover lzop p7zip-full rar unrar zstd
+| TestDisk | testdisk | testdisk
+|===
+
+
+== Optional command-line utilities
+
+[options="header"]
+|===
+| Application                     | Fedora             | Debian, Ubuntu
+| Fish | fish | fish
+| Micro | ? | micro
+| Midnight Commander | mc | mc
+| Nano | nano | nano
+| Neovim | neovim | neovim
+| Pandoc | pandoc | pandoc
 |===
 
 
@@ -27,10 +64,10 @@ include::attributes.adoc[]
 
 [options="header"]
 |===
-| Application                     | In Fedora             | In Debian and Ubuntu
-| Monitoring tools, CLI | ? | htop iftop iotop powertop
-| Monitoring tools, GUI | ? | gnome-logs gnome-nettool gnome-power-manager
-| Tuning tools | ? | tuned tlp
+| Application                     | Fedora             | Debian, Ubuntu
+| Monitoring tools, CLI | htop iftop iotop powertop | htop iftop iotop powertop
+| Monitoring tools, GUI | gnome-logs gnome-nettool gnome-power-manager | gnome-logs gnome-nettool gnome-power-manager
+| Tuning tools | tuned tlp | tuned tlp
 |===
 
 
@@ -38,17 +75,17 @@ include::attributes.adoc[]
 
 [options="header"]
 |===
-| Application                     | In Fedora             | In Debian and Ubuntu
+| Application                     | Fedora             | Debian, Ubuntu
 | AstroMenace | astromenace | astromenace
-| Battle for Wesnoth | ? | wesnoth
+| Battle for Wesnoth | wesnoth | wesnoth
 | Blob Wars: Metal Blob Solid | blobwars | blobwars
-| BSD Games | ? | bsdgames bsdgames-nonfree
-| Dungeon Crawl | ? | crawl crawl-tiles
-| Fish Fillets | ? | fillets-ng
-| Frozen Bubble | ? | frozen-bubble
-| GNOME Games | ? | gnome-2048 gnome-games
-| Hedgewars | ? | hedgewars
-| LieroLibre | ? | lierolibre
-| Neverball | ? | neverball
-| Sauerbraten | ? | sauerbraten
+| BSD Games | bsd-games | bsdgames bsdgames-nonfree
+| Dungeon Crawl | crawl crawl-tiles | crawl crawl-tiles
+| Fish Fillets | fillets-ng | fillets-ng
+| Frozen Bubble | frozen-bubble | frozen-bubble
+| GNOME Games | gnome-2048 gnome-games | gnome-2048 gnome-games
+| Hedgewars | hedgewars | hedgewars
+| LieroLibre | openlierox | lierolibre
+| Neverball | neverball-neverball | neverball
+| Sauerbraten | - | sauerbraten
 |===
