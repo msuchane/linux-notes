@@ -89,21 +89,6 @@ For details, see link:https://wiki.debian.org/Multiarch/HOWTO[Multiarch].
 
 == Install additional packages [[debian-packages]]
 
-=== Multimedia [[debian-multimedia]]
-
-[source,bash]
-----
-sudo apt install \
-  audacity beets cuetools easytag exfalso flac gimp \
-  gnome-sound-recorder \
-  gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
-  gstreamer1.0-plugins-ugly inkscape \
-  kdenlive krita lame libva-drm1 libva-egl1 libva-intel-vaapi-driver \
-  libva1 libvdpau-va-gl1 libvdpau1 mediainfo \
-  mesa-vdpau-drivers mesa-vulkan-drivers mpv opus-tools quodlibet \
-  shntool sox vdpauinfo vlc vorbis-tools yt-dlp
-----
-
 === Office, reading, and writing [[debian-read-write]]
 
 [source,bash]

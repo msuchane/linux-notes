@@ -182,4 +182,16 @@ sudo apt install \
 ----
 
 
+== Install multimedia support [[debian-multimedia]]
+
+[source,bash]
+----
+sudo apt install \
+  gstreamer1.0-libav gstreamer1.0-packagekit gstreamer1.0-plugins-bad \
+  gstreamer1.0-plugins-ugly \
+  libva-drm1 libva-egl1 libva-intel-vaapi-driver \
+  libva1 libvdpau-va-gl1 libvdpau1
+----
+
+
 include::debian-ubuntu-common.adoc[]

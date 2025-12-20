@@ -9,11 +9,41 @@ include::attributes.adoc[]
 | Application | Fedora | Debian, Ubuntu | Flatpak | Snap
 | Chromium | chromium | chromium | org.chromium.Chromium | chromium
 | Epiphany (GNOME Web) | epiphany | epiphany-browser | org.gnome.Epiphany | epiphany
+| Parabolic | - | - | org.nickvision.tubeconverter | tube-converter
 | Signal | - | link:https://signal.org/download/[Get Signal] | org.signal.Signal | signal-desktop
 | Telegram | - | - | org.telegram.desktop | telegram-desktop
 | Tor Browser | torbrowser-launcher | torbrowser-launcher | org.torproject.torbrowser-launcher |
 | Transmission | transmission-gtk | transmission-gtk | com.transmissionbt.Transmission | transmission
 | Varia | - | - | io.github.giantpinkrobots.varia | varia
+| yt-dlp | yt-dlp | yt-dlp | - | yt-dlp
+|===
+
+
+== Multimedia viewers
+
+[options="header"]
+|===
+| Application | Fedora | Debian, Ubuntu | Flatpak | Snap
+| MPV | mpv | mpv | io.mpv.Mpv | mpv
+|===
+
+
+== Multimedia editors
+
+[options="header"]
+|===
+| Application | Fedora | Debian, Ubuntu | Flatpak | Snap
+| Audacity | audacity | audacity | org.audacityteam.Audacity | audacity
+| Beets | beets | beets | - | beets
+| EasyTag | easytag | easytag | org.gnome.EasyTAG | gnome-easytag
+| Ex Falso | exfalso | exfalso | io.github.quodlibet.ExFalso | -
+| GIMP | gimp | gimp | org.gimp.GIMP | gimp
+| GNOME Sound Recorder | gnome-sound-recorder | gnome-sound-recorder | org.gnome.SoundRecorder | -
+| Inkscape | inkscape | inkscape | org.inkscape.Inkscape | inkscape
+| Kdenlive | kdenlive | kdenlive | org.kde.kdenlive | kdenlive (_serious bugs as of 2025_)
+| Krita | krita | krita | org.kde.krita | krita
+| Quod Libet | quodlibet | quodlibet | io.github.quodlibet.QuodLibet | -
+| Various encoders | ? | cuetools flac lame opus-tools shntool sox vorbis-tools | - | -
 |===
 
 
