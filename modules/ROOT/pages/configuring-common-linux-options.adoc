@@ -426,6 +426,16 @@ WantedBy=timers.target
 ----
 
 
+== Enable Wayland for Electron apps
+
+By default, many Electron apps run on the legacy XWayland back end. As a result, they look blurry if you enable fractional display scaling. To switch all Electron apps to Wayland instead, create the `/etc/environment.d/electron.conf` file with the following content:
+
+.`/etc/environment.d/electron.conf`
+----
+ELECTRON_OZONE_PLATFORM_HINT=wayland
+----
+
+
 == My personal dotfiles [[my-dotfiles]]
 
 Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my link:https://github.com/msuchane/dotfiles-chezmoi[dotfiles-chezmoi] repository.
