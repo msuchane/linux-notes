@@ -428,10 +428,11 @@ WantedBy=timers.target
 
 == My personal dotfiles [[my-dotfiles]]
 
-Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my https://gitlab.com/msuchane/dotfiles[dotfiles] repository on GitLab.
+Many people keep their config files in a git repository, myself included. If you'd like to use my _dotfiles_ or just get some inspiration, see my link:https://github.com/msuchane/dotfiles-chezmoi[dotfiles-chezmoi] repository.
 
 === Guides to set up dotfiles [[dotfiles-guides]]
 
+* link:https://www.chezmoi.io/quick-start/[]
 * link:https://dotfiles.github.io/[]
 * link:https://www.gnu.org/software/stow/[]
 * link:https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789[]
